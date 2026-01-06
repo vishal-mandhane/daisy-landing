@@ -1,25 +1,606 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 
-function App() {
+export default function DaisyLanding() {
+  const [email, setEmail] = useState('');
+  const [emailSecondary, setEmailSecondary] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+  const [submittedSecondary, setSubmittedSecondary] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const isMobile = windowWidth < 640;
+  const isTablet = windowWidth >= 640 && windowWidth < 1024;
+
+  const handleSubmit = (e, isSecondary = false) => {
+    e.preventDefault();
+    if (isSecondary) {
+      setSubmittedSecondary(true);
+      setTimeout(() => setSubmittedSecondary(false), 3000);
+    } else {
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 3000);
+    }
+  };
+
+  // Dynamic styles based on screen size
+  const styles = {
+    page: {
+      minHeight: '100vh',
+      backgroundColor: '#0a0a0a',
+      color: '#ffffff',
+      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      lineHeight: 1.6,
+      overflowX: 'hidden',
+    },
+    heroSection: {
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: isMobile ? '60px 16px' : isTablet ? '80px 24px' : '80px 48px',
+      backgroundColor: '#0a0a0a',
+    },
+    heroContainer: {
+      maxWidth: '1200px',
+      width: '100%',
+      margin: '0 auto',
+      display: 'grid',
+      gridTemplateColumns: isMobile || isTablet ? '1fr' : '1fr 1fr',
+      gap: isMobile ? '32px' : '48px',
+      alignItems: 'center',
+    },
+    heroContent: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: isMobile ? '24px' : '32px',
+      order: 1,
+    },
+    heroTitle: {
+      fontSize: isMobile ? '2.25rem' : isTablet ? '3rem' : '4rem',
+      fontWeight: 800,
+      lineHeight: 1.1,
+      margin: 0,
+      letterSpacing: '-0.02em',
+    },
+    heroHighlight: {
+      color: '#a855f7',
+    },
+    heroSubtitle: {
+      fontSize: isMobile ? '1rem' : isTablet ? '1.125rem' : '1.375rem',
+      color: '#a1a1aa',
+      margin: 0,
+      lineHeight: 1.7,
+    },
+    formContainer: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '12px',
+    },
+    inputGroup: {
+      display: 'flex',
+      flexDirection: isMobile ? 'column' : 'row',
+      gap: '12px',
+    },
+    input: {
+      flex: 1,
+      padding: isMobile ? '14px 16px' : '16px 24px',
+      backgroundColor: '#18181b',
+      border: '1px solid #27272a',
+      borderRadius: '12px',
+      color: '#ffffff',
+      fontSize: '16px',
+      outline: 'none',
+      width: '100%',
+      boxSizing: 'border-box',
+    },
+    button: {
+      padding: isMobile ? '14px 20px' : '16px 32px',
+      backgroundColor: '#a855f7',
+      border: 'none',
+      borderRadius: '12px',
+      color: '#ffffff',
+      fontSize: '16px',
+      fontWeight: 600,
+      cursor: 'pointer',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '8px',
+      whiteSpace: 'nowrap',
+      width: isMobile ? '100%' : 'auto',
+    },
+    smallText: {
+      fontSize: '14px',
+      color: '#71717a',
+      margin: 0,
+    },
+    successText: {
+      color: '#22c55e',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+      fontSize: '14px',
+      margin: 0,
+    },
+    heroImageContainer: {
+      aspectRatio: isMobile ? '16/9' : '4/5',
+      borderRadius: '16px',
+      overflow: 'hidden',
+      border: '1px solid #27272a',
+      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+      order: isMobile || isTablet ? 2 : 2,
+      maxHeight: isMobile ? '250px' : isTablet ? '350px' : 'none',
+    },
+    heroImage: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+    },
+    section: {
+      padding: isMobile ? '48px 16px' : isTablet ? '64px 24px' : '80px 48px',
+      backgroundColor: '#0a0a0a',
+    },
+    sectionAlt: {
+      padding: isMobile ? '48px 16px' : isTablet ? '64px 24px' : '80px 48px',
+      backgroundColor: '#0f0f0f',
+    },
+    sectionContainer: {
+      maxWidth: '900px',
+      margin: '0 auto',
+      textAlign: 'center',
+    },
+    sectionContainerWide: {
+      maxWidth: '1200px',
+      margin: '0 auto',
+    },
+    sectionTitle: {
+      fontSize: isMobile ? '1.75rem' : isTablet ? '2.25rem' : '3rem',
+      fontWeight: 700,
+      marginBottom: isMobile ? '32px' : '48px',
+      marginTop: 0,
+      letterSpacing: '-0.02em',
+    },
+    cardsGrid: {
+      display: 'grid',
+      gridTemplateColumns: isMobile ? '1fr' : isTablet ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)',
+      gap: isMobile ? '16px' : '24px',
+      marginBottom: isMobile ? '32px' : '48px',
+    },
+    card: {
+      padding: isMobile ? '20px' : '24px',
+      backgroundColor: '#18181b',
+      borderRadius: '16px',
+      border: '1px solid #27272a',
+      textAlign: 'left',
+    },
+    cardText: {
+      fontSize: isMobile ? '16px' : '18px',
+      color: '#a1a1aa',
+      margin: 0,
+      lineHeight: 1.6,
+    },
+    highlightText: {
+      fontSize: isMobile ? '1.25rem' : '1.5rem',
+      color: '#a855f7',
+      fontWeight: 600,
+      marginTop: '24px',
+      marginBottom: 0,
+    },
+    vibeGrid: {
+      display: 'grid',
+      gridTemplateColumns: isMobile ? '1fr' : isTablet ? 'repeat(2, 1fr)' : 'repeat(2, 1fr)',
+      gap: isMobile ? '24px' : '32px',
+    },
+    vibeCard: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '16px',
+    },
+    vibeImageContainer: {
+      aspectRatio: '16/9',
+      borderRadius: '16px',
+      overflow: 'hidden',
+      border: '1px solid #27272a',
+      boxShadow: '0 10px 40px -10px rgba(0, 0, 0, 0.4)',
+    },
+    vibeImage: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+    },
+    vibeText: {
+      fontSize: isMobile ? '16px' : '18px',
+      color: '#a1a1aa',
+      textAlign: 'center',
+      margin: 0,
+    },
+    featuresGrid: {
+      display: 'grid',
+      gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+      gap: isMobile ? '16px' : '24px',
+      textAlign: 'left',
+    },
+    featureCard: {
+      padding: isMobile ? '24px' : '32px',
+      backgroundColor: '#18181b',
+      borderRadius: '16px',
+      border: '1px solid #27272a',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '16px',
+    },
+    featureIcon: {
+      width: isMobile ? '40px' : '48px',
+      height: isMobile ? '40px' : '48px',
+      borderRadius: '50%',
+      backgroundColor: 'rgba(168, 85, 247, 0.15)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: isMobile ? '20px' : '24px',
+    },
+    featureTitle: {
+      fontSize: isMobile ? '18px' : '20px',
+      fontWeight: 600,
+      margin: 0,
+    },
+    featureDescription: {
+      fontSize: isMobile ? '14px' : '16px',
+      color: '#71717a',
+      margin: 0,
+      lineHeight: 1.6,
+    },
+    badge: {
+      display: 'inline-block',
+      padding: '8px 16px',
+      backgroundColor: 'rgba(168, 85, 247, 0.15)',
+      border: '1px solid rgba(168, 85, 247, 0.3)',
+      borderRadius: '100px',
+      fontSize: isMobile ? '12px' : '14px',
+      fontWeight: 600,
+      color: '#c084fc',
+      marginBottom: '24px',
+    },
+    largeText: {
+      fontSize: isMobile ? '1rem' : '1.25rem',
+      color: '#a1a1aa',
+      lineHeight: 1.8,
+      margin: '24px 0',
+    },
+    finalSection: {
+      padding: isMobile ? '64px 16px' : isTablet ? '80px 24px' : '120px 48px',
+      backgroundColor: '#0f0f0f',
+      textAlign: 'center',
+    },
+    finalTitle: {
+      fontSize: isMobile ? '1.75rem' : isTablet ? '2.5rem' : '3.5rem',
+      fontWeight: 700,
+      lineHeight: 1.2,
+      marginBottom: isMobile ? '24px' : '32px',
+      marginTop: 0,
+      letterSpacing: '-0.02em',
+    },
+    finalSubtitle: {
+      fontSize: isMobile ? '1.125rem' : '1.5rem',
+      color: '#a1a1aa',
+      marginBottom: isMobile ? '32px' : '48px',
+      marginTop: 0,
+      lineHeight: 1.6,
+    },
+    buttonLarge: {
+      padding: isMobile ? '16px 32px' : '20px 40px',
+      backgroundColor: '#a855f7',
+      border: 'none',
+      borderRadius: '12px',
+      color: '#ffffff',
+      fontSize: isMobile ? '16px' : '18px',
+      fontWeight: 600,
+      cursor: 'pointer',
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '12px',
+    },
+    footer: {
+      padding: isMobile ? '32px 16px' : '48px 24px',
+      borderTop: '1px solid #27272a',
+      textAlign: 'center',
+      backgroundColor: '#0a0a0a',
+    },
+    footerText: {
+      fontSize: '14px',
+      color: '#52525b',
+      margin: 0,
+    },
+    emailCaptureContainer: {
+      maxWidth: isMobile ? '100%' : '600px',
+      margin: '0 auto',
+      textAlign: 'center',
+    },
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={styles.page}>
+      {/* HERO SECTION */}
+      <section style={styles.heroSection}>
+        <div style={styles.heroContainer}>
+          <div style={styles.heroContent}>
+            <h1 style={styles.heroTitle}>
+              You're always<br />
+              <span style={styles.heroHighlight}>one text late</span>
+            </h1>
+            
+            <p style={styles.heroSubtitle}>
+              The parties. The nights everyone talks about.
+              {!isMobile && <br />}
+              {isMobile && ' '}
+              The moments you hear about the next morning.
+            </p>
+
+            <div style={styles.formContainer}>
+              <div style={styles.inputGroup}>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  style={styles.input}
+                />
+                <button
+                  onClick={(e) => handleSubmit(e)}
+                  style={styles.button}
+                >
+                  Get Early Access <ArrowRight size={20} />
+                </button>
+              </div>
+              <p style={styles.smallText}>No spam. Just access.</p>
+              {submitted && (
+                <p style={styles.successText}>
+                  <CheckCircle size={16} /> You're on the list.
+                </p>
+              )}
+            </div>
+          </div>
+
+          <div style={styles.heroImageContainer}>
+            <img 
+              src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
+              alt="Energy"
+              style={styles.heroImage}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* THIS ISN'T FOR EVERYONE */}
+      <section style={styles.sectionAlt}>
+        <div style={styles.sectionContainer}>
+          <h2 style={styles.sectionTitle}>This isn't for everyone</h2>
+          
+          <div style={styles.cardsGrid}>
+            <div style={styles.card}>
+              <p style={styles.cardText}>
+                If you prefer reading about it on Monday
+              </p>
+            </div>
+            <div style={styles.card}>
+              <p style={styles.cardText}>
+                If you're okay missing the moment
+              </p>
+            </div>
+            <div style={styles.card}>
+              <p style={styles.cardText}>
+                If "next time" sounds fine to you
+              </p>
+            </div>
+          </div>
+
+          <p style={styles.highlightText}>
+            Then this probably isn't it.
+          </p>
+        </div>
+      </section>
+
+      {/* THE VIBE SECTION */}
+      <section style={styles.section}>
+        <div style={styles.sectionContainerWide}>
+          <div style={styles.vibeGrid}>
+            <div style={styles.vibeCard}>
+              <div style={styles.vibeImageContainer}>
+                <img 
+                  src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif"
+                  alt="Moment"
+                  style={styles.vibeImage}
+                />
+              </div>
+              <p style={styles.vibeText}>
+                You hear about this the next day.
+              </p>
+            </div>
+
+            <div style={styles.vibeCard}>
+              <div style={styles.vibeImageContainer}>
+                <img 
+                  src="https://media.giphy.com/media/3o7btNa0RUYa5E7iiQ/giphy.gif"
+                  alt="Moment"
+                  style={styles.vibeImage}
+                />
+              </div>
+              <p style={styles.vibeText}>
+                Or you're already there.
+              </p>
+            </div>
+
+            <div style={styles.vibeCard}>
+              <div style={styles.vibeImageContainer}>
+                <img 
+                  src="https://media.giphy.com/media/26u4lOMA8JKSnL9Uk/giphy.gif"
+                  alt="Moment"
+                  style={styles.vibeImage}
+                />
+              </div>
+              <p style={styles.vibeText}>
+                Some moments don't repeat.
+              </p>
+            </div>
+
+            <div style={styles.vibeCard}>
+              <div style={styles.vibeImageContainer}>
+                <img 
+                  src="https://media.giphy.com/media/l0MYH5qo50YVPrevK/giphy.gif"
+                  alt="Moment"
+                  style={styles.vibeImage}
+                />
+              </div>
+              <p style={styles.vibeText}>
+                The energy finds who's ready.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY PEOPLE ARE JOINING EARLY */}
+      <section style={styles.sectionAlt}>
+        <div style={styles.sectionContainer}>
+          <h2 style={styles.sectionTitle}>
+            Early means{!isMobile && <br />}
+            {isMobile && ' '}
+            <span style={styles.heroHighlight}>something different</span>
+          </h2>
+
+          <div style={styles.featuresGrid}>
+            <div style={styles.featureCard}>
+              <div style={styles.featureIcon}>⚡</div>
+              <h3 style={styles.featureTitle}>You shape what this becomes</h3>
+              <p style={styles.featureDescription}>
+                Early members don't just join. They influence.
+              </p>
+            </div>
+
+            <div style={styles.featureCard}>
+              <div style={styles.featureIcon}>🎯</div>
+              <h3 style={styles.featureTitle}>First access to everything</h3>
+              <p style={styles.featureDescription}>
+                Before it's a line. Before it's sold out. Before anyone else knows.
+              </p>
+            </div>
+
+            <div style={styles.featureCard}>
+              <div style={styles.featureIcon}>👥</div>
+              <h3 style={styles.featureTitle}>The right circle</h3>
+              <p style={styles.featureDescription}>
+                People who move fast. Who get it. Who show up.
+              </p>
+            </div>
+
+            <div style={styles.featureCard}>
+              <div style={styles.featureIcon}>🔐</div>
+              <h3 style={styles.featureTitle}>What others won't get</h3>
+              <p style={styles.featureDescription}>
+                This window closes. Then it's just watching from outside.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOMO / URGENCY SECTION */}
+      <section style={styles.section}>
+        <div style={styles.sectionContainer}>
+          <span style={styles.badge}>ROLLING INVITES</span>
+          
+          <h2 style={styles.sectionTitle}>
+            We're not waiting{!isMobile && <br />}
+            {isMobile && ' '}for everyone
+          </h2>
+          
+          <p style={styles.largeText}>
+            Early access goes to people who move now.
+            {!isMobile && <br />}
+            {isMobile && ' '}
+            Not people who think about it.
+          </p>
+
+          <p style={{ ...styles.largeText, color: '#71717a' }}>
+            Once we hit capacity, the list closes.
+            {!isMobile && <br />}
+            {isMobile && ' '}
+            Then it's just watching others talk about it.
+          </p>
+        </div>
+      </section>
+
+      {/* SECOND EMAIL CAPTURE */}
+      <section style={styles.sectionAlt}>
+        <div style={styles.emailCaptureContainer}>
+          <h2 style={styles.sectionTitle}>
+            Don't be the person who waits
+          </h2>
+
+          <div style={styles.formContainer}>
+            <div style={styles.inputGroup}>
+              <input
+                type="email"
+                placeholder="Your email"
+                value={emailSecondary}
+                onChange={(e) => setEmailSecondary(e.target.value)}
+                style={styles.input}
+              />
+              <button
+                onClick={(e) => handleSubmit(e, true)}
+                style={styles.button}
+              >
+                I'm In
+              </button>
+            </div>
+            <p style={styles.smallText}>
+              Unsubscribe anytime. We respect your inbox.
+            </p>
+            {submittedSecondary && (
+              <p style={{ ...styles.successText, justifyContent: 'center' }}>
+                <CheckCircle size={16} /> Welcome to early access.
+              </p>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL EMOTIONAL CLOSER */}
+      <section style={styles.finalSection}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 16px' }}>
+          <h2 style={styles.finalTitle}>
+            The best nights{!isMobile && <br />}
+            {isMobile && ' '}start before{!isMobile && <br />}
+            {isMobile && ' '}
+            <span style={styles.heroHighlight}>everyone else knows</span>
+          </h2>
+
+          <p style={styles.finalSubtitle}>
+            You'll either be early.
+            {!isMobile && <br />}
+            {isMobile && ' '}
+            Or you'll hear about it later.
+          </p>
+
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            style={styles.buttonLarge}
+          >
+            Get Early Access <ArrowRight size={isMobile ? 20 : 24} />
+          </button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer style={styles.footer}>
+        <p style={styles.footerText}>Daisy © 2026</p>
+      </footer>
     </div>
   );
 }
-
-export default App;
