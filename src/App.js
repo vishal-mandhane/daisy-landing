@@ -6,7 +6,14 @@ export default function DaisyLanding() {
   const [emailSecondary, setEmailSecondary] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [submittedSecondary, setSubmittedSecondary] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [loadingSecondary, setLoadingSecondary] = useState(false);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
+
+  // ============================================================
+  // EMAILOCTOPUS - reCAPTCHA disabled, direct API should work now!
+  // ============================================================
+  const FORM_ACTION = 'https://eomail5.com/form/b7b93d50-eaf6-11f0-abdc-bf3561320fe8';
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -17,14 +24,58 @@ export default function DaisyLanding() {
   const isMobile = windowWidth < 640;
   const isTablet = windowWidth >= 640 && windowWidth < 1024;
 
-  const handleSubmit = (e, isSecondary = false) => {
+  const handleSubmit = async (e, isSecondary = false) => {
     e.preventDefault();
+    
+    const currentEmail = isSecondary ? emailSecondary : email;
+    
+    if (!currentEmail || !currentEmail.includes('@')) {
+      alert('Please enter a valid email address');
+      return;
+    }
+
     if (isSecondary) {
-      setSubmittedSecondary(true);
-      setTimeout(() => setSubmittedSecondary(false), 3000);
+      setLoadingSecondary(true);
     } else {
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 3000);
+      setLoading(true);
+    }
+
+    try {
+      // EmailOctopus form submission (reCAPTCHA disabled)
+      const formData = new FormData();
+      formData.append('field_0', currentEmail);  // Email field
+      formData.append('hpc4b27b6e-eb3b-11e9-be00-06b4694bee2a', '');  // Honeypot (must be empty)
+
+      const response = await fetch(FORM_ACTION, {
+        method: 'POST',
+        mode: 'cors',
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        if (isSecondary) {
+          setSubmittedSecondary(true);
+          setEmailSecondary('');
+          setTimeout(() => setSubmittedSecondary(false), 4000);
+        } else {
+          setSubmitted(true);
+          setEmail('');
+          setTimeout(() => setSubmitted(false), 4000);
+        }
+      } else {
+        throw new Error(result.error?.message || 'Submission failed');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Something went wrong. Please try again.');
+    } finally {
+      if (isSecondary) {
+        setLoadingSecondary(false);
+      } else {
+        setLoading(false);
+      }
     }
   };
 
@@ -353,9 +404,14 @@ export default function DaisyLanding() {
                 />
                 <button
                   onClick={(e) => handleSubmit(e)}
-                  style={styles.button}
+                  style={{
+                    ...styles.button,
+                    opacity: loading ? 0.7 : 1,
+                    cursor: loading ? 'not-allowed' : 'pointer',
+                  }}
+                  disabled={loading}
                 >
-                  Get Early Access <ArrowRight size={20} />
+                  {loading ? 'Sending...' : 'Get Early Access'} {!loading && <ArrowRight size={20} />}
                 </button>
               </div>
               <p style={styles.smallText}>No spam. Just access.</p>
@@ -554,9 +610,14 @@ export default function DaisyLanding() {
               />
               <button
                 onClick={(e) => handleSubmit(e, true)}
-                style={styles.button}
+                style={{
+                  ...styles.button,
+                  opacity: loadingSecondary ? 0.7 : 1,
+                  cursor: loadingSecondary ? 'not-allowed' : 'pointer',
+                }}
+                disabled={loadingSecondary}
               >
-                I'm In
+                {loadingSecondary ? 'Sending...' : "I'm In"}
               </button>
             </div>
             <p style={styles.smallText}>
@@ -587,13 +648,6 @@ export default function DaisyLanding() {
             {isMobile && ' '}
             Or you'll hear about it later.
           </p>
-
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            style={styles.buttonLarge}
-          >
-            Get Early Access <ArrowRight size={isMobile ? 20 : 24} />
-          </button>
         </div>
       </section>
 
