@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 
 export default function DaisyLanding() {
@@ -9,6 +9,15 @@ export default function DaisyLanding() {
   const [loading, setLoading] = useState(false);
   const [loadingSecondary, setLoadingSecondary] = useState(false);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
+  const [vibeGifsLoaded, setVibeGifsLoaded] = useState(false);
+  const vibeSectionRef = useRef(null);
+
+  // GIF URLs for the vibe section
+  const vibeGifs = [
+    'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmxuamllY2oxb3hsN2g0ejdmOXl2M2Ntd2lkdHU2NDJ5ZmllcWY1YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mQampxivdZze8/giphy.gif',
+    'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjBobWU2NHJneDlwNG84aXRvYXMwYXpnc2R1ZzQ2d2l5eHJiZjU4MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5wFkqt6A8R4qAqGIFQ/giphy.gif',
+    'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2hrb2Z5bm9rcTV0bDMzbHhzOWVsZ2k5cW9naXp6dzlqdGN2Mmk5NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/11lz62kfEmsM00/giphy.gif',
+  ];
 
   // ============================================================
   // EMAILOCTOPUS - reCAPTCHA disabled, direct API should work now!
@@ -20,6 +29,35 @@ export default function DaisyLanding() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Preload GIFs when user approaches the vibe section
+  useEffect(() => {
+    if (!vibeSectionRef.current || vibeGifsLoaded) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Preload all GIFs
+            vibeGifs.forEach((src) => {
+              const img = new Image();
+              img.src = src;
+            });
+            setVibeGifsLoaded(true);
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        rootMargin: '200px', // Start loading 200px before section is visible
+        threshold: 0,
+      }
+    );
+
+    observer.observe(vibeSectionRef.current);
+
+    return () => observer.disconnect();
+  }, [vibeGifsLoaded]);
 
   const isMobile = windowWidth < 640;
   const isTablet = windowWidth >= 640 && windowWidth < 1024;
@@ -259,11 +297,13 @@ export default function DaisyLanding() {
       overflow: 'hidden',
       border: '1px solid #27272a',
       boxShadow: '0 10px 40px -10px rgba(0, 0, 0, 0.4)',
+      backgroundColor: '#18181b',
     },
     vibeImage: {
       width: '100%',
       height: '100%',
       objectFit: 'cover',
+      transition: 'opacity 0.3s ease',
     },
     vibeText: {
       fontSize: isMobile ? '14px' : '18px',
@@ -382,15 +422,15 @@ export default function DaisyLanding() {
         <div style={styles.heroContainer}>
           <div style={styles.heroContent}>
             <h1 style={styles.heroTitle}>
-              You're always<br />
-              <span style={styles.heroHighlight}>one text late</span>
+              Stop missing out<br />
+              <span style={styles.heroHighlight}>start showing up</span>
             </h1>
             
             <p style={styles.heroSubtitle}>
-              The parties. The nights everyone talks about.
+              The best plans. The right people. The perfect timing.
               {!isMobile && <br />}
               {isMobile && ' '}
-              The moments you hear about the next morning.
+              All in one place.
             </p>
 
             <div style={styles.formContainer}>
@@ -427,6 +467,7 @@ export default function DaisyLanding() {
             <img 
               src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
               alt="Energy"
+              loading="eager"
               style={styles.heroImage}
             />
           </div>
@@ -434,26 +475,27 @@ export default function DaisyLanding() {
       </section>
 
       {/* THIS ISN'T FOR EVERYONE */}
-      <section style={styles.sectionAlt}>
-        <div style={styles.sectionContainer}>
+      <section ref={vibeSectionRef} style={styles.sectionAlt}>
+        <div style={{...styles.sectionContainer, textAlign: 'center'}}>
           <h2 style={styles.sectionTitle}>This isn't for everyone</h2>
           
-          <div style={styles.cardsGrid}>
-            <div style={styles.card}>
-              <p style={styles.cardText}>
-                If you prefer reading about it on Monday
-              </p>
-            </div>
-            <div style={styles.card}>
-              <p style={styles.cardText}>
-                If you're okay missing the moment
-              </p>
-            </div>
-            <div style={styles.card}>
-              <p style={styles.cardText}>
-                If "next time" sounds fine to you
-              </p>
-            </div>
+          <div style={{
+            maxWidth: isMobile ? '100%' : '480px',
+            margin: '0 auto',
+            padding: isMobile ? '24px' : '32px',
+            backgroundColor: '#18181b',
+            borderRadius: isMobile ? '16px' : '20px',
+            border: '1px solid #27272a',
+          }}>
+            <p style={{
+              fontSize: isMobile ? '16px' : '20px',
+              color: '#e4e4e7',
+              margin: 0,
+              lineHeight: 1.6,
+              fontStyle: 'italic',
+            }}>
+              If going out, meeting new people, and trying new places isn't your thing.
+            </p>
           </div>
 
           <p style={styles.highlightText}>
@@ -465,56 +507,70 @@ export default function DaisyLanding() {
       {/* THE VIBE SECTION */}
       <section style={styles.section}>
         <div style={styles.sectionContainerWide}>
-          <div style={styles.vibeGrid}>
-            <div style={styles.vibeCard}>
-              <div style={styles.vibeImageContainer}>
+          <div style={{
+            display: 'flex',
+            flexDirection: isMobile ? 'column' : 'row',
+            gap: isMobile ? '24px' : '48px',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+            <div style={{
+              flex: isMobile ? 'none' : '1',
+              maxWidth: isMobile ? '100%' : '480px',
+              textAlign: 'center',
+            }}>
+              <div style={{
+                aspectRatio: '16/10',
+                borderRadius: isMobile ? '16px' : '24px',
+                overflow: 'hidden',
+                border: '1px solid #27272a',
+                boxShadow: '0 20px 60px -15px rgba(168, 85, 247, 0.15)',
+                backgroundColor: '#18181b',
+              }}>
                 <img 
-                  src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif"
+                  src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjBobWU2NHJneDlwNG84aXRvYXMwYXpnc2R1ZzQ2d2l5eHJiZjU4MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5wFkqt6A8R4qAqGIFQ/giphy.gif"
                   alt="Moment"
-                  style={styles.vibeImage}
+                  loading="lazy"
+                  style={{width: '100%', height: '100%', objectFit: 'cover'}}
                 />
               </div>
-              <p style={styles.vibeText}>
+              <p style={{
+                fontSize: isMobile ? '14px' : '18px',
+                color: '#a1a1aa',
+                marginTop: '16px',
+                marginBottom: 0,
+              }}>
                 You hear about this the next day.
               </p>
             </div>
 
-            <div style={styles.vibeCard}>
-              <div style={styles.vibeImageContainer}>
+            <div style={{
+              flex: isMobile ? 'none' : '1',
+              maxWidth: isMobile ? '100%' : '480px',
+              textAlign: 'center',
+            }}>
+              <div style={{
+                aspectRatio: '16/10',
+                borderRadius: isMobile ? '16px' : '24px',
+                overflow: 'hidden',
+                border: '1px solid #27272a',
+                boxShadow: '0 20px 60px -15px rgba(168, 85, 247, 0.15)',
+                backgroundColor: '#18181b',
+              }}>
                 <img 
-                  src="https://media.giphy.com/media/3o7btNa0RUYa5E7iiQ/giphy.gif"
+                  src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmxuamllY2oxb3hsN2g0ejdmOXl2M2Ntd2lkdHU2NDJ5ZmllcWY1YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mQampxivdZze8/giphy.gif"
                   alt="Moment"
-                  style={styles.vibeImage}
+                  loading="lazy"
+                  style={{width: '100%', height: '100%', objectFit: 'cover'}}
                 />
               </div>
-              <p style={styles.vibeText}>
+              <p style={{
+                fontSize: isMobile ? '14px' : '18px',
+                color: '#a1a1aa',
+                marginTop: '16px',
+                marginBottom: 0,
+              }}>
                 Or you're already there.
-              </p>
-            </div>
-
-            <div style={styles.vibeCard}>
-              <div style={styles.vibeImageContainer}>
-                <img 
-                  src="https://media.giphy.com/media/26u4lOMA8JKSnL9Uk/giphy.gif"
-                  alt="Moment"
-                  style={styles.vibeImage}
-                />
-              </div>
-              <p style={styles.vibeText}>
-                Some moments don't repeat.
-              </p>
-            </div>
-
-            <div style={styles.vibeCard}>
-              <div style={styles.vibeImageContainer}>
-                <img 
-                  src="https://media.giphy.com/media/l0MYH5qo50YVPrevK/giphy.gif"
-                  alt="Moment"
-                  style={styles.vibeImage}
-                />
-              </div>
-              <p style={styles.vibeText}>
-                The energy finds who's ready.
               </p>
             </div>
           </div>
@@ -525,44 +581,15 @@ export default function DaisyLanding() {
       <section style={styles.sectionAlt}>
         <div style={styles.sectionContainer}>
           <h2 style={styles.sectionTitle}>
-            Early means{!isMobile && <br />}
-            {isMobile && ' '}
-            <span style={styles.heroHighlight}>something different</span>
+            Early means <span style={styles.heroHighlight}>everything</span>
           </h2>
 
-          <div style={styles.featuresGrid}>
-            <div style={styles.featureCard}>
-              <div style={styles.featureIcon}>⚡</div>
-              <h3 style={styles.featureTitle}>You shape what this becomes</h3>
-              <p style={styles.featureDescription}>
-                Early members don't just join. They influence.
-              </p>
-            </div>
-
-            <div style={styles.featureCard}>
-              <div style={styles.featureIcon}>🎯</div>
-              <h3 style={styles.featureTitle}>First access to everything</h3>
-              <p style={styles.featureDescription}>
-                Before it's a line. Before it's sold out. Before anyone else knows.
-              </p>
-            </div>
-
-            <div style={styles.featureCard}>
-              <div style={styles.featureIcon}>👥</div>
-              <h3 style={styles.featureTitle}>The right circle</h3>
-              <p style={styles.featureDescription}>
-                People who move fast. Who get it. Who show up.
-              </p>
-            </div>
-
-            <div style={styles.featureCard}>
-              <div style={styles.featureIcon}>🔐</div>
-              <h3 style={styles.featureTitle}>What others won't get</h3>
-              <p style={styles.featureDescription}>
-                This window closes. Then it's just watching from outside.
-              </p>
-            </div>
-          </div>
+          <p style={{...styles.largeText, maxWidth: '600px', margin: '0 auto', textAlign: 'center'}}>
+            First access. First picks. First to know.
+            {!isMobile && <br />}
+            {isMobile && ' '}
+            The window closes soon.
+          </p>
         </div>
       </section>
 
@@ -642,6 +669,23 @@ export default function DaisyLanding() {
             <span style={styles.heroHighlight}>everyone else knows</span>
           </h2>
 
+          <div style={{
+            maxWidth: isMobile ? '280px' : '400px',
+            margin: '32px auto',
+            aspectRatio: '1/1',
+            borderRadius: isMobile ? '16px' : '24px',
+            overflow: 'hidden',
+            border: '1px solid #27272a',
+            boxShadow: '0 20px 60px -15px rgba(168, 85, 247, 0.2)',
+          }}>
+            <img 
+              src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2hrb2Z5bm9rcTV0bDMzbHhzOWVsZ2k5cW9naXp6dzlqdGN2Mmk5NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/11lz62kfEmsM00/giphy.gif"
+              alt="Moment"
+              loading="lazy"
+              style={{width: '100%', height: '100%', objectFit: 'cover'}}
+            />
+          </div>
+
           <p style={styles.finalSubtitle}>
             You'll either be early.
             {!isMobile && <br />}
@@ -653,7 +697,7 @@ export default function DaisyLanding() {
 
       {/* Footer */}
       <footer style={styles.footer}>
-        <p style={styles.footerText}>Daisy © 2026</p>
+        <p style={styles.footerText}>Dayzi © 2026</p>
       </footer>
     </div>
   );
