@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle, Instagram, Youtube } from 'lucide-react';
 
 export default function DaisyLanding() {
   const [email, setEmail] = useState('');
@@ -12,11 +12,11 @@ export default function DaisyLanding() {
   const [vibeGifsLoaded, setVibeGifsLoaded] = useState(false);
   const vibeSectionRef = useRef(null);
 
-  // GIF URLs for the vibe section
+  // GIF URLs for the vibe section - hosted locally for faster loading
   const vibeGifs = [
-    'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmxuamllY2oxb3hsN2g0ejdmOXl2M2Ntd2lkdHU2NDJ5ZmllcWY1YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mQampxivdZze8/giphy.gif',
-    'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjBobWU2NHJneDlwNG84aXRvYXMwYXpnc2R1ZzQ2d2l5eHJiZjU4MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5wFkqt6A8R4qAqGIFQ/giphy.gif',
-    'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2hrb2Z5bm9rcTV0bDMzbHhzOWVsZ2k5cW9naXp6dzlqdGN2Mmk5NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/11lz62kfEmsM00/giphy.gif',
+    '/gifs/vibe1.gif',
+    '/gifs/vibe2.gif',
+    '/gifs/final.gif',
   ];
 
   // ============================================================
@@ -30,7 +30,20 @@ export default function DaisyLanding() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Preload GIFs when user approaches the vibe section
+  // Preload all GIFs immediately on page load for faster display
+  useEffect(() => {
+    const allGifs = [
+      '/gifs/hero.gif',
+      ...vibeGifs,
+    ];
+    allGifs.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Preload GIFs when user approaches the vibe section (backup)
   useEffect(() => {
     if (!vibeSectionRef.current || vibeGifsLoaded) return;
 
@@ -49,7 +62,7 @@ export default function DaisyLanding() {
         });
       },
       {
-        rootMargin: '200px', // Start loading 200px before section is visible
+        rootMargin: '400px', // Start loading 400px before section is visible
         threshold: 0,
       }
     );
@@ -57,6 +70,7 @@ export default function DaisyLanding() {
     observer.observe(vibeSectionRef.current);
 
     return () => observer.disconnect();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [vibeGifsLoaded]);
 
   const isMobile = windowWidth < 640;
@@ -149,6 +163,8 @@ export default function DaisyLanding() {
       flexDirection: 'column',
       gap: isMobile ? '16px' : '32px',
       order: 1,
+      textAlign: isMobile ? 'center' : 'left',
+      alignItems: isMobile ? 'center' : 'flex-start',
     },
     heroTitle: {
       fontSize: isMobile ? '2rem' : isTablet ? '3rem' : '4rem',
@@ -156,6 +172,7 @@ export default function DaisyLanding() {
       lineHeight: 1.1,
       margin: 0,
       letterSpacing: '-0.02em',
+      textAlign: isMobile ? 'center' : 'left',
     },
     heroHighlight: {
       color: '#a855f7',
@@ -225,6 +242,8 @@ export default function DaisyLanding() {
       boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
       order: isMobile || isTablet ? 2 : 2,
       maxHeight: isMobile ? '200px' : isTablet ? '350px' : 'none',
+      margin: isMobile ? '0 auto' : '0',
+      maxWidth: isMobile ? '320px' : 'none',
     },
     heroImage: {
       width: '100%',
@@ -403,6 +422,19 @@ export default function DaisyLanding() {
       textAlign: 'center',
       backgroundColor: '#0a0a0a',
     },
+    socialLinks: {
+      display: 'flex',
+      justifyContent: 'center',
+      gap: isMobile ? '20px' : '24px',
+      marginBottom: isMobile ? '16px' : '20px',
+    },
+    socialLink: {
+      color: '#ffffff',
+      transition: 'color 0.2s ease, transform 0.2s ease',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
     footerText: {
       fontSize: '14px',
       color: '#52525b',
@@ -423,7 +455,7 @@ export default function DaisyLanding() {
           <div style={styles.heroContent}>
             <h1 style={styles.heroTitle}>
               Stop missing out<br />
-              <span style={styles.heroHighlight}>start showing up</span>
+              <span style={styles.heroHighlight}>Start showing up.</span>
             </h1>
             
             <p style={styles.heroSubtitle}>
@@ -465,9 +497,10 @@ export default function DaisyLanding() {
 
           <div style={styles.heroImageContainer}>
             <img 
-              src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
+              src="/gifs/hero.gif"
               alt="Energy"
               loading="eager"
+              fetchpriority="high"
               style={styles.heroImage}
             />
           </div>
@@ -510,25 +543,28 @@ export default function DaisyLanding() {
           <div style={{
             display: 'flex',
             flexDirection: isMobile ? 'column' : 'row',
-            gap: isMobile ? '24px' : '48px',
+            gap: isMobile ? '32px' : '48px',
             alignItems: 'center',
             justifyContent: 'center',
+            padding: isMobile ? '0 16px' : '0',
           }}>
             <div style={{
               flex: isMobile ? 'none' : '1',
-              maxWidth: isMobile ? '100%' : '480px',
+              width: isMobile ? '100%' : 'auto',
+              maxWidth: isMobile ? '320px' : '480px',
               textAlign: 'center',
+              margin: isMobile ? '0 auto' : '0',
             }}>
               <div style={{
                 aspectRatio: '16/10',
-                borderRadius: isMobile ? '16px' : '24px',
+                borderRadius: isMobile ? '12px' : '24px',
                 overflow: 'hidden',
                 border: '1px solid #27272a',
                 boxShadow: '0 20px 60px -15px rgba(168, 85, 247, 0.15)',
                 backgroundColor: '#18181b',
               }}>
                 <img 
-                  src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjBobWU2NHJneDlwNG84aXRvYXMwYXpnc2R1ZzQ2d2l5eHJiZjU4MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5wFkqt6A8R4qAqGIFQ/giphy.gif"
+                  src="/gifs/vibe1.gif"
                   alt="Moment"
                   loading="lazy"
                   style={{width: '100%', height: '100%', objectFit: 'cover'}}
@@ -537,7 +573,7 @@ export default function DaisyLanding() {
               <p style={{
                 fontSize: isMobile ? '14px' : '18px',
                 color: '#a1a1aa',
-                marginTop: '16px',
+                marginTop: isMobile ? '12px' : '16px',
                 marginBottom: 0,
               }}>
                 You hear about this the next day.
@@ -546,19 +582,21 @@ export default function DaisyLanding() {
 
             <div style={{
               flex: isMobile ? 'none' : '1',
-              maxWidth: isMobile ? '100%' : '480px',
+              width: isMobile ? '100%' : 'auto',
+              maxWidth: isMobile ? '320px' : '480px',
               textAlign: 'center',
+              margin: isMobile ? '0 auto' : '0',
             }}>
               <div style={{
                 aspectRatio: '16/10',
-                borderRadius: isMobile ? '16px' : '24px',
+                borderRadius: isMobile ? '12px' : '24px',
                 overflow: 'hidden',
                 border: '1px solid #27272a',
                 boxShadow: '0 20px 60px -15px rgba(168, 85, 247, 0.15)',
                 backgroundColor: '#18181b',
               }}>
                 <img 
-                  src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmxuamllY2oxb3hsN2g0ejdmOXl2M2Ntd2lkdHU2NDJ5ZmllcWY1YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mQampxivdZze8/giphy.gif"
+                  src="/gifs/vibe2.gif"
                   alt="Moment"
                   loading="lazy"
                   style={{width: '100%', height: '100%', objectFit: 'cover'}}
@@ -567,7 +605,7 @@ export default function DaisyLanding() {
               <p style={{
                 fontSize: isMobile ? '14px' : '18px',
                 color: '#a1a1aa',
-                marginTop: '16px',
+                marginTop: isMobile ? '12px' : '16px',
                 marginBottom: 0,
               }}>
                 Or you're already there.
@@ -670,16 +708,16 @@ export default function DaisyLanding() {
           </h2>
 
           <div style={{
-            maxWidth: isMobile ? '280px' : '400px',
-            margin: '32px auto',
+            maxWidth: isMobile ? '260px' : '400px',
+            margin: isMobile ? '24px auto' : '32px auto',
             aspectRatio: '1/1',
-            borderRadius: isMobile ? '16px' : '24px',
+            borderRadius: isMobile ? '12px' : '24px',
             overflow: 'hidden',
             border: '1px solid #27272a',
             boxShadow: '0 20px 60px -15px rgba(168, 85, 247, 0.2)',
           }}>
             <img 
-              src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2hrb2Z5bm9rcTV0bDMzbHhzOWVsZ2k5cW9naXp6dzlqdGN2Mmk5NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/11lz62kfEmsM00/giphy.gif"
+              src="/gifs/final.gif"
               alt="Moment"
               loading="lazy"
               style={{width: '100%', height: '100%', objectFit: 'cover'}}
@@ -697,6 +735,42 @@ export default function DaisyLanding() {
 
       {/* Footer */}
       <footer style={styles.footer}>
+        <div style={styles.socialLinks}>
+          <a 
+            href="https://www.instagram.com/dayzi_india/"
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={styles.socialLink}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = '#a855f7';
+              e.currentTarget.style.transform = 'scale(1.15)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = '#ffffff';
+              e.currentTarget.style.transform = 'scale(1)';
+            }}
+            aria-label="Follow us on Instagram"
+          >
+            <Instagram size={isMobile ? 22 : 26} />
+          </a>
+          <a 
+            href="https://www.youtube.com/@DAYZIPARTY" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={styles.socialLink}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = '#a855f7';
+              e.currentTarget.style.transform = 'scale(1.15)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = '#ffffff';
+              e.currentTarget.style.transform = 'scale(1)';
+            }}
+            aria-label="Subscribe on YouTube"
+          >
+            <Youtube size={isMobile ? 22 : 26} />
+          </a>
+        </div>
         <p style={styles.footerText}>Dayzi © 2026</p>
       </footer>
     </div>
