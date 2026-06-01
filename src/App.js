@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, CheckCircle, Instagram, Twitter, Youtube } from 'lucide-react';
+import { ArrowRight, CheckCircle, Instagram, X, Youtube } from 'lucide-react';
 
 export default function DaisyLanding() {
   const [email, setEmail] = useState('');
@@ -768,7 +768,7 @@ export default function DaisyLanding() {
             }}
             aria-label="Follow us on X"
           >
-            <Twitter size={isMobile ? 22 : 26} />
+            <X size={isMobile ? 22 : 26} />
           </a>
           <a
             href="https://www.youtube.com/@DAYZIPARTY"
