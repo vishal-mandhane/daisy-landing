@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, CheckCircle, Instagram, Youtube } from 'lucide-react';
+import { ArrowRight, CheckCircle, Instagram, Twitter, Youtube } from 'lucide-react';
 
 export default function DaisyLanding() {
   const [email, setEmail] = useState('');
@@ -753,8 +753,25 @@ export default function DaisyLanding() {
           >
             <Instagram size={isMobile ? 22 : 26} />
           </a>
-          <a 
-            href="https://www.youtube.com/@DAYZIPARTY" 
+          <a
+            href="https://x.com/Dayzi_events"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={styles.socialLink}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = '#a855f7';
+              e.currentTarget.style.transform = 'scale(1.15)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = '#ffffff';
+              e.currentTarget.style.transform = 'scale(1)';
+            }}
+            aria-label="Follow us on X"
+          >
+            <Twitter size={isMobile ? 22 : 26} />
+          </a>
+          <a
+            href="https://www.youtube.com/@DAYZIPARTY"
             target="_blank" 
             rel="noopener noreferrer"
             style={styles.socialLink}
