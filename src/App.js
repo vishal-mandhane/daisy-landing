@@ -4,6 +4,8 @@ import { ArrowRight, CheckCircle, Instagram, Youtube } from 'lucide-react';
 export default function DaisyLanding() {
   const [email, setEmail] = useState('');
   const [emailSecondary, setEmailSecondary] = useState('');
+  const [city, setCity] = useState('');
+  const [citySecondary, setCitySecondary] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [submittedSecondary, setSubmittedSecondary] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -78,11 +80,17 @@ export default function DaisyLanding() {
 
   const handleSubmit = async (e, isSecondary = false) => {
     e.preventDefault();
-    
+
     const currentEmail = isSecondary ? emailSecondary : email;
-    
+    const currentCity = isSecondary ? citySecondary : city;
+
     if (!currentEmail || !currentEmail.includes('@')) {
       alert('Please enter a valid email address');
+      return;
+    }
+
+    if (!currentCity || !currentCity.trim()) {
+      alert('Please enter your city');
       return;
     }
 
@@ -94,9 +102,11 @@ export default function DaisyLanding() {
 
     try {
       // EmailOctopus form submission (reCAPTCHA disabled)
+      // Form field IDs (from the form's HTML): field_0 = Email, field_3 = City
       const formData = new FormData();
-      formData.append('field_0', currentEmail);  // Email field
-      formData.append('hpc4b27b6e-eb3b-11e9-be00-06b4694bee2a', '');  // Honeypot (must be empty)
+      formData.append('field_0', currentEmail);
+      formData.append('field_3', currentCity.trim());
+      formData.append('hpc4b27b6e-eb3b-11e9-be00-06b4694bee2a', '');
 
       const response = await fetch(FORM_ACTION, {
         method: 'POST',
@@ -110,18 +120,20 @@ export default function DaisyLanding() {
         if (isSecondary) {
           setSubmittedSecondary(true);
           setEmailSecondary('');
+          setCitySecondary('');
           setTimeout(() => setSubmittedSecondary(false), 4000);
         } else {
           setSubmitted(true);
           setEmail('');
+          setCity('');
           setTimeout(() => setSubmitted(false), 4000);
         }
       } else {
         throw new Error(result.error?.message || 'Submission failed');
       }
     } catch (error) {
-      console.error('Error:', error);
-      alert('Something went wrong. Please try again.');
+      console.error('EmailOctopus error:', error);
+      alert('Something went wrong. Please try again. (' + (error.message || 'unknown') + ')');
     } finally {
       if (isSecondary) {
         setLoadingSecondary(false);
@@ -192,6 +204,7 @@ export default function DaisyLanding() {
       display: 'flex',
       flexDirection: isMobile ? 'column' : 'row',
       gap: isMobile ? '10px' : '12px',
+      width: '100%',
     },
     input: {
       flex: 1,
@@ -466,12 +479,19 @@ export default function DaisyLanding() {
             </p>
 
             <div style={styles.formContainer}>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                style={styles.input}
+              />
               <div style={styles.inputGroup}>
                 <input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  type="text"
+                  placeholder="Your city"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
                   style={styles.input}
                 />
                 <button
@@ -665,12 +685,19 @@ export default function DaisyLanding() {
           </h2>
 
           <div style={styles.formContainer}>
+            <input
+              type="email"
+              placeholder="Your email"
+              value={emailSecondary}
+              onChange={(e) => setEmailSecondary(e.target.value)}
+              style={styles.input}
+            />
             <div style={styles.inputGroup}>
               <input
-                type="email"
-                placeholder="Your email"
-                value={emailSecondary}
-                onChange={(e) => setEmailSecondary(e.target.value)}
+                type="text"
+                placeholder="Your city"
+                value={citySecondary}
+                onChange={(e) => setCitySecondary(e.target.value)}
                 style={styles.input}
               />
               <button
