@@ -823,6 +823,32 @@ export default function DaisyLanding() {
             <Youtube size={isMobile ? 22 : 26} />
           </a>
         </div>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginBottom: '12px', flexWrap: 'wrap' }}>
+          <a
+            href="/privacy.html"
+            style={{ fontSize: '14px', color: '#71717a', textDecoration: 'none', transition: 'color 0.2s' }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = '#a855f7'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = '#71717a'; }}
+          >
+            Privacy Policy
+          </a>
+          <a
+            href="/termsandconditions.html"
+            style={{ fontSize: '14px', color: '#71717a', textDecoration: 'none', transition: 'color 0.2s' }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = '#a855f7'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = '#71717a'; }}
+          >
+            Terms of Service
+          </a>
+          <a
+            href="/deleteaccount.html"
+            style={{ fontSize: '14px', color: '#71717a', textDecoration: 'none', transition: 'color 0.2s' }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = '#a855f7'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = '#71717a'; }}
+          >
+            Delete Account
+          </a>
+        </div>
         <p style={styles.footerText}>Dayzi © 2026</p>
       </footer>
     </div>
