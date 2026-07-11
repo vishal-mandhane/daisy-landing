@@ -143,6 +143,66 @@ export default function DaisyLanding() {
     }
   };
 
+  // Instagram Reels data - add your reel URLs here
+  const reels = [
+    {
+      url: 'https://www.instagram.com/reel/DTsjgDxiFUV/',
+      caption: 'Dayzi vibes',
+    },
+    {
+      url: 'https://www.instagram.com/reel/DTiLjz8CEPb/',
+      caption: 'The night was electric',
+    },
+    {
+      url: 'https://www.instagram.com/reel/DVBhZTriKUd/',
+      caption: 'Energy was unmatched',
+    },
+    {
+      url: 'https://www.instagram.com/reel/DX9cea6oyqw/',
+      caption: 'You had to be there',
+    },
+  ];
+
+  const scrollReelsRef = useRef(null);
+  const scrollReels = (direction) => {
+    if (!scrollReelsRef.current) return;
+    const scrollAmount = isMobile ? 220 : 300;
+    scrollReelsRef.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    });
+  };
+
+  // Try to autoplay reels when they come into view
+  const reelIframeRefs = useRef([]);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const iframe = entry.target;
+            try {
+              iframe.contentWindow.postMessage(
+                JSON.stringify({ type: 'autoplay' }),
+                '*'
+              );
+            } catch (e) {
+              // Cross-origin - silently ignore
+            }
+            observer.unobserve(iframe);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    reelIframeRefs.current.forEach((iframe) => {
+      if (iframe) observer.observe(iframe);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   // Dynamic styles based on screen size
   const styles = {
     page: {
@@ -458,6 +518,97 @@ export default function DaisyLanding() {
       margin: '0 auto',
       textAlign: 'center',
     },
+    reelsSection: {
+      padding: isMobile ? '32px 0' : isTablet ? '48px 0' : '80px 0',
+      backgroundColor: '#0a0a0a',
+      overflow: 'hidden',
+    },
+    reelsContainer: {
+      maxWidth: '1200px',
+      margin: '0 auto',
+      padding: isMobile ? '0 16px' : '0 48px',
+    },
+    reelsHeader: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginBottom: isMobile ? '20px' : '32px',
+      padding: isMobile ? '0 16px' : '0',
+    },
+    reelsTitle: {
+      fontSize: isMobile ? '1.5rem' : isTablet ? '2rem' : '3rem',
+      fontWeight: 700,
+      margin: 0,
+      letterSpacing: '-0.02em',
+    },
+    reelsArrows: {
+      display: isMobile ? 'none' : 'flex',
+      gap: '8px',
+    },
+    reelArrowBtn: {
+      width: '40px',
+      height: '40px',
+      borderRadius: '50%',
+      backgroundColor: '#18181b',
+      border: '1px solid #27272a',
+      color: '#ffffff',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      cursor: 'pointer',
+      transition: 'all 0.2s ease',
+      fontSize: '18px',
+    },
+    reelsScrollContainer: {
+      display: 'flex',
+      gap: isMobile ? '12px' : '20px',
+      overflowX: 'auto',
+      overflowY: 'hidden',
+      scrollSnapType: 'x mandatory',
+      scrollBehavior: 'smooth',
+      WebkitOverflowScrolling: 'touch',
+      padding: isMobile ? '0 16px 16px' : '0 48px 24px',
+      msOverflowStyle: 'none',
+      scrollbarWidth: 'none',
+    },
+    reelCard: {
+      flex: '0 0 auto',
+      width: isMobile ? '180px' : isTablet ? '240px' : '280px',
+      scrollSnapAlign: 'start',
+      borderRadius: isMobile ? '12px' : '16px',
+      overflow: 'hidden',
+      border: '1px solid #27272a',
+      backgroundColor: '#000000',
+      transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+      position: 'relative',
+    },
+    reelIframe: {
+      width: '100%',
+      height: isMobile ? '320px' : '440px',
+      border: 'none',
+      borderRadius: isMobile ? '12px' : '16px',
+      backgroundColor: '#000000',
+    },
+    reelsGradientLeft: {
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      left: 0,
+      width: '60px',
+      background: 'linear-gradient(to right, #0a0a0a, transparent)',
+      pointerEvents: 'none',
+      zIndex: 1,
+    },
+    reelsGradientRight: {
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      right: 0,
+      width: '60px',
+      background: 'linear-gradient(to left, #0a0a0a, transparent)',
+      pointerEvents: 'none',
+      zIndex: 1,
+    },
   };
 
   return (
@@ -674,6 +825,87 @@ export default function DaisyLanding() {
             {isMobile && ' '}
             Then it's just watching others talk about it.
           </p>
+        </div>
+      </section>
+
+      {/* REELS SECTION */}
+      <section style={styles.reelsSection}>
+        <div style={styles.reelsContainer}>
+          <div style={styles.reelsHeader}>
+            <h2 style={styles.reelsTitle}>
+              See the <span style={styles.heroHighlight}>vibe</span>
+            </h2>
+            <div style={styles.reelsArrows}>
+              <button
+                onClick={() => scrollReels('left')}
+                style={styles.reelArrowBtn}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#a855f7';
+                  e.currentTarget.style.borderColor = '#a855f7';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#18181b';
+                  e.currentTarget.style.borderColor = '#27272a';
+                }}
+                aria-label="Scroll left"
+              >
+                ←
+              </button>
+              <button
+                onClick={() => scrollReels('right')}
+                style={styles.reelArrowBtn}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#a855f7';
+                  e.currentTarget.style.borderColor = '#a855f7';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#18181b';
+                  e.currentTarget.style.borderColor = '#27272a';
+                }}
+                aria-label="Scroll right"
+              >
+                →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div style={{ position: 'relative' }}>
+          {!isMobile && <div style={styles.reelsGradientLeft} />}
+          {!isMobile && <div style={styles.reelsGradientRight} />}
+
+          <div ref={scrollReelsRef} style={styles.reelsScrollContainer}>
+            {reels.map((reel, index) => {
+              const shortcode = reel.url.split('/reel/')[1]?.replace(/\/.*/, '').split('?')[0];
+              return (
+                <div
+                  key={index}
+                  style={styles.reelCard}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-4px)';
+                    e.currentTarget.style.boxShadow = '0 20px 40px -10px rgba(168, 85, 247, 0.25)';
+                    e.currentTarget.style.borderColor = '#a855f7';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = 'none';
+                    e.currentTarget.style.borderColor = '#27272a';
+                  }}
+                >
+                  <iframe
+                    ref={(el) => { reelIframeRefs.current[index] = el; }}
+                    src={`https://www.instagram.com/reel/${shortcode}/embed/?autoplay=1&mute=1`}
+                    title={reel.caption}
+                    style={styles.reelIframe}
+                    allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
