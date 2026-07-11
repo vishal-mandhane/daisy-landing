@@ -828,8 +828,7 @@ export default function DaisyLanding() {
         </div>
       </section>
 
-      {/* REELS SECTION */}
-      <section style={styles.reelsSection}>
+      {false && (<section style={styles.reelsSection}>
         <div style={styles.reelsContainer}>
           <div style={styles.reelsHeader}>
             <h2 style={styles.reelsTitle}>
@@ -906,7 +905,7 @@ export default function DaisyLanding() {
             })}
           </div>
         </div>
-      </section>
+      </section>)}
 
       {/* SECOND EMAIL CAPTURE */}
       <section style={styles.sectionAlt}>
