@@ -259,7 +259,7 @@ Grievance Officer for Dayzi is:
 
 **Name:** Vishal Mandhane
 **Designation:** Founder, Solika Ventures Pvt Ltd
-**Email:** dayzibusiness@gmail.com
+**Email:** vishal.mandhane@dayzi.live
 
 The Grievance Officer will acknowledge your request within 48 hours and resolve
 it within 30 days.
@@ -278,3 +278,4 @@ Thane – 421202, Maharashtra, India
 If you are not satisfied with our response, you may file a complaint with the
 relevant data-protection authority in your jurisdiction (in India, the Data
 Protection Board).
+
