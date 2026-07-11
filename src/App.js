@@ -573,7 +573,7 @@ export default function DaisyLanding() {
     },
     reelCard: {
       flex: '0 0 auto',
-      width: isMobile ? '180px' : isTablet ? '240px' : '280px',
+      width: isMobile ? '320px' : isTablet ? '360px' : '400px',
       scrollSnapAlign: 'start',
       borderRadius: isMobile ? '12px' : '16px',
       overflow: 'hidden',
@@ -584,7 +584,7 @@ export default function DaisyLanding() {
     },
     reelIframe: {
       width: '100%',
-      height: isMobile ? '320px' : '440px',
+      height: isMobile ? '500px' : '580px',
       border: 'none',
       borderRadius: isMobile ? '12px' : '16px',
       backgroundColor: '#000000',
