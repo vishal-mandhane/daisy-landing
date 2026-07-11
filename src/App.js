@@ -894,13 +894,12 @@ export default function DaisyLanding() {
                 >
                   <iframe
                     ref={(el) => { reelIframeRefs.current[index] = el; }}
-                    src={`https://www.instagram.com/reel/${shortcode}/embed/?autoplay=1&mute=1`}
+                    src={`https://www.instagram.com/reel/${shortcode}/embed/`}
                     title={reel.caption}
                     style={styles.reelIframe}
                     allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
                     allowFullScreen
                     loading="lazy"
-                    sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
                   />
                 </div>
               );
