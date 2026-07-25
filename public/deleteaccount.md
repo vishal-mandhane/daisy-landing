@@ -1,6 +1,6 @@
 # Delete Your Dayzi Account
 
-**Last updated:** 3 June 2026
+**Last updated:** 25 July 2026
 
 Dayzi is operated by **Solika Ventures Pvt Ltd**. This page explains how to delete
 your Dayzi account and the personal data associated with it.
@@ -33,13 +33,16 @@ email address registered to your account, with the subject line
 - **You can restore your account** during these 30 days simply by logging back
   in. After 30 days, deletion is permanent and cannot be reversed.
 - After the grace period, your account and associated personal data are
-  **permanently deleted**.
+  **permanently deleted or anonymised**, unless we are required to retain some of
+  it for legal, security, fraud-prevention, dispute-resolution, or safety reasons.
 
 ---
 
 ## What data is deleted
 
-When deletion completes, we permanently remove:
+When deletion completes, we delete or anonymise the personal data associated with
+your account within 30 days, unless we are required to retain it for legal,
+security, fraud-prevention, dispute-resolution, or safety reasons. This includes:
 
 - Your profile data (name, username, age, gender, bio, interests, vibes, prompts)
 - Your profile photo
@@ -52,9 +55,17 @@ When deletion completes, we permanently remove:
 
 ## What may be retained
 
-We may retain limited information where required or permitted by law — for
+Content you shared with other users — such as group messages or event
+participation records — may remain visible where necessary for event history,
+safety, or integrity, but will no longer identify you where reasonably possible.
+
+We may also retain limited information where required or permitted by law — for
 example, for security, fraud-prevention, or legal-compliance purposes — and
 aggregated, anonymised analytics data that no longer identifies you.
+
+Deleted data may remain in encrypted backups for up to **90 days** before
+automatic deletion, and will not be restored except for disaster recovery or
+legal/security purposes.
 
 ---
 
