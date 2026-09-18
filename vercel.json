@@ -1,0 +1,22 @@
+{
+  "rewrites": [
+    {
+      "source": "/e/:id",
+      "destination": "https://asia-south1-daisy-2811.cloudfunctions.net/renderEventPage?id=:id"
+    },
+    {
+      "source": "/get",
+      "destination": "/get.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/.well-known/apple-app-site-association",
+      "headers": [{ "key": "Content-Type", "value": "application/json" }]
+    },
+    {
+      "source": "/.well-known/assetlinks.json",
+      "headers": [{ "key": "Content-Type", "value": "application/json" }]
+    }
+  ]
+}

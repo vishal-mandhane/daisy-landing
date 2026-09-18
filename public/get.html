@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Keeps the referring URL out of the request to Apple/Google on redirect. -->
+<meta name="referrer" content="no-referrer">
+<title>Get Dayzi</title>
+<link rel="canonical" href="https://dayzi.live/get">
+<meta name="description" content="Dayzi — find and create local events near you.">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dayzi">
+<meta property="og:url" content="https://dayzi.live/get">
+<meta property="og:title" content="Come join me on Dayzi">
+<meta property="og:description" content="Find and create local events near you.">
+<meta property="og:image" content="https://dayzi.live/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<!--
+  Deploy to:  public/get.html   ->  https://dayzi.live/get
+
+  This is the plain "come join me on Dayzi" invite, sent from the app's
+  Explore screen when there is no specific event attached
+  (explore_events_screen.dart -> _shareApp).
+
+  STATIC ON PURPOSE. It needs no event, so it needs no database read and no
+  Cloud Function. The only page that needs a server is /e/<id>, because its
+  preview card has to carry the real event's title and photo.
+
+  The redirect runs in the browser, not on the server, for two reasons:
+    - a link scraper (WhatsApp, iMessage, Slack) does not run scripts, so it
+      still reads the og: tags above instead of being bounced to a store page
+    - every visitor gets identical bytes, so a CDN can cache one copy
+
+  The two buttons are real links. If the script is blocked, this degrades to
+  a page with two obvious buttons rather than to a dead end.
+
+  Both store URLs 404 until each app reaches a public track. That is
+  expected as of 2026-09-17 -- Android is a Draft app, iOS is TestFlight
+  only. The URLs themselves are correct and permanent.
+-->
+
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+    background: #0E0F13; color: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .card { width: 100%; max-width: 420px; text-align: center; }
+  h1 {
+    font-size: 28px; line-height: 1.2; font-weight: 600;
+    margin: 0 0 10px; letter-spacing: -0.01em;
+  }
+  p.sub { margin: 0 0 32px; color: #9A9AA3; font-size: 16px; line-height: 1.5; }
+  a.btn {
+    display: block; padding: 15px 20px; border-radius: 12px;
+    font-size: 16px; font-weight: 600; text-decoration: none;
+    margin-bottom: 10px;
+  }
+  a.primary { background: #E11D48; color: #FFFFFF; }
+  a.secondary {
+    background: transparent; color: #FFFFFF;
+    border: 1px solid rgba(255,255,255,0.18);
+  }
+</style>
+</head>
+<body>
+  <main class="card">
+    <h1>Dayzi</h1>
+    <p class="sub">Find and create local events near you.</p>
+    <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.vm.daisy">Get Dayzi for Android</a>
+    <a class="btn secondary" href="https://apps.apple.com/app/id6811430749">Get Dayzi for iPhone</a>
+  </main>
+<script>
+(function () {
+  var ua = navigator.userAgent || '';
+  // Apple is tested first. "Android" appears inside several desktop and
+  // in-app-webview user agents, so checking it first mislabels real iPhones.
+  // These two rules mirror UA_IOS / UA_ANDROID in
+  // functions/event_share_page.js, which is where they are unit-tested.
+  var url = /iPhone|iPad|iPod/i.test(ua)
+      ? "https://apps.apple.com/app/id6811430749"
+    : /Android/i.test(ua)
+      ? "https://play.google.com/store/apps/details?id=com.vm.daisy"
+    : null;
+  // replace(), not assign(): Back from the store should return to wherever
+  // the person came from, not to this page, which would bounce them again.
+  if (url) location.replace(url);
+}());
+</script>
+</body>
+</html>

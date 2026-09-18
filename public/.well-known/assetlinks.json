@@ -1,0 +1,14 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.vm.daisy",
+      "sha256_cert_fingerprints": [
+        "0C:52:A8:E4:D4:AC:E7:1A:52:EB:7F:99:4E:4F:2C:6A:90:49:42:E0:C0:BA:46:63:6D:44:94:39:95:9C:A0:23",
+        "8C:1B:20:90:A3:F6:F9:4F:E2:58:23:E3:EE:A8:FD:EB:3F:B7:7A:B1:BD:E7:48:A8:DA:DD:4B:C6:B9:45:49:9F",
+        "6B:A4:43:60:BF:87:46:86:8B:14:17:28:71:6A:8F:88:E6:B6:31:FF:28:D7:E0:97:93:7B:61:45:40:95:A3:D9"
+      ]
+    }
+  }
+]

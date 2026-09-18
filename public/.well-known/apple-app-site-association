@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["5A6BS67D7J.com.vm.daisy"],
+        "components": [
+          {
+            "/": "/e/*",
+            "comment": "Shared event invites open the event sheet in the app."
+          }
+        ]
+      }
+    ]
+  }
+}
