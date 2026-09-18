@@ -23,3 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 .vercel
+
+# Local AI tool scratch dir - never belongs in the repo or on the web server
+.commandcode

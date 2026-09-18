@@ -1,0 +1,13 @@
+# Vercel uploads this directory and then runs `npm run build` on its own
+# infrastructure, so anything listed here is absent AT BUILD TIME, not just
+# absent from the served output.
+#
+# That makes this file easy to get badly wrong. A first draft excluded `src`,
+# which would have uploaded the project without its React source and broken
+# the build on the very next deploy. Only list what the build does not need.
+#
+# node_modules, .git and .vercel are already excluded by Vercel itself.
+
+# Local AI tool scratch directory. Not part of the site, and has no business
+# on a web server.
+.commandcode
