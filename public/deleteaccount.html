@@ -4,12 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0a0a0a" />
-  <meta name="description" content="How to delete your Dayzi account" />
+  <meta name="description" content="Dayzi Delete Your Account" />
   <title>Delete Your Account - Dayzi</title>
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="icon" href="/favicon.ico" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       background-color: #0a0a0a;
       color: #ffffff;
@@ -17,202 +16,100 @@
       line-height: 1.7;
       padding: 0;
     }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 80px 24px 60px;
-    }
-
-    @media (max-width: 640px) {
-      .container { padding: 48px 16px 40px; }
-    }
-
+    .container { max-width: 800px; margin: 0 auto; padding: 80px 24px 60px; }
+    @media (max-width: 640px) { .container { padding: 48px 16px 40px; } }
     .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #a855f7;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 40px;
-      transition: opacity 0.2s;
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #a855f7; text-decoration: none; font-size: 14px;
+      font-weight: 500; margin-bottom: 40px; transition: opacity 0.2s;
     }
     .back-link:hover { opacity: 0.8; }
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-      line-height: 1.2;
+    h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; line-height: 1.2; }
+    @media (max-width: 640px) { h1 { font-size: 1.75rem; } }
+    .updated { color: #71717a; font-size: 14px; margin-bottom: 48px; }
+    h2 { font-size: 1.25rem; font-weight: 700; margin-top: 40px; margin-bottom: 12px; color: #e4e4e7; }
+    h3 { font-size: 1rem; font-weight: 600; margin-top: 24px; margin-bottom: 8px; color: #d4d4d8; }
+    p { color: #a1a1aa; font-size: 16px; margin-bottom: 16px; }
+    ul, ol { color: #a1a1aa; font-size: 16px; margin-bottom: 16px; padding-left: 24px; }
+    li { margin-bottom: 8px; }
+    strong { color: #e4e4e7; }
+    a { color: #a855f7; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    hr { border: none; border-top: 1px solid #27272a; margin: 40px 0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; color: #d4d4d8; }
+    blockquote {
+      border-left: 3px solid #a855f7; padding: 4px 0 4px 16px;
+      margin: 24px 0; background: rgba(168, 85, 247, 0.06);
     }
-    @media (max-width: 640px) {
-      h1 { font-size: 1.75rem; }
-    }
-
-    .updated {
-      color: #71717a;
-      font-size: 14px;
-      margin-bottom: 48px;
-    }
-
-    h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-top: 40px;
-      margin-bottom: 12px;
-      color: #e4e4e7;
-    }
-
-    p {
-      color: #a1a1aa;
-      font-size: 16px;
-      margin-bottom: 16px;
-    }
-
-    ol, ul {
-      color: #a1a1aa;
-      font-size: 16px;
-      margin-bottom: 16px;
-      padding-left: 24px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    a {
-      color: #a855f7;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid #27272a;
-      margin: 40px 0;
-    }
-
-    strong {
-      color: #e4e4e7;
-    }
-
-    .step-box {
-      background-color: #18181b;
-      border: 1px solid #27272a;
-      border-radius: 16px;
-      padding: 24px 28px;
-      margin-bottom: 16px;
-    }
-
-    .step-box ol {
-      margin-bottom: 0;
-    }
-
-    .highlight-box {
-      background-color: rgba(168, 85, 247, 0.1);
-      border: 1px solid rgba(168, 85, 247, 0.3);
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin: 24px 0;
-    }
-
-    .highlight-box p {
-      margin-bottom: 0;
-      color: #c084fc;
-    }
-
-    footer {
-      text-align: center;
-      padding: 32px 24px;
-      border-top: 1px solid #27272a;
-      margin-top: 60px;
-    }
-
-    footer p {
-      color: #52525b;
-      font-size: 14px;
-      margin: 0;
-    }
+    blockquote p { margin-bottom: 8px; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #27272a; vertical-align: top; color: #a1a1aa; }
+    th { color: #e4e4e7; font-weight: 600; border-bottom-color: #3f3f46; }
+    .footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid #27272a; color: #52525b; font-size: 13px; }
   </style>
 </head>
 <body>
   <div class="container">
     <a href="/" class="back-link">&larr; Back to Dayzi</a>
 
-    <h1>Delete Your Dayzi Account</h1>
-    <p class="updated">Last updated: 25 July 2026</p>
+    <h1>Delete Your Account</h1>
+    <p class="updated">Last updated: 21 September 2026</p>
 
     <p>Dayzi is operated by <strong>Solika Ventures Pvt Ltd</strong>. This page explains how to delete your Dayzi account and the personal data associated with it.</p>
-
     <hr />
-
-    <h2>Option 1 &mdash; Delete from within the app (recommended)</h2>
-    <div class="step-box">
-      <ol>
-        <li>Open the <strong>Dayzi</strong> app and sign in.</li>
-        <li>Go to <strong>Profile &rarr; Privacy Settings</strong>.</li>
-        <li>Tap <strong>Delete Account</strong>.</li>
-        <li>Confirm when prompted.</li>
-      </ol>
-    </div>
+    <h2>Option 1 — Delete from within the app (recommended)</h2>
+    <ol>
+    <li>Open the <strong>Dayzi</strong> app and sign in.</li>
+    <li>Go to <strong>Profile → Settings → Privacy</strong>.</li>
+    <li>Tap <strong>Delete Account</strong>.</li>
+    <li>Confirm when prompted.</li>
+    </ol>
     <p>Your account is immediately marked for deletion and enters a <strong>30-day grace period</strong>.</p>
-
+    <p><em>Note: if you are currently hosting an event that has not finished, you will be asked to cancel or complete it first.</em></p>
+    <h2>Option 2 — Request deletion by email</h2>
+    <p>If you cannot access the app, email <strong>dayzibusiness@gmail.com</strong> from the address registered to your account, with the subject line <strong>"Delete My Account"</strong>. We will verify your identity and process the request.</p>
     <hr />
-
-    <h2>Option 2 &mdash; Request deletion by email</h2>
-    <p>If you cannot access the app, email us at <strong><a href="mailto:dayzibusiness@gmail.com">dayzibusiness@gmail.com</a></strong> from the email address registered to your account, with the subject line "<strong>Delete My Account</strong>". We will verify your identity and process the request.</p>
-
-    <hr />
-
     <h2>What happens after you request deletion</h2>
     <ul>
-      <li>Your account is marked for deletion and enters a <strong>30-day grace period</strong>.</li>
-      <li><strong>You can restore your account</strong> during these 30 days simply by logging back in. After 30 days, deletion is permanent and cannot be reversed.</li>
-      <li>After the grace period, your account and associated personal data are <strong>permanently deleted or anonymised</strong>, unless we are required to retain some of it for legal, security, fraud-prevention, dispute-resolution, or safety reasons.</li>
+    <li>Your account is marked for deletion and enters a <strong>30-day grace period</strong>.</li>
+    <li><strong>You can restore your account</strong> during those 30 days simply by logging back in. After 30 days, deletion is permanent and cannot be reversed.</li>
+    <li>After the grace period, your account and associated personal data are permanently deleted or anonymised, except for the categories listed below.</li>
     </ul>
-
     <hr />
-
-    <h2>What data is deleted</h2>
-    <p>When deletion completes, we delete or anonymise the personal data associated with your account within 30 days, unless we are required to retain it for legal, security, fraud-prevention, dispute-resolution, or safety reasons. This includes:</p>
+    <h2>What is deleted</h2>
     <ul>
-      <li>Your profile data (name, username, age, gender, bio, interests, vibes, prompts)</li>
-      <li>Your profile photo</li>
-      <li>Events you created</li>
-      <li>Your messages in event group chats</li>
-      <li>Your notifications</li>
-      <li>Your event group memberships and attendee entries</li>
-      <li>Your push-notification (FCM) tokens</li>
-      <li>Your cached data</li>
+    <li>Your profile data — name, username, age, gender, bio, vibes, prompts, profession and social links</li>
+    <li>Your profile photo</li>
+    <li>Events you created</li>
+    <li>Your messages in event group chats</li>
+    <li>Your notifications</li>
+    <li>Your event group memberships and attendee entries</li>
+    <li>Your push-notification (FCM) tokens</li>
+    <li>Your SOS safety cases, including any location recorded in them</li>
+    <li>Your cached data</li>
     </ul>
-
-    <h2>What may be retained</h2>
-    <p>Content you shared with other users &mdash; such as group messages or event participation records &mdash; may remain visible where necessary for event history, safety, or integrity, but will no longer identify you where reasonably possible.</p>
-    <p>We may also retain limited information where required or permitted by law &mdash; for example, for security, fraud-prevention, or legal-compliance purposes &mdash; and aggregated, anonymised analytics data that no longer identifies you.</p>
-    <p>Deleted data may remain in encrypted backups for up to <strong>90 days</strong> before automatic deletion, and will not be restored except for disaster recovery or legal/security purposes.</p>
-
     <hr />
-
+    <h2>What is retained, and why</h2>
+    <p>Please read this before you delete. Some records survive account deletion because removing them would undermine safety, the rights of other users, or obligations we owe by law.</p>
+    <ul>
+    <li><strong>Safety and moderation records.</strong> Reports you filed, reports filed about you, and their aggregates. These may contain your name. They are kept so that a pattern of harmful behaviour cannot be erased by deleting an account and making a new one.</li>
+    <li><strong>Appeals.</strong> Ban appeals and event appeals, which may contain your name and email address.</li>
+    <li><strong>Bug reports.</strong> Retained until resolved, and may contain your email address, device details and a screenshot you submitted.</li>
+    <li><strong>Voting records</strong> from events you attended.</li>
+    <li><strong>Content other people also hold.</strong> Group messages and event participation records may remain visible where necessary for event history, safety, or integrity, and will no longer identify you where reasonably possible.</li>
+    <li><strong>Anything required by law</strong>, or needed for security, fraud prevention, or the establishment or defence of legal claims.</li>
+    <li><strong>Aggregated, anonymised analytics</strong> that no longer identify you.</li>
+    </ul>
+    <p>If you want a specific retained item removed, email us and we will assess the request against the exemptions above.</p>
+    <p><strong>Backups.</strong> Deleted data may remain in encrypted backups for up to <strong>90 days</strong> before automatic deletion, and will not be restored except for disaster recovery or legal and security purposes.</p>
+    <hr />
     <h2>Want a copy of your data first?</h2>
-    <div class="highlight-box">
-      <p>Before deleting, you can export your personal data in JSON format from <strong>Privacy Settings &rarr; Download My Data</strong> in the app.</p>
-    </div>
-
+    <p>Before deleting, export your personal data in JSON from <strong>Privacy Settings → Download My Data</strong> in the app. If you also want your group chat messages, reports, blocks, bug reports or appeals, email us and we will provide them separately.</p>
     <hr />
-
     <h2>Contact</h2>
-    <p><strong>Solika Ventures Pvt Ltd</strong><br>
-    B. No. 1, R. No. 403, Sarvodaya Galaxy, Nr. Kopar, Vishnunagar, Kalyan, Thane &ndash; 421202, Maharashtra, India<br>
-    <strong>Email:</strong> <a href="mailto:dayzibusiness@gmail.com">dayzibusiness@gmail.com</a></p>
-  </div>
+    <p><strong>Solika Ventures Pvt Ltd</strong> B. No. 1, R. No. 403, Sarvodaya Galaxy, Nr. Kopar, Vishnunagar, Kalyan, Thane – 421202, Maharashtra, India Email: <strong>dayzibusiness@gmail.com</strong></p>
 
-  <footer>
-    <p>Dayzi &copy; 2026</p>
-  </footer>
+    <p class="footer">Dayzi &copy; 2026 &middot; Solika Ventures Pvt Ltd</p>
+  </div>
 </body>
 </html>

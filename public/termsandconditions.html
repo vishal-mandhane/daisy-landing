@@ -6,10 +6,9 @@
   <meta name="theme-color" content="#0a0a0a" />
   <meta name="description" content="Dayzi Terms of Service" />
   <title>Terms of Service - Dayzi</title>
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="icon" href="/favicon.ico" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       background-color: #0a0a0a;
       color: #ffffff;
@@ -17,129 +16,36 @@
       line-height: 1.7;
       padding: 0;
     }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 80px 24px 60px;
-    }
-
-    @media (max-width: 640px) {
-      .container { padding: 48px 16px 40px; }
-    }
-
+    .container { max-width: 800px; margin: 0 auto; padding: 80px 24px 60px; }
+    @media (max-width: 640px) { .container { padding: 48px 16px 40px; } }
     .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #a855f7;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 40px;
-      transition: opacity 0.2s;
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #a855f7; text-decoration: none; font-size: 14px;
+      font-weight: 500; margin-bottom: 40px; transition: opacity 0.2s;
     }
     .back-link:hover { opacity: 0.8; }
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-      line-height: 1.2;
+    h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; line-height: 1.2; }
+    @media (max-width: 640px) { h1 { font-size: 1.75rem; } }
+    .updated { color: #71717a; font-size: 14px; margin-bottom: 48px; }
+    h2 { font-size: 1.25rem; font-weight: 700; margin-top: 40px; margin-bottom: 12px; color: #e4e4e7; }
+    h3 { font-size: 1rem; font-weight: 600; margin-top: 24px; margin-bottom: 8px; color: #d4d4d8; }
+    p { color: #a1a1aa; font-size: 16px; margin-bottom: 16px; }
+    ul, ol { color: #a1a1aa; font-size: 16px; margin-bottom: 16px; padding-left: 24px; }
+    li { margin-bottom: 8px; }
+    strong { color: #e4e4e7; }
+    a { color: #a855f7; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    hr { border: none; border-top: 1px solid #27272a; margin: 40px 0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; color: #d4d4d8; }
+    blockquote {
+      border-left: 3px solid #a855f7; padding: 4px 0 4px 16px;
+      margin: 24px 0; background: rgba(168, 85, 247, 0.06);
     }
-    @media (max-width: 640px) {
-      h1 { font-size: 1.75rem; }
-    }
-
-    .updated {
-      color: #71717a;
-      font-size: 14px;
-      margin-bottom: 48px;
-    }
-
-    h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-top: 40px;
-      margin-bottom: 12px;
-      color: #e4e4e7;
-    }
-
-    h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-top: 24px;
-      margin-bottom: 8px;
-      color: #d4d4d8;
-    }
-
-    p {
-      color: #a1a1aa;
-      font-size: 16px;
-      margin-bottom: 16px;
-    }
-
-    ol, ul {
-      color: #a1a1aa;
-      font-size: 16px;
-      margin-bottom: 16px;
-      padding-left: 24px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    a {
-      color: #a855f7;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid #27272a;
-      margin: 40px 0;
-    }
-
-    strong {
-      color: #e4e4e7;
-    }
-
-    .legal-notice {
-      background-color: rgba(168, 85, 247, 0.1);
-      border: 1px solid rgba(168, 85, 247, 0.3);
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin: 24px 0;
-    }
-
-    .legal-notice p {
-      margin-bottom: 0;
-      color: #c084fc;
-      font-weight: 600;
-    }
-
-    .uppercase {
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    footer {
-      text-align: center;
-      padding: 32px 24px;
-      border-top: 1px solid #27272a;
-      margin-top: 60px;
-    }
-
-    footer p {
-      color: #52525b;
-      font-size: 14px;
-      margin: 0;
-    }
+    blockquote p { margin-bottom: 8px; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #27272a; vertical-align: top; color: #a1a1aa; }
+    th { color: #e4e4e7; font-weight: 600; border-bottom-color: #3f3f46; }
+    .footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid #27272a; color: #52525b; font-size: 13px; }
   </style>
 </head>
 <body>
@@ -147,185 +53,154 @@
     <a href="/" class="back-link">&larr; Back to Dayzi</a>
 
     <h1>Terms of Service</h1>
-    <p class="updated">Last updated: 25 July 2026</p>
+    <p class="updated">Last updated: 21 September 2026</p>
 
     <p>These Terms of Service ("<strong>Terms</strong>") govern your use of the Dayzi mobile application (the "<strong>App</strong>") and the website at dayzi.live (the "<strong>Site</strong>", together the "<strong>Service</strong>"), operated by <strong>Solika Ventures Pvt Ltd</strong>, a company incorporated in India ("<strong>Dayzi</strong>", "<strong>we</strong>", "<strong>us</strong>", "<strong>our</strong>").</p>
-
-    <p>By creating an account, joining our waitlist, or using the Service, you agree to these Terms. If you do not agree, do not use the Service.</p>
-
+    <p>By creating an account, joining our waitlist, or using the Service, you agree to these Terms, to our <strong>Privacy Policy</strong>, to our <strong>Community Guidelines</strong>, and to our <strong>Child Safety Standards</strong>, each of which is incorporated into these Terms by reference. <strong>If you do not agree, do not use the Service.</strong></p>
+    <blockquote><p><strong>Please read Sections 4, 9, 10, 11 and 14 carefully.</strong> They limit our liability, require you to assume certain risks, and affect how disputes are resolved.</p></blockquote>
     <hr />
-
-    <h2>1. Eligibility</h2>
-    <p>You must be at least <strong>18 years old</strong> to use the Service. By using the Service, you confirm that you meet this age requirement. We may ask you to confirm or verify your age, and we may <strong>suspend or terminate</strong> any account that does not meet this requirement.</p>
-
+    <h2>1. What Dayzi Is, and What It Is Not</h2>
+    <p>Dayzi is a <strong>listings and coordination platform</strong>. It lets people publish information about social events and lets other people ask to join them.</p>
+    <p><strong>Dayzi is not an organiser, promoter, sponsor, host, operator, insurer, or supervisor of any event.</strong> We do not attend events. We do not vet, verify, endorse, supervise, or take responsibility for any event, any venue, any host, or any attendee. Every event on Dayzi is created and run by a user, and any arrangement you make is <strong>between you and that user, not with us</strong>.</p>
+    <p>We are an intermediary that makes introductions possible. We are not a party to what happens after the introduction.</p>
     <hr />
-
-    <h2>2. Your Account</h2>
-
-    <h3>2.1 Registration</h3>
-    <p>You must provide accurate, current, and complete information during registration. You may not impersonate any person or use a false identity.</p>
-
-    <h3>2.2 Security</h3>
-    <p>You are responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account. Notify us immediately at <strong>dayzibusiness@gmail.com</strong> if you suspect unauthorised access.</p>
-
-    <h3>2.3 One Account Per Person</h3>
-    <p>Each person may maintain only one account. Duplicate or alternate accounts may be terminated.</p>
-
+    <h2>2. Eligibility</h2>
+    <p>You must be at least <strong>18 years old</strong> to use the Service. By using it, you confirm you meet that requirement. We may request verification of your age and may suspend or terminate any account we reasonably believe belongs to someone under 18. Providing a false age is a breach of these Terms.</p>
     <hr />
-
-    <h2>3. User Conduct</h2>
-    <p>You agree <strong>NOT</strong> to:</p>
-    <ul>
-      <li>Post harmful, abusive, threatening, discriminatory, or hateful content</li>
-      <li>Harass, bully, stalk, or intimidate other users</li>
-      <li>Share sexually explicit, violent, or graphic material</li>
-      <li>Use the Service for any illegal activities</li>
-      <li>Spam, scam, phish, or deceive other users</li>
-      <li>Create fake events, misleading listings, or fraudulent content</li>
-      <li>Attempt to reverse-engineer, decompile, or exploit the Service</li>
-      <li>Circumvent content moderation, rate limits, or security measures</li>
-      <li>Collect or harvest other users' personal data</li>
-      <li>Use automated systems (bots, scrapers) to access the Service</li>
-      <li>Promote or facilitate illegal drug use, underage drinking, or other illegal activities at events</li>
-    </ul>
-    <p>Violations may result in warnings, temporary suspension, or permanent account termination at our sole discretion.</p>
-
+    <h2>3. Your Account</h2>
+    <h3>3.1 Registration</h3>
+    <p>You must provide accurate, current, and complete information. You may not impersonate any person or use a false identity.</p>
+    <p>You are responsible for any link you add to your profile. Do not link to content that is fraudulent, deceptive, adult, or intended to harvest other users' information, and do not use profile links to advertise or sell. We may remove a link, or your account, for breaking this.</p>
+    <h3>3.2 Security</h3>
+    <p>You are responsible for keeping your credentials confidential and for all activity under your account. Notify us immediately at <strong>dayzibusiness@gmail.com</strong> if you suspect unauthorised access.</p>
+    <h3>3.3 One Account Per Person</h3>
+    <p>Each person may hold only one account. Duplicate or alternate accounts may be terminated.</p>
     <hr />
-
-    <h2>4. Events, Groups, and Safety</h2>
-
+    <h2>4. Events, Safety, and Assumption of Risk</h2>
+    <p><strong>This is the most important section of these Terms.</strong></p>
     <h3>4.1 How Events and Groups Work</h3>
-    <p>You can create events that are shown to nearby users within an age range you set, and you can discover and request to join events created by nearby users. Joining is by request: the event creator chooses whether to accept or decline, and accepted participants form the event group. You are responsible for your own conduct in events and group chats.</p>
-
-    <h3>4.2 User Responsibility</h3>
-    <p>You are solely responsible for events you create and attend. Dayzi does not organise, verify, endorse, sponsor, or guarantee any user-created events. Attend events at your own risk.</p>
-
-    <h3>4.3 Event Content</h3>
-    <p>Event creators are responsible for ensuring their events comply with local laws and regulations. Events promoting illegal activities will be removed and the creator's account may be terminated.</p>
-
-    <h3>4.4 Physical Safety</h3>
-    <p>Dayzi is not responsible for any incidents, injuries, damages, losses, or disputes arising from in-person events. Exercise caution and good judgement when attending events with people you do not know.</p>
-
-    <h3>4.5 SOS / Emergency Contact Feature</h3>
-    <p>The App offers an optional <strong>SOS safety feature</strong>. You may enter an emergency contact number (for example, a parent's or trusted person's number), which is stored <strong>only locally on your own device</strong> and is <strong>never transmitted to or stored by Dayzi</strong>. When you trigger SOS, the App opens <strong>WhatsApp</strong> on your device so that you can send a message and your location to your chosen contact.</p>
-    <div class="legal-notice">
-      <p><strong>Important:</strong> the SOS feature is a convenience tool only. It is <strong>not</strong> an emergency service and is <strong>not</strong> a substitute for contacting your local police, ambulance, or emergency services. It depends on your device, network, WhatsApp, location permissions, and your contact's availability, and may fail or be delayed. In a genuine emergency, always call your local emergency number first. To the maximum extent permitted by law, Dayzi is not liable for any failure, delay, or outcome of the SOS feature.</p>
-    </div>
-
-    <h3>4.6 Ghost Counter</h3>
-    <p>Users who RSVP to events but do not attend ("ghosting") may receive a ghost counter increment, visible on their profile. This system encourages accountability and is determined by peer voting after events end.</p>
-
-    <h3>4.7 No Background Checks</h3>
-    <p>Dayzi does <strong>not</strong> conduct criminal background checks on users. We may offer optional face verification to help confirm that a profile belongs to a real person, but this is a liveness check only &mdash; it is <strong>not</strong> a background check and is <strong>not</strong> a guarantee of any user's identity, character, intentions, or safety. You are solely responsible for evaluating, and taking appropriate precautions with, anyone you interact with or meet through the Service. We strongly encourage you to meet in public places, tell someone you trust where you are going, and use your judgement at all times.</p>
-
-    <h3>4.8 Release of Claims</h3>
-    <p>To the maximum extent permitted by law, you <strong>release and discharge</strong> Solika Ventures Pvt Ltd (operating Dayzi), and its directors, officers, employees, and agents, from any and all claims, demands, damages, losses, or liabilities of every kind &mdash; known or unknown &mdash; arising out of or in any way connected with your interactions or communications with other users, your attendance at any event, or any in-person meeting arranged through the Service. You acknowledge that Dayzi does not control the conduct of its users and that you assume all risk associated with such interactions, meetings, and events.</p>
-
+    <p>Any user may create an event. Other users may request to join. The creator decides who is accepted. Accepted members form an event group with a group chat. Events may be shown to nearby users within the age range the creator sets.</p>
+    <h3>4.2 You Are Responsible for Your Own Decisions</h3>
+    <p>You are solely responsible for the events you create, the events you attend, the people you meet, and everything you do or say. Dayzi does not organise, verify, endorse, sponsor, or guarantee any user-created event or any user. <strong>You attend events, and meet people, entirely at your own risk.</strong></p>
+    <h3>4.3 Event Content and Legality</h3>
+    <p>Event creators are responsible for ensuring their events comply with all applicable laws, licences, permissions, venue rules, and safety requirements. Events promoting illegal activity will be removed and the creator's account may be terminated.</p>
+    <h3>4.4 Physical Safety and Assumption of Risk</h3>
+    <p><strong>Meeting people you do not know, in person, carries real risk of physical harm, emotional harm, financial loss, theft, harassment, illness, injury, and death.</strong> You understand and voluntarily accept those risks.</p>
+    <p>We strongly encourage you to: meet in public places; tell someone you trust where you are going and when you expect to return; arrange your own transport; not share your home address; not send money to anyone; and leave any situation that feels wrong.</p>
+    <p><strong>We are not responsible for any incident, injury, illness, death, damage, loss, theft, harassment, assault, or dispute arising from any in-person event or any interaction between users</strong>, whether that interaction began on Dayzi or not.</p>
+    <h3>4.5 SOS / Safety Check-In — Terms of Use and Non-Reliance</h3>
+    <p><strong>PLEASE READ THIS SUBSECTION IN FULL BEFORE RELYING ON THE SOS FEATURE.</strong></p>
+    <p>The App includes a feature called <strong>SOS</strong>. Setting up one trusted contact is required before you can finish onboarding. Whether you ever press SOS is your choice.</p>
+    <p><strong>(a) What SOS actually does.</strong> Pressing SOS opens <strong>WhatsApp</strong> on your device with a pre-filled message containing a map link to your current location, addressed to the contact you saved. <strong>You</strong> must then tap send, in WhatsApp, from your own account. Separately, a safety case is recorded on our servers containing your account, the event, the time, a status and your precise location, as described in our Privacy Policy.</p>
+    <p>That record is an <strong>internal trust-and-safety record</strong>, kept so that we can follow up with you and review unresolved check-ins. <strong>It is not a report to the police or to any other authority, and we do not forward it to one as a matter of course.</strong> If you want to report a crime, you must contact your local law enforcement yourself.</p>
+    <p><strong>(b) SOS IS NOT AN EMERGENCY SERVICE.</strong> SOS does <strong>not</strong> call, notify, alert, or transmit anything to the police, an ambulance, a fire service, a medical provider, a security service, or any public or private emergency responder. No Dayzi employee, contractor, or agent is dispatched to you, and none will attend your location. <strong>In an emergency you must call your local emergency number</strong> — for example 112 in India and the EU, 911 in the United States, 999 in the United Kingdom, and 000 in Australia. SOS is a convenience for contacting one private individual you chose. It is not a substitute for emergency services, a personal alarm, a monitored alert service, or a safety plan.</p>
+    <p><strong>(c) SOS can fail, and we do not guarantee it will work.</strong> SOS depends on factors entirely outside our control, including: your device functioning and having battery; mobile or internet connectivity; you having granted location permission; the accuracy and availability of your device's location; WhatsApp being installed, logged in, and operational; the phone number you saved being correct and active; <strong>you actually tapping send in WhatsApp</strong>; your contact having their phone, seeing the message, understanding it, and choosing to act; and the availability of our own systems and those of our providers. <strong>If you close WhatsApp without tapping send, nobody is alerted.</strong> We make <strong>no representation, warranty, guarantee or promise</strong> that an SOS will be generated, delivered, received, read, understood, or acted upon, or that any help will arrive.</p>
+    <p><strong>(d) We owe you no duty to monitor, respond, or rescue.</strong> We may review safety cases and may attempt to follow up with you, but <strong>we are under no obligation to monitor SOS cases, to respond to any case, to contact you, to contact your trusted contact, to contact any authority, or to take any action whatsoever</strong>. Any follow-up we do choose to make is voluntary and creates no duty of care, no special relationship, no assumption of responsibility, and no expectation that we will do so again. The presence of the SOS feature does not make Dayzi responsible for your safety.</p>
+    <p><strong>(e) Non-reliance.</strong> You agree that you will <strong>not rely on SOS as your primary or only means of obtaining help</strong>, and that your use of Dayzi is not conditional on SOS functioning.</p>
+    <p><strong>(f) No liability.</strong> <strong>To the maximum extent permitted by applicable law, Dayzi shall have no liability of any kind for any failure, delay, error, inaccuracy, non-delivery, non-receipt, misdirection, or outcome of the SOS feature, or for any act or omission of your trusted contact, of WhatsApp, or of any emergency or other service</strong>, including where the result is personal injury, death, or loss of or damage to property. This is subject only to Section 10.3.</p>
+    <h3>4.6 No Background Checks, and What Verification Is Not</h3>
+    <p>Dayzi does <strong>not</strong> conduct criminal background checks, identity checks against government records, sex-offender-registry checks, or any other screening of any user.</p>
+    <p>We offer an optional face-verification feature. <strong>It is a liveness and photo-match check only.</strong> It indicates that the person taking a selfie resembles the profile photo on that account. It is <strong>not</strong> proof of identity, legal name, age, character, intentions, criminal history, or safety, and it can produce false results. A badge on a profile is not an endorsement by Dayzi and must not be treated as one. <strong>You are solely responsible for evaluating anyone you interact with or meet.</strong></p>
+    <h3>4.7 Ghost Counter and Peer Voting</h3>
+    <p>Users who RSVP and do not attend ("ghosting") may receive a ghost counter increment, which is shown on their profile. This is determined by peer voting after events end. It is a community-accountability signal produced by other users, not a finding of fact by Dayzi, and we do not warrant its accuracy.</p>
+    <h3>4.8 Reporting, Blocking, and Moderation</h3>
+    <p>You can <strong>report</strong> users and messages, and <strong>block</strong> any user, from within the App. Reports go to our moderation team. We also operate automated content moderation as described in the Privacy Policy.</p>
+    <p>We review reports and act on them where we consider it appropriate, which may include removing content, warning, suspending, or permanently terminating an account. <strong>We do not guarantee that we will review any particular report, act on it, act within any timeframe, or reach any particular outcome</strong>, except where a specific timeframe is required by applicable law. Our moderation is undertaken in good faith and does not make us responsible for user conduct.</p>
+    <p>If you believe someone is in immediate danger, <strong>contact your local emergency services</strong>, not us.</p>
+    <h3>4.9 Release of Claims</h3>
+    <p>To the maximum extent permitted by law, you <strong>release and discharge</strong> Solika Ventures Pvt Ltd (operating Dayzi) and its directors, officers, employees, contractors, and agents from any and all claims, demands, damages, losses, costs, or liabilities of every kind — known or unknown, foreseen or unforeseen — arising out of or in any way connected with: your interactions or communications with other users; your attendance at, or the conduct of, any event; any in-person meeting arranged through the Service; and the SOS feature. You acknowledge that Dayzi does not control the conduct of its users and that <strong>you assume all risk associated with such interactions, meetings, and events</strong>.</p>
+    <p>If you are a resident of a jurisdiction whose law limits general releases of unknown claims, you waive the benefit of that limitation to the fullest extent permitted.</p>
     <hr />
-
-    <h2>5. Content and Intellectual Property</h2>
-
-    <h3>5.1 Your Content</h3>
-    <p>You retain ownership of content you create (profile information, event descriptions, photos, messages). By posting content on the Service, you grant Dayzi a worldwide, non-exclusive, royalty-free licence to use, display, reproduce, and distribute your content within the Service and for promotional purposes.</p>
-
-    <h3>5.2 Content Moderation and Appeals</h3>
-    <p>We use automated systems (<strong>SightEngine</strong> for images, <strong>Google Gemini API via Google Cloud</strong> for text and, where you consent, face verification) together with human review to moderate content. We reserve the right to remove any content that violates these Terms. If your content is removed, restricted, or flagged, or if verification fails, you may request <strong>human review</strong> by contacting <strong>dayzibusiness@gmail.com</strong>.</p>
-
-    <h3>5.3 Our Intellectual Property</h3>
-    <p>All Dayzi branding, design, logos, code, and proprietary features are owned by Solika Ventures Pvt Ltd and protected by applicable intellectual property laws. You may not copy, modify, distribute, or create derivative works without our written permission.</p>
-
+    <h2>5. Your Conduct</h2>
+    <p>You agree <strong>not</strong> to:</p>
+    <ul>
+    <li>Post harmful, abusive, threatening, discriminatory, or hateful content</li>
+    <li>Harass, bully, stalk, dox, or intimidate anyone</li>
+    <li>Share sexually explicit, violent, or graphic material</li>
+    <li><strong>Engage in, facilitate, promote, or solicit any form of child sexual abuse or exploitation, or share child sexual abuse material</strong> (see our Child Safety Standards — this results in immediate termination and a report to authorities)</li>
+    <li>Use the Service for any illegal purpose</li>
+    <li>Spam, scam, phish, or deceive other users</li>
+    <li>Create fake events, misleading listings, or fraudulent content</li>
+    <li>Solicit or arrange commercial sexual services, or engage in trafficking or exploitation of any kind</li>
+    <li>Attempt to reverse-engineer, decompile, or exploit the Service</li>
+    <li>Circumvent content moderation, rate limits, blocks, bans, or security measures</li>
+    <li>Collect or harvest other users' personal data</li>
+    <li>Use bots, scrapers, or other automated systems to access the Service</li>
+    <li>Promote or facilitate illegal drug use, underage drinking, weapons, or other illegal activity at events</li>
+    <li>Misuse the SOS feature, including raising a false alarm</li>
+    </ul>
+    <p>Our <strong>Community Guidelines</strong> set out these rules in full. Violations may result in content removal, warnings, suspension, or permanent termination at our discretion.</p>
     <hr />
-
-    <h2>6. Privacy</h2>
-    <p>Your use of the Service is also governed by our <a href="/privacy.html">Privacy Policy</a>, which describes how we process your data and the legal bases we rely on. We process personal data under a layered lawful-basis model (contract, consent, legal obligation, and legitimate interests); where we rely on your consent, you may withdraw it at any time as described in the Privacy Policy.</p>
-
+    <h2>6. Content and Intellectual Property</h2>
+    <h3>6.1 Your Content</h3>
+    <p>You retain ownership of content you create. By posting it, you grant Dayzi a worldwide, non-exclusive, royalty-free, sublicensable licence to host, store, reproduce, display, adapt and distribute that content for the purpose of operating, improving and promoting the Service. This licence ends when you delete the content or your account, except for content others have also received or retained, and except where we must keep it under the Privacy Policy.</p>
+    <p><strong>You acknowledge that events you create are published to a publicly accessible feed</strong>, together with your name, username, account identifier and profile photo, as described in Section 3A of the Privacy Policy.</p>
+    <h3>6.2 Content Moderation and Appeals</h3>
+    <p>We use automated systems and human review to moderate content, and may remove anything that violates these Terms, without prior notice. You may request human review of a decision at <strong>dayzibusiness@gmail.com</strong> or through the in-app appeal flow.</p>
+    <h3>6.3 Our Intellectual Property</h3>
+    <p>All Dayzi branding, design, logos, code, and proprietary features are owned by Solika Ventures Pvt Ltd. You may not copy, modify, distribute, or create derivative works without our written permission.</p>
     <hr />
-
-    <h2>7. Push Notifications</h2>
-    <p>By using the App, you may receive <strong>transactional</strong> push notifications about event updates, invitations, requests, and announcements, which are part of the Service. <strong>Promotional or broadcast</strong> notifications are sent only where permitted and can be disabled. You can manage notification preferences through your device settings.</p>
-
+    <h2>7. Privacy</h2>
+    <p>Your use of the Service is governed by our <strong>Privacy Policy</strong>, which explains what we collect, why, and what rights you have. It forms part of these Terms.</p>
     <hr />
-
-    <h2>8. Account Termination</h2>
-
-    <h3>8.1 By You</h3>
-    <p>You may delete your account at any time from <strong>Privacy Settings &rarr; Delete Account</strong>. Deletion is processed within 30 days. During this grace period you can restore your account by logging back in. See our <a href="/deleteaccount.html">Delete Account</a> page for details.</p>
-
-    <h3>8.2 By Us</h3>
-    <p>We may suspend or terminate your account immediately and without notice if you violate these Terms. We may also terminate inactive accounts after extended periods of inactivity.</p>
-
+    <h2>8. Push Notifications</h2>
+    <p>You may receive notifications about event updates, invitations, safety follow-ups and announcements. You can manage these in your device settings.</p>
     <hr />
-
     <h2>9. Disclaimers</h2>
-    <div class="legal-notice">
-      <p class="uppercase">The Service is provided "as is" and "as available" without warranties of any kind, either express or implied. We disclaim all warranties, including merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the Service will be uninterrupted, error-free, or secure.</p>
-    </div>
-
+    <p><strong>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, ACCURACY, AND ANY WARRANTY ARISING FROM COURSE OF DEALING OR USAGE OF TRADE.</strong></p>
+    <p><strong>WE DO NOT WARRANT THAT: THE SERVICE WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE; ANY DEFECT WILL BE CORRECTED; ANY CONTENT OR USER INFORMATION IS ACCURATE OR TRUTHFUL; ANY USER IS WHO THEY CLAIM TO BE; ANY EVENT WILL TAKE PLACE AS DESCRIBED, OR AT ALL; OR THAT THE SERVICE, INCLUDING THE SOS FEATURE, WILL KEEP YOU SAFE.</strong></p>
+    <p><strong>WE MAKE NO WARRANTY, AND ACCEPT NO RESPONSIBILITY, REGARDING THE CONDUCT, IDENTITY, INTENTIONS, LEGITIMACY, OR SAFETY OF ANY USER, OR THE SAFETY, LEGALITY, OR QUALITY OF ANY EVENT OR VENUE.</strong></p>
     <hr />
-
     <h2>10. Limitation of Liability</h2>
-    <div class="legal-notice">
-      <p>To the maximum extent permitted by law, Solika Ventures Pvt Ltd (operating Dayzi) shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, personal injury, or property damage arising from your use of the Service or attendance at events discovered through the Service.</p>
-    </div>
-    <p>To the maximum extent permitted by law, our total aggregate liability for any claim arising out of or relating to the Service shall not exceed the greater of (a) the total amount you paid us, if any, in the twelve (12) months before the event giving rise to the claim, or (b) INR 1,000. Nothing in these Terms limits any liability that cannot be limited or excluded under applicable law, including liability for death or personal injury caused by negligence, fraud, or any statutory consumer rights that cannot be waived.</p>
-
+    <p><strong>10.1</strong> TO THE MAXIMUM EXTENT PERMITTED BY LAW, SOLIKA VENTURES PVT LTD (OPERATING DAYZI), ITS DIRECTORS, OFFICERS, EMPLOYEES, CONTRACTORS, AGENTS AND AFFILIATES SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF PROFITS, REVENUE, DATA, GOODWILL, OR OPPORTUNITY, ARISING OUT OF OR RELATING TO THE SERVICE, <strong>INCLUDING ANY PERSONAL INJURY, EMOTIONAL DISTRESS, DEATH, PROPERTY DAMAGE, OR FINANCIAL LOSS ARISING FROM ANY EVENT, ANY INTERACTION WITH ANOTHER USER, OR ANY USE OR FAILURE OF THE SOS FEATURE</strong>, whether based in contract, tort, negligence, strict liability, or any other theory, and whether or not we were advised of the possibility of such damages.</p>
+    <p><strong>10.2</strong> TO THE MAXIMUM EXTENT PERMITTED BY LAW, OUR TOTAL AGGREGATE LIABILITY FOR ALL CLAIMS ARISING OUT OF OR RELATING TO THE SERVICE SHALL NOT EXCEED THE GREATER OF (A) THE TOTAL AMOUNT YOU PAID US, IF ANY, IN THE TWELVE (12) MONTHS BEFORE THE EVENT GIVING RISE TO THE CLAIM, OR (B) <strong>INR 1,000</strong>.</p>
+    <p><strong>10.3 What we do not exclude.</strong> Nothing in these Terms excludes or limits any liability that cannot lawfully be excluded or limited, including liability for death or personal injury caused by our own negligence, for fraud or fraudulent misrepresentation, or under any statutory consumer right that cannot be waived in your jurisdiction. Where a jurisdiction does not allow the exclusion of certain warranties or the limitation of certain damages, the exclusions and limits above apply only to the extent permitted there.</p>
+    <p><strong>10.4 Basis of the bargain.</strong> You acknowledge that the Service is provided free of charge, that these allocations of risk are a fundamental basis of our agreement, and that we would not provide the Service without them.</p>
     <hr />
-
     <h2>11. Indemnification</h2>
-    <p>You agree to indemnify and hold harmless Solika Ventures Pvt Ltd, its founders, directors, employees, and affiliates from any claims, damages, losses, or expenses (including legal fees) arising from your use of the Service, your content, your attendance at events, or your violation of these Terms.</p>
-
+    <p>You agree to indemnify, defend, and hold harmless Solika Ventures Pvt Ltd, its founders, directors, officers, employees, contractors, agents and affiliates from and against any claims, demands, damages, losses, liabilities, costs and expenses (including reasonable legal fees) arising out of or relating to: your use of the Service; your content; any event you create, host, or attend; your interactions with any other user; your breach of these Terms or of any law; or your violation of any third party's rights.</p>
     <hr />
-
-    <h2>12. Governing Law and Jurisdiction</h2>
-    <p>These Terms are governed by and construed in accordance with the laws of <strong>India</strong>. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts in <strong>Thane, Maharashtra, India</strong>. Nothing in this Section deprives you of the protection of any mandatory consumer-protection laws of your country of residence.</p>
-
+    <h2>12. Suspension and Termination</h2>
+    <h3>12.1 By You</h3>
+    <p>Delete your account at any time from <strong>Privacy Settings → Delete Account</strong>, or via the Delete Account page on dayzi.live. Deletion is processed after a 30-day grace period, during which logging back in restores your account.</p>
+    <h3>12.2 By Us</h3>
+    <p>We may suspend or terminate your account immediately and without notice if you breach these Terms, if we reasonably believe you pose a risk to other users, if required by law, or if we reasonably believe you are under 18. We may also terminate accounts after extended inactivity, or discontinue the Service.</p>
+    <h3>12.3 Effect</h3>
+    <p>Sections 4.4, 4.5, 4.9, 6.1, 9, 10, 11, 13 and 14 survive termination.</p>
     <hr />
-
-    <h2>13. Dispute Resolution &mdash; Arbitration and Class Action Waiver</h2>
-
-    <div class="legal-notice">
-      <p>Please read this section carefully. It affects your legal rights, including your right to bring a claim in court.</p>
-    </div>
-
-    <h3>13.1 Informal Resolution First</h3>
-    <p>Before commencing arbitration, you agree to first contact us at <strong>dayzibusiness@gmail.com</strong> and attempt to resolve the dispute informally for a period of at least 30 days.</p>
-
-    <h3>13.2 Agreement to Arbitrate</h3>
-    <p>To the maximum extent permitted by applicable law, you and Solika Ventures Pvt Ltd agree that any dispute, claim, or controversy arising out of or relating to these Terms or the Service that is not resolved informally shall be settled by <strong>binding arbitration</strong>, rather than in court, except as set out in Section 13.4.</p>
-
-    <h3>13.3 Arbitration Procedure</h3>
-    <p>The arbitration shall be seated in <strong>Thane, Maharashtra, India</strong>, conducted in <strong>English</strong> by a sole arbitrator, in accordance with the <strong>Arbitration and Conciliation Act, 1996</strong> of India. Judgment on the arbitral award may be entered in any court of competent jurisdiction.</p>
-
-    <h3>13.4 Exceptions</h3>
-    <p>Either party may, instead of arbitration: (a) bring an individual claim in a small-claims court or consumer forum where eligible; and (b) seek injunctive or other equitable relief in a court of competent jurisdiction to protect its intellectual property or to prevent unauthorised access to or use of the Service.</p>
-
-    <h3>13.5 Class Action Waiver</h3>
-    <p>To the maximum extent permitted by applicable law, you and Solika Ventures Pvt Ltd agree that each may bring claims against the other <strong>only in an individual capacity</strong>, and not as a plaintiff or class member in any purported class, collective, consolidated, or representative proceeding. The arbitrator may not consolidate the claims of more than one person.</p>
-
-    <h3>13.6 Non-Waivable Rights</h3>
-    <p>Nothing in this Section limits any rights you may have that cannot be waived under the laws of your country or place of residence. If the agreement to arbitrate or the class action waiver is found unenforceable as to you or your dispute (for example, for certain consumers in the European Union, the United Kingdom, Singapore, or India), then that provision shall not apply to you, and such disputes shall instead be resolved by the courts identified in Section 12. The remainder of these Terms shall remain in full force and effect.</p>
-
+    <h2>13. Apple and Google</h2>
+    <p><strong>13.1 Apple (iOS).</strong> These Terms are between you and Solika Ventures Pvt Ltd only, and <strong>not with Apple Inc.</strong> Your use of the App on an Apple device is also subject to Apple's <strong>Licensed Application End User License Agreement</strong>, available at <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">https://www.apple.com/legal/internet-services/itunes/dev/stdeula/</a>. Where those terms conflict with ours, Apple's standard EULA governs the licence to use the App itself. Apple has no obligation to furnish maintenance or support for the App, and no warranty obligation. <strong>We, not Apple, are responsible for the App, for any product liability or legal-compliance claim relating to it, and for addressing any third-party intellectual-property claim.</strong> <strong>Apple and its subsidiaries are third-party beneficiaries of these Terms and may enforce them against you.</strong></p>
+    <p><strong>13.2 Google (Android).</strong> Your use of the App obtained from Google Play is also subject to the Google Play Terms of Service. Google is not a party to these Terms and is not responsible for the App.</p>
     <hr />
-
-    <h2>14. Changes to Terms</h2>
-    <p>We may update these Terms from time to time. We will notify you of significant changes via in-app notification or on the Site. Continued use of the Service after changes constitutes acceptance of the updated Terms.</p>
-
+    <h2>14. Governing Law, Disputes, and Arbitration</h2>
+    <p><strong>PLEASE READ THIS SECTION CAREFULLY. IT AFFECTS YOUR LEGAL RIGHTS, INCLUDING YOUR RIGHT TO BRING A CLAIM IN COURT.</strong></p>
+    <h3>14.1 Governing Law and Courts</h3>
+    <p>These Terms are governed by the laws of <strong>India</strong>. Subject to Section 14.3, disputes are subject to the exclusive jurisdiction of the courts in <strong>Thane, Maharashtra, India</strong>.</p>
+    <h3>14.2 Informal Resolution First</h3>
+    <p>Before commencing arbitration, contact us at <strong>dayzibusiness@gmail.com</strong> and attempt to resolve the dispute informally for at least <strong>30 days</strong>.</p>
+    <h3>14.3 Agreement to Arbitrate</h3>
+    <p>To the maximum extent permitted by applicable law, any dispute not resolved informally shall be settled by <strong>binding arbitration</strong> rather than in court, except as set out in Section 14.5. Arbitration shall be seated in <strong>Thane, Maharashtra, India</strong>, conducted in <strong>English</strong> by a sole arbitrator under the <strong>Arbitration and Conciliation Act, 1996</strong> of India. Judgment on the award may be entered in any court of competent jurisdiction.</p>
+    <h3>14.4 Class Action Waiver</h3>
+    <p>To the maximum extent permitted by applicable law, you and Solika Ventures Pvt Ltd may bring claims against the other <strong>only in an individual capacity</strong>, and not as a plaintiff or class member in any purported class, collective, consolidated, or representative proceeding. The arbitrator may not consolidate the claims of more than one person.</p>
+    <h3>14.5 Exceptions</h3>
+    <p>Either party may instead: (a) bring an individual claim in a small-claims court or consumer forum where eligible; and (b) seek injunctive or equitable relief in a court of competent jurisdiction to protect intellectual property or prevent unauthorised access to the Service.</p>
+    <h3>14.6 Non-Waivable Rights</h3>
+    <p>Nothing here limits rights that cannot be waived under the law of your country or place of residence. If the agreement to arbitrate or the class action waiver is unenforceable as to you or your dispute — as may be the case for certain consumers in the European Union, the United Kingdom, Singapore, or India — that provision does not apply to you, and such disputes shall be resolved by the courts in Section 14.1. The remainder of these Terms remains in full force.</p>
     <hr />
-
-    <h2>15. Severability</h2>
-    <p>If any provision of these Terms is found to be unenforceable, the remaining provisions shall continue in full force and effect.</p>
-
+    <h2>15. Force Majeure</h2>
+    <p>We are not liable for any failure or delay caused by events beyond our reasonable control, including acts of God, natural disaster, epidemic, war, terrorism, civil unrest, strikes, government action, network or power failure, or the failure of any third-party provider, platform, or telecommunications service.</p>
     <hr />
+    <h2>16. General</h2>
+    <p><strong>16.1 Changes.</strong> We may update these Terms. We will notify you of significant changes by in-app notification or on the Site. Continued use after changes take effect constitutes acceptance.</p>
+    <p><strong>16.2 Severability.</strong> If any provision is unenforceable, the rest remains in full force, and the unenforceable provision is modified to the minimum extent needed to make it enforceable.</p>
+    <p><strong>16.3 No waiver.</strong> Our failure to enforce any provision is not a waiver of it.</p>
+    <p><strong>16.4 Assignment.</strong> You may not assign these Terms. We may assign them in connection with a merger, acquisition, or sale of assets.</p>
+    <p><strong>16.5 Entire agreement.</strong> These Terms, together with the Privacy Policy, Community Guidelines, and Child Safety Standards, are the entire agreement between you and us regarding the Service.</p>
+    <hr />
+    <h2>17. Contact Us</h2>
+    <p><strong>Solika Ventures Pvt Ltd</strong> B. No. 1, R. No. 403, Sarvodaya Galaxy, Nr. Kopar, Vishnunagar, Kalyan, Thane – 421202, Maharashtra, India Email: <strong>dayzibusiness@gmail.com</strong></p>
 
-    <h2>16. Contact Us</h2>
-    <p>Questions about these Terms? Contact us:</p>
-    <p><strong>Solika Ventures Pvt Ltd</strong><br>
-    B. No. 1, R. No. 403, Sarvodaya Galaxy, Nr. Kopar, Vishnunagar, Kalyan, Thane &ndash; 421202, Maharashtra, India<br>
-    <strong>Email:</strong> <a href="mailto:dayzibusiness@gmail.com">dayzibusiness@gmail.com</a></p>
+    <p class="footer">Dayzi &copy; 2026 &middot; Solika Ventures Pvt Ltd</p>
   </div>
-
-  <footer>
-    <p>Dayzi &copy; 2026</p>
-  </footer>
 </body>
 </html>

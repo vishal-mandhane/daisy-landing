@@ -6,10 +6,9 @@
   <meta name="theme-color" content="#0a0a0a" />
   <meta name="description" content="Dayzi Privacy Policy" />
   <title>Privacy Policy - Dayzi</title>
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="icon" href="/favicon.ico" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       background-color: #0a0a0a;
       color: #ffffff;
@@ -17,141 +16,36 @@
       line-height: 1.7;
       padding: 0;
     }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 80px 24px 60px;
-    }
-
-    @media (max-width: 640px) {
-      .container { padding: 48px 16px 40px; }
-    }
-
+    .container { max-width: 800px; margin: 0 auto; padding: 80px 24px 60px; }
+    @media (max-width: 640px) { .container { padding: 48px 16px 40px; } }
     .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #a855f7;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 40px;
-      transition: opacity 0.2s;
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #a855f7; text-decoration: none; font-size: 14px;
+      font-weight: 500; margin-bottom: 40px; transition: opacity 0.2s;
     }
     .back-link:hover { opacity: 0.8; }
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-      line-height: 1.2;
+    h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; line-height: 1.2; }
+    @media (max-width: 640px) { h1 { font-size: 1.75rem; } }
+    .updated { color: #71717a; font-size: 14px; margin-bottom: 48px; }
+    h2 { font-size: 1.25rem; font-weight: 700; margin-top: 40px; margin-bottom: 12px; color: #e4e4e7; }
+    h3 { font-size: 1rem; font-weight: 600; margin-top: 24px; margin-bottom: 8px; color: #d4d4d8; }
+    p { color: #a1a1aa; font-size: 16px; margin-bottom: 16px; }
+    ul, ol { color: #a1a1aa; font-size: 16px; margin-bottom: 16px; padding-left: 24px; }
+    li { margin-bottom: 8px; }
+    strong { color: #e4e4e7; }
+    a { color: #a855f7; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    hr { border: none; border-top: 1px solid #27272a; margin: 40px 0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; color: #d4d4d8; }
+    blockquote {
+      border-left: 3px solid #a855f7; padding: 4px 0 4px 16px;
+      margin: 24px 0; background: rgba(168, 85, 247, 0.06);
     }
-    @media (max-width: 640px) {
-      h1 { font-size: 1.75rem; }
-    }
-
-    .updated {
-      color: #71717a;
-      font-size: 14px;
-      margin-bottom: 48px;
-    }
-
-    h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-top: 40px;
-      margin-bottom: 12px;
-      color: #e4e4e7;
-    }
-
-    h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-top: 24px;
-      margin-bottom: 8px;
-      color: #d4d4d8;
-    }
-
-    p {
-      color: #a1a1aa;
-      font-size: 16px;
-      margin-bottom: 16px;
-    }
-
-    ul, ol {
-      color: #a1a1aa;
-      font-size: 16px;
-      margin-bottom: 16px;
-      padding-left: 24px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    a {
-      color: #a855f7;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid #27272a;
-      margin: 40px 0;
-    }
-
-    strong {
-      color: #e4e4e7;
-    }
-
-    .table-wrap { overflow-x: auto; margin-bottom: 16px; }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-    }
-
-    th, td {
-      border: 1px solid #27272a;
-      padding: 10px 12px;
-      text-align: left;
-      vertical-align: top;
-      color: #a1a1aa;
-    }
-
-    th {
-      color: #e4e4e7;
-      font-weight: 600;
-      background-color: rgba(168, 85, 247, 0.08);
-    }
-
-    .highlight {
-      background-color: rgba(168, 85, 247, 0.1);
-      border: 1px solid rgba(168, 85, 247, 0.3);
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin: 24px 0;
-    }
-    .highlight p { margin-bottom: 0; color: #c084fc; }
-
-    footer {
-      text-align: center;
-      padding: 32px 24px;
-      border-top: 1px solid #27272a;
-      margin-top: 60px;
-    }
-
-    footer p {
-      color: #52525b;
-      font-size: 14px;
-      margin: 0;
-    }
+    blockquote p { margin-bottom: 8px; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #27272a; vertical-align: top; color: #a1a1aa; }
+    th { color: #e4e4e7; font-weight: 600; border-bottom-color: #3f3f46; }
+    .footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid #27272a; color: #52525b; font-size: 13px; }
   </style>
 </head>
 <body>
@@ -159,305 +53,296 @@
     <a href="/" class="back-link">&larr; Back to Dayzi</a>
 
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 25 July 2026</p>
+    <p class="updated">Last updated: 21 September 2026</p>
 
     <p>Dayzi ("<strong>Dayzi</strong>", "<strong>we</strong>", "<strong>us</strong>", "<strong>our</strong>") is a social events application that helps people discover, create, and join local events. Dayzi is owned and operated by <strong>Solika Ventures Pvt Ltd</strong>, a company incorporated in India, which is the <strong>data controller</strong> (and, where applicable, the "data fiduciary" or "business") responsible for your personal data.</p>
-
-    <p>This Privacy Policy explains what personal data we process, why we process it, the legal bases we rely on, how long we keep it, who we share it with, how we protect it, and the rights available to you. It applies to:</p>
+    <p>This Privacy Policy explains what personal data we process, why, the legal bases we rely on, how long we keep it, who we share it with, how we protect it, and what rights you have. It applies to:</p>
     <ul>
-      <li>the <strong>Dayzi mobile application</strong> (the "<strong>App</strong>"); and</li>
-      <li>the <strong>Dayzi website</strong> at <strong>dayzi.live</strong> (the "<strong>Site</strong>"), including our waitlist / early-registration sign-up.</li>
+    <li>the <strong>Dayzi mobile application</strong> (the "<strong>App</strong>"); and</li>
+    <li>the <strong>Dayzi website</strong> at <strong>dayzi.live</strong> (the "<strong>Site</strong>"), including our waitlist / early-registration sign-up.</li>
     </ul>
-
-    <p>We process your personal data only where we have a valid legal basis to do so. Some processing is necessary to provide Dayzi under our Terms; some is based on your consent; some is required by law; and some is based on our legitimate interests, such as keeping Dayzi safe and preventing abuse.</p>
-
-    <div class="highlight">
-      <p>Where we rely on your consent, we will ask for it separately, and you may withdraw it at any time through the App settings or by contacting us &mdash; this is as easy as giving it, and does not affect processing already carried out before withdrawal.</p>
-    </div>
-
-    <p>For our full lawful-basis model, see Section 2. If you do not agree with this policy, please do not use Dayzi.</p>
-
+    <p>We process your personal data only where we have a valid legal basis. Some processing is necessary to provide Dayzi under our Terms; some is based on your consent; some is required by law; and some rests on our legitimate interests, such as keeping Dayzi safe. Where we rely on consent, we ask for it separately and you may withdraw it at any time, as easily as you gave it.</p>
+    <p>If you do not agree with this policy, please do not use Dayzi.</p>
     <hr />
-
     <h2>1. Information We Collect</h2>
-    <p>Mandatory fields are those required to create and operate your account (marked <strong>required</strong> below). All other fields are <strong>optional</strong> and are provided at your choice; you can add, change, or remove them at any time from your profile.</p>
-
+    <p>Fields marked <strong>required</strong> are needed to create and operate your account. All others are <strong>optional</strong> and you can add, change, or remove them at any time.</p>
     <h3>1.1 Information You Provide</h3>
     <ul>
-      <li><strong>Account information (required):</strong> first name, last name, email address, password (stored only as a secure hash), age / date of birth (used for age verification and the nearby-events age range), username</li>
-      <li><strong>Account information (optional):</strong> gender</li>
-      <li><strong>Profile information (optional):</strong> profile photo, bio ("about me"), favourite song, favourite show, user vibes, profile prompts</li>
-      <li><strong>Event information:</strong> event title, description, category, general location / area, date/time, cover image</li>
-      <li><strong>Communications:</strong> messages sent in event group chats, event join requests, and support or grievance requests you send to us</li>
-      <li><strong>Preferences:</strong> interests, privacy and visibility settings, notification preferences, theme preference</li>
-      <li><strong>Face / identity verification (optional):</strong> if you choose to complete face verification, we process a selfie image (with a gesture for liveness) to confirm you are a real, unique person (see Section 3.4)</li>
+    <li><strong>Account information (required):</strong> first name, last name, email address, password (stored only as a secure hash), age, username</li>
+    <li><strong>Account information (optional):</strong> gender</li>
+    <li><strong>Profile information (optional):</strong> profile photo, bio ("about me"), favourite song, favourite show, user vibes, profile prompts, profession, and a link to your Instagram profile</li>
+    <li><strong>Event information:</strong> event title, description, category, area/location, date and time, cover image</li>
+    <li><strong>Communications:</strong> messages you send in event group chats, event join requests, appeals, bug reports, and support or grievance requests</li>
+    <li><strong>Safety contact (required to use the App, see Section 3B):</strong> the name and phone number of one trusted contact. <strong>This is stored only on your own device and is never transmitted to us.</strong></li>
+    <li><strong>Face verification (optional):</strong> if you choose to verify, we process a selfie (with a gesture for liveness) together with your profile photo (see Section 3)</li>
+    <li><strong>Waitlist (Site):</strong> the email address you submit on dayzi.live</li>
     </ul>
-
     <h3>1.2 Information Collected Automatically</h3>
     <ul>
-      <li><strong>Device and connection information:</strong> device type, operating system version, app version, IP address, and general network information</li>
-      <li><strong>Approximate location:</strong> city and country, and the source used to derive it (device location services, where you grant permission, or a city you select manually). We do <strong>not</strong> collect or store precise GPS coordinates continuously or in the background (see Section 5)</li>
-      <li><strong>Usage data:</strong> events viewed, joined, and created; app interactions; session duration</li>
-      <li><strong>Logs and security events:</strong> authentication events, access logs, rate-limit and abuse-prevention signals, and other security telemetry</li>
-      <li><strong>Moderation results:</strong> the outcome of automated content moderation (for example, whether an image or text was flagged), and verification status including limited records of failed verification attempts (see Section 3)</li>
-      <li><strong>Push notification tokens:</strong> Firebase Cloud Messaging (FCM) device tokens used to deliver push notifications</li>
-      <li><strong>Crash and performance data:</strong> app crash logs and performance metrics (via Firebase Crashlytics)</li>
-      <li><strong>Analytics data:</strong> app usage patterns (via Firebase Analytics). The dayzi.live website does not currently use product analytics.</li>
+    <li><strong>Device and connection information:</strong> device type, manufacturer and model, operating system version, app version and build, device locale, IP address, and general network information</li>
+    <li><strong>Location:</strong> your city and country, and how they were derived (device location services, where you grant permission, or a city you select manually). Coordinates saved for your profile or for an event are <strong>rounded to roughly one kilometre</strong> before storage, so they identify an area and not an address. We do <strong>not</strong> track your location continuously or in the background. <strong>The one exception is the SOS safety feature, which records your exact location at the moment you press it</strong> (see Section 3B).</li>
+    <li><strong>Usage data:</strong> events viewed, joined, and created; app interactions; screen names; session duration</li>
+    <li><strong>Advertising identifier:</strong> our analytics component (Firebase Analytics) collects the <strong>Android Advertising ID</strong> on Android devices. We do not use it for advertising, do not sell or share it, and run no advertising SDKs. It is disclosed here because it is technically collected.</li>
+    <li><strong>Analytics identity:</strong> analytics events are associated with your Dayzi account identifier. Our in-app analytics are therefore <strong>not anonymous</strong>.</li>
+    <li><strong>Logs and security events:</strong> authentication events, access logs, rate-limit and abuse-prevention signals, and other security telemetry</li>
+    <li><strong>Moderation results:</strong> the outcome of automated content moderation, content hashes of images and text that have been checked, and verification status including limited records of failed attempts</li>
+    <li><strong>Push notification tokens:</strong> Firebase Cloud Messaging (FCM) device tokens</li>
+    <li><strong>Crash and performance data:</strong> crash logs and performance metrics, via Firebase Crashlytics</li>
+    <li><strong>Motion sensor (on-device only):</strong> the App reads the accelerometer so that shaking your phone can open the bug-report tool. This stream stays on your device and is never transmitted.</li>
+    <li><strong>Bug reports:</strong> if you submit one, we collect a <strong>screenshot of your screen at that moment</strong>, your device model and OS, the app version, your locale, and your email address. A screenshot may capture whatever was on screen, including another person's message, so please review it before sending.</li>
     </ul>
-
     <h3>1.3 Information From Third Parties</h3>
+    <p>If you sign in with <strong>Google</strong> or <strong>Apple</strong>, we receive the basic profile information you authorise, including the provider's user identifier and, where you permit it, your name and email address.</p>
+    <h3>1.4 Information We Deliberately Do Not Collect</h3>
     <ul>
-      <li>If you sign in using a third-party service (e.g., <strong>Google</strong> or <strong>Apple</strong>), we receive basic profile information you authorise, including the authentication provider's user identifier and, where you permit it, your name and email.</li>
+    <li><strong>Your trusted contact's phone number.</strong> It stays on your device. We never receive it, store it, or contact that person ourselves.</li>
+    <li><strong>Your own phone number.</strong> Dayzi does not require or store one.</li>
+    <li><strong>Continuous or background GPS.</strong> Your exact location is recorded only at the moment you press SOS.</li>
+    <li><strong>Payment card or bank details.</strong> Dayzi does not currently take payments.</li>
+    <li><strong>Sensitive attributes by inference.</strong> We do not use automated systems to infer religion, political views, sexual orientation, caste, health, or ethnicity.</li>
     </ul>
-
-    <h3>1.4 Information We Deliberately Do <em>Not</em> Collect or Store</h3>
-    <p>We follow a data-minimisation approach. In particular:</p>
-    <ul>
-      <li><strong>Phone numbers:</strong> Dayzi does <strong>not</strong> collect or store your phone number, and does not require one to use the service.</li>
-      <li><strong>SOS / emergency contact number:</strong> the App includes an optional <strong>SOS safety feature</strong>. If you choose to use it, you enter an emergency contact number (for example, a parent's or trusted person's number). <strong>This number is stored only locally on your own device and is never transmitted to, or stored on, our servers.</strong> When you trigger SOS, the App opens WhatsApp on your device so that <em>you</em> can send your message and location to that contact directly. We do not receive, process, or retain the emergency contact number, the SOS message, or the location shared through it. Because this exchange happens through WhatsApp, WhatsApp's own privacy policy applies to it (see also Section 5 and the Terms).</li>
-      <li><strong>Precise, continuous GPS location:</strong> see Section 5.</li>
-      <li><strong>Payment card details:</strong> Dayzi does not currently take payments and does not collect card or bank details through the App or Site.</li>
-      <li><strong>Special-category data by inference:</strong> we do not use automated systems to infer sensitive attributes such as religion, political views, sexual orientation, caste, health, or ethnicity (see Section 3.6).</li>
-    </ul>
-
     <hr />
+    <h2>2. How We Use Your Information, and Our Legal Bases</h2>
+    <p>We do <strong>not</strong> sell your personal data, and we do <strong>not</strong> use it for third-party or cross-context behavioural advertising.</p>
+    <table>
+    <thead><tr><th>Purpose</th><th>Data used</th><th>Legal basis (GDPR / equivalent)</th></tr></thead>
+    <tbody>
+    <tr><td>Create and operate your account; authenticate you</td><td>Account info, auth provider ID, device and log data</td><td>Performance of our contract</td></tr>
+    <tr><td>Display your profile; enable events, join requests, and group chats</td><td>Profile, event, communications, approximate location</td><td>Performance of our contract</td></tr>
+    <tr><td>Show relevant nearby events within your chosen age range</td><td>Approximate location, age, preferences</td><td>Performance of contract / legitimate interests</td></tr>
+    <tr><td>Keep Dayzi safe: detect and prevent abuse, spam, fake events, fraud, and unlawful content</td><td>Content, moderation results, logs, verification status</td><td>Legitimate interests; legal obligation</td></tr>
+    <tr><td>Operate the SOS safety feature and follow up on a check-in</td><td>Account, event, time, status, and your precise location at the moment you press SOS</td><td>Your explicit act of pressing SOS (consent); <strong>vital interests</strong> of you or another person</td></tr>
+    <tr><td>Confirm you are a real, unique person (face verification)</td><td>Selfie, profile photo, verification status</td><td><strong>Explicit consent</strong> (special-category / biometric data)</td></tr>
+    <tr><td>Check that an uploaded profile photo contains a face</td><td>Profile photo</td><td>Legitimate interests (preventing fake and misleading profiles)</td></tr>
+    <tr><td>Generate an optional AI event description at your request</td><td>The event details you provide</td><td>Consent (a feature you trigger)</td></tr>
+    <tr><td>Send transactional notifications</td><td>Account info, FCM token</td><td>Performance of contract</td></tr>
+    <tr><td>Send promotional or broadcast messages and waitlist updates</td><td>Email, FCM token, waitlist metadata</td><td>Consent (withdrawable)</td></tr>
+    <tr><td>Diagnose crashes, measure performance, improve Dayzi</td><td>Crash, performance, analytics, bug-report data</td><td>Legitimate interests</td></tr>
+    <tr><td>Comply with law; respond to legal requests; establish or defend claims</td><td>Relevant account and safety data</td><td>Legal obligation; legitimate interests</td></tr>
+    </tbody>
+    </table>
 
-    <h2>2. How We Use Your Information and Our Legal Bases</h2>
-    <p>We use your personal data only for the purposes below, and only where a lawful basis applies. <strong>We do not sell your personal data, and we do not use it for third-party advertising or cross-context behavioural advertising.</strong></p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr><th>Purpose</th><th>Data used</th><th>Legal basis (GDPR / equivalent)</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Create and operate your account; authenticate you</td><td>Account information, auth provider ID, device/logs</td><td>Performance of our contract with you</td></tr>
-          <tr><td>Display your profile and enable event creation, discovery, join requests, and group chats</td><td>Profile, event, communications, approximate location</td><td>Performance of our contract with you</td></tr>
-          <tr><td>Show relevant nearby events within your chosen age range</td><td>Approximate location, age, interests</td><td>Performance of contract / legitimate interests</td></tr>
-          <tr><td>Keep Dayzi safe: detect and prevent abuse, spam, fake events, fraud, and inappropriate content</td><td>Content, moderation results, logs, verification status</td><td>Legitimate interests; compliance with legal obligations</td></tr>
-          <tr><td>Confirm you are a real, unique person (face verification)</td><td>Selfie + profile photo, verification status</td><td><strong>Explicit consent</strong> (special-category / biometric data)</td></tr>
-          <tr><td>Generate an optional AI event description at your request</td><td>Event details you provide</td><td>Consent (optional feature you trigger)</td></tr>
-          <tr><td>Send transactional notifications (event updates, requests, approvals)</td><td>Account info, FCM token</td><td>Performance of contract</td></tr>
-          <tr><td>Send promotional / broadcast messages and waitlist updates</td><td>Email, FCM token, waitlist metadata</td><td>Consent (withdrawable at any time)</td></tr>
-          <tr><td>Diagnose crashes, measure performance, and improve Dayzi</td><td>Crash, performance, and analytics data</td><td>Legitimate interests</td></tr>
-          <tr><td>Comply with law; respond to legal requests; establish or defend legal claims</td><td>Relevant account and safety data</td><td>Compliance with legal obligations; legitimate interests</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p>Where we rely on <strong>legitimate interests</strong>, we balance those interests against your rights and freedoms, and you may object at any time (see Section 8). Where we rely on <strong>consent</strong>, you may withdraw it at any time without affecting the lawfulness of processing before withdrawal.</p>
-
+    <p>Where we rely on <strong>legitimate interests</strong> we balance them against your rights, and you may object (Section 8). Where we rely on <strong>consent</strong> you may withdraw it at any time, without affecting processing already carried out.</p>
     <hr />
-
-    <h2>3. AI, Content Moderation, and Automated Processing</h2>
-    <p>To keep Dayzi safe we use automated tools. These tools assist our safety decisions; they can make mistakes, and &mdash; except where the law allows automated enforcement &mdash; they do not by themselves permanently suspend or terminate your account without the possibility of human review (see Section 3.6).</p>
-
+    <h2>3. AI, Content Moderation, Biometrics, and Automated Processing</h2>
+    <p>These tools assist our safety decisions. They can make mistakes, and they do not by themselves permanently terminate your account without the possibility of human review (Section 3.7).</p>
     <h3>3.1 Image Moderation</h3>
-    <p>Uploaded images (profile photos, event cover images) are analysed by <strong>SightEngine</strong> to detect inappropriate content (for example, nudity or violence). Images flagged as inappropriate may be automatically blocked or removed. You may appeal an image decision (see Section 3.6).</p>
-
+    <p>Profile photos and event cover images are analysed by <strong>SightEngine</strong> to detect inappropriate content such as nudity or violence. Flagged images may be blocked or removed. Where SightEngine is unavailable, <strong>Google Gemini</strong> may perform the same check as a fallback. We store a hash of images that pass or fail, not the moderation scores.</p>
     <h3>3.2 Text Moderation</h3>
-    <p>Event names, descriptions, and other text may be analysed by <strong>Google Gemini API (via Google Cloud)</strong> to detect offensive, hateful, or inappropriate language.</p>
-
+    <p>Event names and descriptions, and free text on your profile — your "about me", profile prompt answers, profession and social links — are analysed by <strong>Google Gemini API (via Google Cloud)</strong> to detect offensive, hateful, or inappropriate language. Profile text is checked after it is saved; text that fails is removed and you are notified.</p>
     <h3>3.3 Optional AI-Generated Descriptions</h3>
-    <p>We offer an <strong>optional</strong> feature that uses <strong>Google Gemini API (via Google Cloud)</strong> to generate an event description from details you provide. This runs only when you choose to use it.</p>
-
-    <h3>3.4 Face Verification and Biometric Processing</h3>
-    <p>Face verification is <strong>optional</strong> and is used only to confirm that you are a real, unique person and to reduce fake accounts. It is <strong>not</strong> a background check and is <strong>not</strong> a guarantee of anyone's identity, character, or safety.</p>
+    <p>An <strong>optional</strong> feature uses <strong>Google Gemini API</strong> to draft an event description from details you provide. It runs only when you choose it.</p>
+    <h3>3.4 Face Detection on Profile Photos — this applies to everyone</h3>
+    <p>When you upload a <strong>profile photo</strong>, it is sent to <strong>Amazon Rekognition (Amazon Web Services, region ap-south-1, Mumbai)</strong> to check whether it contains a human face. This is a <strong>face-detection</strong> check — it counts faces. It does not identify you and does not create a faceprint. It runs on every profile photo, including for people who never use face verification. Today it is advisory only and does not block your upload. We keep a record only where no face was found.</p>
+    <h3>3.5 Face Verification — optional, and biometric</h3>
+    <p>Face verification is <strong>optional</strong>. It confirms you are a real, unique person and reduces fake accounts. It is <strong>not</strong> a background check and is <strong>not</strong> a guarantee of anyone's identity, character, or safety.</p>
     <ul>
-      <li><strong>Explicit consent:</strong> because a facial image used to identify a person is special-category / biometric data, we ask for your <strong>explicit consent</strong> before processing your selfie and profile photo for identity/liveness verification.</li>
-      <li><strong>What happens to your selfie:</strong> your selfie is sent to <strong>Google Gemini API (via Google Cloud)</strong> for the comparison and is <strong>not stored by Dayzi after the check</strong>. We retain only your <strong>verification status</strong> (pass/fail), the <strong>verification date</strong>, and <strong>limited audit logs</strong> of attempts for security and abuse prevention.</li>
-      <li><strong>No secondary use:</strong> we do not use face-verification data for advertising, profiling, or any unrelated purpose.</li>
-      <li><strong>Effect of refusal:</strong> verification is optional; declining it does not block general use of Dayzi, though it may limit specific trust-and-safety features.</li>
-      <li><strong>Human review:</strong> if verification fails, you may contact us to request review by a person (see Section 3.6). You may also ask us to delete your verification status, unless we need to retain it for safety, fraud-prevention, or legal reasons.</li>
+    <li><strong>Explicit consent.</strong> A facial image used to identify a person is special-category / biometric data. We ask for your <strong>explicit consent</strong> before processing your selfie and profile photo for this purpose.</li>
+    <li><strong>Who performs the comparison.</strong> Your selfie and your profile photo are sent to <strong>Amazon Rekognition (AWS, ap-south-1, Mumbai)</strong>, which compares the two faces and returns a similarity score. Your selfie is then sent to <strong>Google Gemini API</strong> for a separate liveness check, confirming you performed the requested gesture. <strong>Amazon Rekognition, not Google, performs the face match.</strong></li>
+    <li><strong>What we keep.</strong> Neither image is stored by Dayzi after the check. We retain your verification status (pass or fail), the date, the method used, and limited audit logs of attempts for security and abuse prevention.</li>
+    <li><strong>One exception.</strong> If verification fails and you <strong>choose to appeal</strong>, the selfie from that attempt is uploaded with your appeal so a person can review it against your profile photo. It is deleted once the appeal is resolved.</li>
+    <li><strong>No secondary use.</strong> Face data is never used for advertising, profiling, model training, or any unrelated purpose.</li>
+    <li><strong>Refusal.</strong> Declining verification does not block general use of Dayzi, though it may limit specific trust-and-safety features.</li>
     </ul>
-
-    <h3>3.5 AI Vendor Data Terms</h3>
-    <p>We use <strong>Google Gemini API as a paid service through a Google Cloud project</strong>. Under Google's paid API terms, Google does not use submitted prompts, images, or responses to train or improve its products, and processes such data under its applicable Data Processing Addendum. We do not use unpaid Gemini services for moderation, description generation, or face verification. <strong>SightEngine</strong> processes images under its data-processing terms and does not use your images to train models for its own purposes.</p>
-
-    <h3>3.6 Human Review, Appeals, and No Sensitive Inference</h3>
-    <p>If your content is removed, restricted, or flagged, or if verification fails, you may request <strong>human review</strong> by contacting <strong>dayzibusiness@gmail.com</strong>. We will review the decision and respond within a reasonable period. Automated moderation assists our safety decisions but does not make final, irreversible account decisions without the possibility of review. <strong>We do not use AI moderation to infer sensitive attributes such as religion, political views, sexual orientation, caste, health, or ethnicity.</strong></p>
-
+    <h3>3.6 AI and Vendor Data Terms</h3>
+    <p>We use the <strong>Google Gemini API as a paid service through a Google Cloud project</strong>. Under Google's paid API terms, Google does not use submitted prompts, images, or responses to train or improve its products, and processes that data under its applicable Data Processing Addendum. <strong>We do not use unpaid Gemini services</strong> for moderation, description generation, or verification.</p>
+    <p><strong>Amazon Web Services</strong> processes images submitted to Amazon Rekognition under the AWS Service Terms and its Data Processing Addendum. Under those terms AWS may, by default, use content submitted to its AI services to improve those services, including for model training. <strong>We have opted out.</strong> An organisation-wide AI services opt-out policy is in force across our AWS account, so <strong>your photos and selfies are not used for service improvement or model training</strong>, and AWS has deleted any such content it previously held for that purpose.</p>
+    <p><strong>SightEngine</strong> processes images under its data-processing terms. It trains its models only on media a customer voluntarily submits through its feedback mechanism. <strong>We do not use that mechanism</strong>, so your images are not used to train SightEngine's models.</p>
+    <h3>3.7 Human Review and Appeals</h3>
+    <p>If your content is removed, restricted, or flagged, or if verification fails, you may request <strong>human review</strong> at <strong>dayzibusiness@gmail.com</strong> or through the in-app appeal flow. We do not use AI moderation to infer sensitive attributes.</p>
     <hr />
-
+    <h2>3A. What Other People, and the Public, Can See</h2>
+    <p>Dayzi is a social product, so some information is shared by design. Please read this section rather than relying on assumptions.</p>
+    <ul>
+    <li><strong>Visible to any signed-in Dayzi user:</strong> your first and last name, username, profile photo, age, gender, vibes, prompts, profession, Instagram link (if set), ghost count, and the events you are attending or have attended.</li>
+    <li><strong>Visible on the open internet, with no sign-in:</strong> if you <strong>create</strong> an event, our public event feed publishes the event's title, description, area, city, date, approximate coordinates and cover image, <strong>together with your name, username, account identifier and profile photo</strong>. Anyone with the feed address can read it. If you do not want this, do not create public events.</li>
+    <li><strong>Visible to other members of an event group:</strong> everything you post in that group chat.</li>
+    <li><strong>Visibility settings.</strong> "Show Attending Events" and "Show Past Events" control whether those rows are <strong>displayed</strong> in the Dayzi app. They are display preferences, not access restrictions. Treat anything you put on your profile as visible.</li>
+    <li><strong>Ghost counter.</strong> Your ghost count is shown on your public profile and cannot currently be hidden.</li>
+    <li><strong>Peer voting.</strong> After an event ends, attendees may vote on who did not turn up. These voting records are stored in our database and are <strong>not currently restricted from other signed-in users</strong>. Do not treat a vote as anonymous.</li>
+    </ul>
+    <h3>Your controls</h3>
+    <ul>
+    <li><strong>Location.</strong> You may disable location access at any time in your device settings, or set your city manually instead. Turning it off limits how well we can show events near you, and it will prevent SOS from attaching a location.</li>
+    <li><strong>Visibility.</strong> "Show Attending Events" and "Show Past Events" are in Privacy Settings — see the caveat above about what they control.</li>
+    <li><strong>Your profile.</strong> Anything optional can be cleared at any time in <strong>Edit Profile</strong>, including your profession and your Instagram link.</li>
+    <li><strong>Blocking.</strong> You can block any user from their profile. Blocked users cannot interact with you.</li>
+    <li><strong>Notifications.</strong> Manage these in your device settings.</li>
+    </ul>
+    <hr />
+    <h2>3B. Safety Check-In (SOS) — please read this carefully</h2>
+    <p>Dayzi includes a safety feature ("<strong>SOS</strong>") to help you reach one trusted person quickly if an event feels unsafe.</p>
+    <ul>
+    <li><strong>Setting up a trusted contact is required to use Dayzi.</strong> You cannot finish onboarding without saving one name and one phone number. <strong>Whether you ever press SOS is entirely your choice.</strong></li>
+    <li><strong>Your trusted contact stays on your device.</strong> The name and number are stored only in your phone's local storage. We do not upload, receive, or store them, and we never contact that person ourselves.</li>
+    <li><strong>How an alert is sent.</strong> Pressing SOS opens <strong>WhatsApp</strong> on your phone with a pre-filled message and a map link. <strong>You</strong> send it, from <strong>your own</strong> WhatsApp account. We are not a party to that message. WhatsApp's own privacy policy applies to it.</li>
+    <li><strong>We do record a safety case.</strong> Pressing SOS creates a record on our servers containing: your account, the event you were attending (if any), the time, the status (open, safe, or no response), your device platform and app version, and <strong>your device's precise location at that moment, together with its accuracy</strong>. Unlike every other location in the App, <strong>this one is not rounded</strong>, because its purpose is to let someone find you. It contains no phone numbers.</li>
+    <li><strong>Who sees it.</strong> Dayzi's safety team can view open cases, including the location, in order to follow up. This is an <strong>internal trust-and-safety record</strong>. It is <strong>not</strong> a report to the police or any other authority, and we do not forward it to one as a matter of course. We would disclose it only where Section 4.3 applies.</li>
+    <li><strong>Retention.</strong> The precise location is erased <strong>30 days after the SOS was triggered</strong>. The case record itself is deleted <strong>90 days after it was triggered</strong>. Everything is deleted if you delete your account.</li>
+    <li><strong>Follow-up.</strong> After you press SOS we may ask "Are you safe?" in the App and by push notification, and we will ask again before you join or create another event until you answer.</li>
+    <li><strong>SOS is not an emergency service.</strong> It alerts a person you chose. It does <strong>not</strong> contact the police, an ambulance, or any emergency service, and nobody from Dayzi is dispatched to you. <strong>In an emergency, call your local emergency number first</strong> — for example 112 in India and the EU, 911 in the United States, 999 in the United Kingdom, 000 in Australia.</li>
+    <li><strong>It can fail.</strong> SOS depends on your battery, your signal, your device's location permission, WhatsApp being installed and working, you tapping send, and your contact seeing the message. <strong>If you close WhatsApp without tapping send, nobody is alerted</strong>, even though a case was logged with us. Do not rely on SOS as your only safety plan. Sections 4.5 and 10 of our Terms set out the legal position.</li>
+    </ul>
+    <hr />
     <h2>4. How We Share Information</h2>
-    <p>We do <strong>not</strong> sell your personal data. We share information only as described below, and our service providers act under written contracts, data-processing agreements, and confidentiality and security obligations &mdash; not merely under their own privacy policies.</p>
-
-    <h3>4.1 Other Users</h3>
-    <ul>
-      <li>Your public profile (name, username, photo, vibes, prompts) is visible to other users, subject to your visibility settings (see Section 5).</li>
-      <li>Events you attend may be visible to other attendees (unless you disable "Show Attending Events" in Privacy Settings).</li>
-      <li>Your messages in an event group chat are visible to other members of that group.</li>
-    </ul>
-
+    <p>We do <strong>not</strong> sell your personal data. Our service providers act under written contracts, data-processing agreements, and confidentiality and security obligations.</p>
+    <h3>4.1 Other Users and the Public</h3>
+    <p>See Section 3A.</p>
     <h3>4.2 Service Providers (Sub-processors)</h3>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr><th>Provider</th><th>Role</th><th>Location</th><th>Transfer safeguard</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Google Firebase</strong> (Google Cloud Platform)</td><td>Authentication, database (Firestore), storage, cloud functions, push (FCM), analytics, crash reporting, App Check</td><td>USA / global</td><td>Google Cloud Data Processing Addendum + Standard Contractual Clauses</td></tr>
-          <tr><td><strong>Google Gemini API</strong> (via Google Cloud)</td><td>Text moderation, optional description generation, face verification</td><td>USA / global</td><td>Google Cloud DPA (paid tier) + Standard Contractual Clauses</td></tr>
-          <tr><td><strong>SightEngine</strong></td><td>Image content moderation</td><td>EU</td><td>DPA; EU processing</td></tr>
-          <tr><td><strong>Cloudflare R2</strong></td><td>Event-data caching / CDN</td><td>Global</td><td>DPA + Standard Contractual Clauses</td></tr>
-          <tr><td><strong>Vercel</strong></td><td>Hosting of the dayzi.live website</td><td>USA / global</td><td>DPA + Standard Contractual Clauses</td></tr>
-          <tr><td><strong>EmailOctopus</strong></td><td>Waitlist / early-registration email management</td><td>UK / EU</td><td>DPA; UK/EU safeguards</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <table>
+    <thead><tr><th>Provider</th><th>Role</th><th>What it receives</th><th>Location</th><th>Transfer safeguard</th></tr></thead>
+    <tbody>
+    <tr><td><strong>Google Firebase</strong> (Google Cloud)</td><td>Authentication, database, storage, cloud functions, push, analytics, crash reporting, app integrity</td><td>Substantially all account and content data</td><td>USA / global</td><td>Google Cloud Data Processing Addendum + Standard Contractual Clauses</td></tr>
+    <tr><td><strong>Amazon Web Services — Rekognition</strong></td><td>Face detection on every profile photo; face comparison for optional verification</td><td>Profile photo and, if you verify, your selfie</td><td>India (ap-south-1)</td><td>AWS Data Processing Addendum + Standard Contractual Clauses; organisation-wide AI services opt-out in force</td></tr>
+    <tr><td><strong>Google Gemini API</strong> (via Google Cloud)</td><td>Text moderation, liveness/gesture check, optional description generation, image-moderation fallback</td><td>Profile and event text; your selfie for the gesture check; image bytes on the fallback path</td><td>USA / global</td><td>Google Cloud DPA (paid tier) + Standard Contractual Clauses</td></tr>
+    <tr><td><strong>SightEngine</strong></td><td>Image content moderation</td><td>Profile photos and event cover images</td><td>EU</td><td>DPA; processing within the EU</td></tr>
+    <tr><td><strong>Cloudflare R2</strong></td><td>Public event-feed caching / CDN</td><td>Event data plus host name, username, account identifier and photo</td><td>Global</td><td>DPA + Standard Contractual Clauses</td></tr>
+    <tr><td><strong>Geoapify</strong></td><td>Address search and geocoding</td><td>The location text you type</td><td>EU</td><td>DPA; processing within the EU</td></tr>
+    <tr><td><strong>Pexels</strong></td><td>Stock-image search for event covers</td><td>Your image search terms</td><td>USA</td><td>Search term only; no account identifier sent</td></tr>
+    <tr><td><strong>TMDB</strong></td><td>Film and TV search for "favourite show", and the poster images shown with the results</td><td>Your search terms, and <strong>your device's IP address</strong> when a poster image loads</td><td>USA</td><td>Search terms proxied through our servers; poster images load directly from TMDB's image CDN</td></tr>
+    <tr><td><strong>Apple (iTunes Search API)</strong></td><td>Song search for "favourite song"</td><td>Your search terms <strong>and your device's IP address</strong></td><td>USA / global</td><td>Public search API; Apple's own terms apply</td></tr>
+    <tr><td><strong>Deezer</strong></td><td>Song search fallback</td><td>Your search terms <strong>and your device's IP address</strong></td><td>EU / global</td><td>Public search API; Deezer's own terms apply</td></tr>
+    <tr><td><strong>Zoho (SMTP)</strong></td><td>Sending password-reset email</td><td>Your email address and the reset link</td><td>India / global</td><td>DPA; primary processing in India</td></tr>
+    <tr><td><strong>Vercel</strong></td><td>Hosting of dayzi.live</td><td>Site request metadata</td><td>USA / global</td><td>DPA + Standard Contractual Clauses</td></tr>
+    <tr><td><strong>EmailOctopus</strong></td><td>Waitlist email management</td><td>Waitlist email address, and open / click / unsubscribe status for waitlist campaigns</td><td>UK / EU</td><td>DPA; UK/EU safeguards</td></tr>
+    </tbody>
+    </table>
 
+    <p>Where GDPR or UK GDPR applies, transfers outside the EEA/UK rely on adequacy decisions, Standard Contractual Clauses, and data-processing agreements as appropriate. The specific safeguard for each provider is in the table above.</p>
+    <p><strong>Where your IP address is exposed, stated plainly.</strong> Most of the services above are called from our servers, so they never see your device. Three are exceptions:</p>
+    <ul>
+    <li><strong>Apple and Deezer</strong> — the song-search feature calls their public search APIs <strong>directly from your device</strong>, so both receive your IP address along with what you typed.</li>
+    <li><strong>TMDB</strong> — your search text is proxied through our servers, but the poster images in the results are loaded <strong>directly from TMDB's image CDN</strong>, which therefore sees your IP address.</li>
+    </ul>
+    <p>For these requests those companies act as independent controllers under their own terms, not as our processors. You can avoid all three by not using the "favourite song" and "favourite show" pickers, both of which are optional.</p>
     <h3>4.3 Legal, Safety, and Government Requests</h3>
-    <p>We may disclose your data where required by a valid and legally binding request (such as a court order or lawful government request), or where reasonably necessary to protect the rights, safety, or property of Dayzi, our users, or the public. We disclose to law enforcement only where the request is legally valid.</p>
-
+    <p>We may disclose data where required by a valid and legally binding request, or where reasonably necessary to protect the rights, safety, or property of Dayzi, our users, or the public. Where we confirm child sexual abuse material, we report it to the competent authority, including the National Center for Missing &amp; Exploited Children (NCMEC) or the relevant Indian authority.</p>
     <h3>4.4 Business Transfers</h3>
-    <p>If Dayzi is involved in a merger, acquisition, financing, reorganisation, or sale of assets, your personal data may be transferred as part of that transaction. We will require the recipient to honour this Privacy Policy or notify you of any material change.</p>
-
+    <p>In a merger, acquisition, financing, reorganisation, or sale of assets, your data may transfer as part of the transaction. We will require the recipient to honour this policy or notify you of a material change.</p>
     <h3>4.5 Professional Advisers</h3>
-    <p>We may share data with our professional advisers (such as lawyers, auditors, insurers, and accountants) where necessary for their services, subject to confidentiality obligations.</p>
-
+    <p>Lawyers, auditors, insurers, and accountants, where necessary and under confidentiality obligations.</p>
+    <h3>4.6 Links to Other Services</h3>
+    <p>If you add an Instagram link, it is shown on your profile and anyone who can see your profile can open it. Tapping it <strong>leaves Dayzi</strong> and opens Instagram, which is operated by Meta under its own terms and privacy policy. We do not control that service, and <strong>we do not receive any information back from it</strong>. You can remove the link at any time in <strong>Edit Profile</strong>.</p>
+    <p>The same applies to any other external link, including the WhatsApp message the SOS feature opens: once you leave Dayzi, the other service's own terms and privacy policy govern what happens there.</p>
     <hr />
+    <h2>5. International Data Transfers</h2>
+    <p>Your data may be stored and processed in <strong>India, the United States, the European Union / EEA, the United Kingdom, and other countries</strong> where we or our providers operate. Firebase data is primarily hosted in the United States; Amazon Rekognition processing is performed in India.</p>
+    <p>Where <strong>GDPR / UK GDPR</strong> applies we rely on adequacy decisions, Standard Contractual Clauses, data-processing agreements, and transfer impact assessments as required. Where <strong>India's DPDP Act</strong> applies we will comply with any Government-notified restriction on transfers outside India. Where <strong>Singapore's PDPA</strong> applies we transfer only where the recipient is bound to a comparable standard of protection.</p>
+    <hr />
+    <h2>6. Data Retention</h2>
+    <p>Periods below are indicative and may be extended where retention is required for legal, security, fraud-prevention, dispute-resolution, or safety reasons.</p>
+    <table>
+    <thead><tr><th>Data</th><th>Retention</th></tr></thead>
+    <tbody>
+    <tr><td>Account profile</td><td>Until account deletion, then deleted or anonymised within 30 days</td></tr>
+    <tr><td>Selfie for face verification</td><td>Not stored after the check (except an appeal selfie, deleted when the appeal is resolved)</td></tr>
+    <tr><td>Verification status</td><td>2 years from verification, or until account deletion if sooner</td></tr>
+    <tr><td>Face-detection record on a profile photo (Section 3.4)</td><td>30 days</td></tr>
+    <tr><td><strong>SOS case — precise location</strong></td><td><strong>Erased 30 days after the SOS was triggered</strong></td></tr>
+    <tr><td><strong>SOS case — the record itself</strong></td><td><strong>Deleted 90 days after the SOS was triggered</strong></td></tr>
+    <tr><td>Group chat messages</td><td>Deleted approximately 30 days after the event ends (swept weekly)</td></tr>
+    <tr><td>Notifications</td><td>Read: 30 days. Unread: 90 days.</td></tr>
+    <tr><td>Event data</td><td>Until event or account deletion, unless retained for audit, safety, or legal reasons</td></tr>
+    <tr><td>Bug reports and screenshots</td><td>30 days after the report is resolved</td></tr>
+    <tr><td>Quarantined images</td><td>30 days</td></tr>
+    <tr><td>Crash logs</td><td>90 days (Firebase Crashlytics retention)</td></tr>
+    <tr><td>Analytics</td><td>Up to 14 months; aggregated data may be kept longer</td></tr>
+    <tr><td>Waitlist email</td><td>Until you unsubscribe or the campaign ends</td></tr>
+    <tr><td>FCM tokens</td><td>Until logout, token refresh, or account deletion</td></tr>
+    <tr><td>Moderation, safety, and security logs</td><td>180 days to 2 years, depending on risk and legal need</td></tr>
+    </tbody>
+    </table>
 
-    <h2>5. Visibility, Location, and Privacy Controls</h2>
-    <p>Dayzi is social by design, so privacy-by-default matters.</p>
+    <p><strong>Backups.</strong> Deleted data may persist in encrypted backups for up to <strong>90 days</strong> before automatic deletion, and will not be restored except for disaster recovery or legal/security purposes.</p>
+    <hr />
+    <h2>7. Account Deletion — and What Survives It</h2>
+    <p>You can delete your account in the App at <strong>Privacy Settings → Delete Account</strong>, or by emailing us (see the Delete Account page on dayzi.live). Deletion enters a <strong>30-day grace period</strong>, during which logging back in restores your account. After that it is permanent.</p>
+    <p><strong>Deleted:</strong> your profile and photo, events you created, your group chat messages, notifications, group memberships and attendee entries, FCM tokens, SOS cases, and cached data.</p>
+    <p><strong>Retained, and you should know this before you delete:</strong></p>
     <ul>
-      <li><strong>Visibility controls:</strong> your name, username, profile photo, vibes, and prompts may be visible to other users. You can manage certain visibility settings in Privacy Settings, including whether events you attend are shown on your profile. We recommend reviewing these settings before joining or creating events.</li>
-      <li><strong>Nearby events and age range:</strong> events you create can be shown to nearby users within the age range you set, and you can see and request to join events created by nearby users within their range. Joining is by request: the creator chooses whether to accept or decline, and accepted members form the event group.</li>
-      <li><strong>Location:</strong> with your permission, we may access your device location to estimate your <strong>city and country</strong> for showing nearby events. We do <strong>not</strong> track your location continuously or in the background. You may disable location access in your device settings or, where available, set your city manually. If precise location is accessed only momentarily to derive your city/country, we do not store the precise coordinates unless expressly stated at the point of collection.</li>
-      <li><strong>SOS / emergency contact:</strong> as described in Section 1.4, any emergency contact number you add for the SOS feature stays <strong>only on your device</strong> and is never sent to us. Triggering SOS opens WhatsApp so you can share your message and location with your chosen contact directly.</li>
+    <li><strong>Safety and moderation records.</strong> Reports you filed or that were filed about you, and their aggregates, are kept for the integrity of our safety system and may contain your name.</li>
+    <li><strong>Appeals.</strong> Ban appeals and event appeals are retained, and may contain your name and email address.</li>
+    <li><strong>Bug reports.</strong> Retained until resolved, and may contain your email address, device details and a screenshot.</li>
+    <li><strong>Voting records</strong> from events you attended.</li>
+    <li><strong>Shared content.</strong> Messages and event participation records that other people also hold may remain visible where necessary for event history, safety, or integrity.</li>
+    <li>Anything else we must keep by law, or for security, fraud prevention, or the establishment or defence of legal claims.</li>
+    <li>Aggregated, anonymised analytics that no longer identify you.</li>
     </ul>
-
+    <p>If you want any retained item removed, contact us and we will assess the request against the exemptions above.</p>
     <hr />
-
-    <h2>6. International Data Transfers</h2>
-    <p>Your personal data may be stored and processed in <strong>India, the United States, the European Union / EEA, the United Kingdom, and other countries</strong> where we or our service providers operate. Data stored on Firebase (Google Cloud) is primarily hosted in the United States.</p>
-    <ul>
-      <li><strong>Where GDPR / UK GDPR applies</strong>, we rely on appropriate safeguards for transfers outside the EEA/UK, such as <strong>adequacy decisions</strong>, <strong>Standard Contractual Clauses</strong>, <strong>data-processing agreements</strong>, and <strong>transfer impact assessments</strong> where required.</li>
-      <li><strong>Where India's DPDP Act applies</strong>, we will comply with any Government-notified restrictions on the transfer of personal data outside India.</li>
-      <li><strong>Where Singapore's PDPA applies</strong>, we transfer personal data overseas only where the recipient is bound by legally enforceable obligations to provide a comparable standard of protection.</li>
-    </ul>
-    <p>The specific safeguard for each major provider is shown in the table in Section 4.2.</p>
-
-    <hr />
-
-    <h2>7. Data Retention</h2>
-    <p>We keep personal data only for as long as necessary for the purposes described in this policy, or as required by law. The following periods are indicative and may be extended where retention is required for legal, security, fraud-prevention, dispute-resolution, or safety reasons.</p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr><th>Data category</th><th>Retention period</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Account profile</td><td>Until account deletion, then deleted or anonymised within 30 days</td></tr>
-          <tr><td>Selfie for face verification</td><td>Not stored after verification</td></tr>
-          <tr><td>Verification status</td><td>Until account deletion, or longer if needed for abuse-prevention / legal records (up to 2 years)</td></tr>
-          <tr><td>Chat messages</td><td>Until event/group deletion or account deletion, subject to safety/legal retention</td></tr>
-          <tr><td>Event data</td><td>Until event deletion or account deletion, unless retained for audit/safety/legal reasons</td></tr>
-          <tr><td>Crash logs</td><td>Up to 180 days</td></tr>
-          <tr><td>Analytics</td><td>Up to 26 months; aggregated/anonymised data may be kept longer</td></tr>
-          <tr><td>Waitlist email</td><td>Until you unsubscribe or the waitlist campaign ends</td></tr>
-          <tr><td>FCM tokens</td><td>Until logout, token refresh, or account deletion</td></tr>
-          <tr><td>Legal / safety / moderation logs</td><td>180 days to 2 years, depending on risk and legal need</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p><strong>Backups.</strong> Deleted data may remain in encrypted backups for up to <strong>90 days</strong> before automatic deletion. It will not be restored except for disaster recovery or legal/security purposes.</p>
-
-    <p><strong>Account deletion.</strong> When you delete your account, we delete or anonymise the personal data associated with it within <strong>30 days</strong>, unless retention is required for legal, security, fraud-prevention, dispute-resolution, or safety reasons. Content you shared with other users &mdash; such as group messages or event participation records &mdash; may remain visible where necessary for event history, safety, or integrity, but will no longer identify you where reasonably possible. During the 30-day grace period you can restore your account by logging back in. See our <a href="/deleteaccount.html">Delete Account</a> page for full details.</p>
-
-    <hr />
-
     <h2>8. Your Rights and Choices</h2>
-    <p>Subject to applicable law, you have rights over your personal data. To exercise any right, contact <strong>dayzibusiness@gmail.com</strong> or use the in-App controls. We may need to verify your identity before acting, and we may decline requests that are manifestly unfounded, excessive, or that would infringe others' rights. We aim to respond within <strong>30 days</strong> and will tell you if we need longer, up to the maximum period the law allows.</p>
-
-    <h3>8.1 Rights Available to Most Users</h3>
+    <p>Contact <strong>dayzibusiness@gmail.com</strong> or use the in-App controls. We may verify your identity first, and may decline requests that are manifestly unfounded, excessive, or that would infringe others' rights. We aim to respond within <strong>30 days</strong> and will tell you if we need longer.</p>
+    <h3>8.1 Available to most users</h3>
     <ul>
-      <li><strong>Access &amp; portability:</strong> view your data in the App and export a copy in JSON from <strong>Privacy Settings &rarr; Download My Data</strong>.</li>
-      <li><strong>Correction:</strong> update your profile at any time from <strong>Edit Profile</strong>.</li>
-      <li><strong>Deletion (erasure):</strong> delete your account and associated data from <strong>Privacy Settings &rarr; Delete Account</strong> (see our <a href="/deleteaccount.html">Delete Account</a> page).</li>
-      <li><strong>Withdraw consent:</strong> disable optional features, turn off push notifications in device settings, unsubscribe from promotional messages, or withdraw face-verification consent &mdash; without affecting earlier lawful processing.</li>
-      <li><strong>Manage visibility:</strong> hide your attending events and manage other visibility settings in Privacy Settings.</li>
+    <li><strong>Access and portability:</strong> view your data in the App, and export a copy in JSON from <strong>Privacy Settings → Download My Data</strong>. The export currently covers your profile, events, requests, group memberships, notifications, invitations and SOS cases. It does <strong>not</strong> yet include your group chat messages, reports, blocks, bug reports, or appeals — ask us and we will provide those separately.</li>
+    <li><strong>Correction:</strong> update your profile from <strong>Edit Profile</strong>.</li>
+    <li><strong>Deletion:</strong> see Section 7.</li>
+    <li><strong>Withdraw consent:</strong> disable optional features, turn off push notifications in device settings, unsubscribe from promotional messages, or withdraw face-verification consent.</li>
+    <li><strong>Manage display settings:</strong> in Privacy Settings (see Section 3A for what these do and do not control).</li>
     </ul>
-
-    <h3>8.2 EU / EEA and UK (GDPR and UK GDPR)</h3>
-    <p>If you are in the EU/EEA or UK, you also have the right to: <strong>object</strong> to processing based on legitimate interests; <strong>restrict</strong> processing; <strong>not be subject</strong> to a decision based solely on automated processing that produces legal or similarly significant effects without human involvement; and <strong>lodge a complaint</strong> with your local supervisory authority (for example, your national Data Protection Authority, or the UK ICO). If and where we are required to appoint a representative in the EU/EEA or UK under Article 27 of the GDPR or UK GDPR, we will appoint one and publish their contact details in this policy. In the meantime, you can contact us about any GDPR matter at <strong>dayzibusiness@gmail.com</strong>.</p>
-
-    <h3>8.3 United States (California and Other States)</h3>
-    <p>If you are a California resident, and where the CCPA/CPRA applies to us, you have the right to <strong>know</strong> the categories and specific pieces of personal information we collect, the purposes, and the categories of recipients; to <strong>delete</strong> and <strong>correct</strong> your information; to <strong>opt out</strong> of any "sale" or "sharing" for cross-context behavioural advertising; to <strong>limit</strong> the use of sensitive personal information; and <strong>not to be discriminated against</strong> for exercising these rights. <strong>We do not sell or share your personal information for cross-context behavioural advertising, and we do not use sensitive personal information to infer characteristics.</strong> Residents of other US states with comparable privacy laws (for example, Virginia, Colorado, Connecticut, Texas, and Utah) may have similar rights, which we will honour where they apply to us. To exercise these rights, contact <strong>dayzibusiness@gmail.com</strong>.</p>
-
+    <h3>8.2 EU / EEA and UK (GDPR, UK GDPR)</h3>
+    <p>You may also <strong>object</strong> to processing based on legitimate interests, <strong>restrict</strong> processing, ask <strong>not to be subject</strong> to solely automated decisions with legal or similarly significant effect, and <strong>lodge a complaint</strong> with your supervisory authority or the UK ICO.</p>
+    <blockquote><p><strong>EU and UK representatives (Article 27).</strong> Solika Ventures Pvt Ltd is appointing representatives in the EU/EEA and the UK. Their names and contact details will be published in this section. Until then, contact us directly at <strong>dayzibusiness@gmail.com</strong> for any GDPR or UK GDPR matter.</p></blockquote>
+    <h3>8.3 United States</h3>
+    <p>Where the CCPA/CPRA applies, California residents may <strong>know</strong>, <strong>delete</strong>, <strong>correct</strong>, <strong>opt out</strong> of any sale or sharing, <strong>limit</strong> use of sensitive personal information, and not be <strong>discriminated against</strong>. <strong>We do not sell or share personal information for cross-context behavioural advertising, and we do not use sensitive personal information to infer characteristics.</strong> Residents of other US states with comparable laws have similar rights, which we honour where they apply.</p>
+    <p><strong>Biometric information (Illinois BIPA, Texas CUBI, and similar laws).</strong> Face verification is optional and requires your separate, explicit consent before any facial image is processed. We do not sell, lease, trade, or otherwise profit from biometric identifiers or biometric information. Facial images used for verification are not retained after the check, and any verification record is destroyed when the purpose is satisfied or <strong>within three years of your last interaction with Dayzi, whichever occurs first</strong>.</p>
     <h3>8.4 Singapore (PDPA)</h3>
-    <p>If you are in Singapore, we handle your personal data in line with the Personal Data Protection Act. You may <strong>withdraw consent</strong>, and <strong>access and correct</strong> your personal data, by contacting us. We will respond within the timeframes required by the PDPA and may charge a reasonable fee for access requests where permitted. We transfer personal data outside Singapore only with comparable protection in place (see Section 6), and we will notify you and the Personal Data Protection Commission of any notifiable data breach as required by law. Our Data Protection Officer can be reached at <strong>dayzibusiness@gmail.com</strong>.</p>
-
+    <p>You may withdraw consent and access or correct your data. We respond within PDPA timeframes and notify the PDPC of notifiable breaches. Our Data Protection Officer is reachable at <strong>dayzibusiness@gmail.com</strong>.</p>
     <h3>8.5 India (DPDP Act, 2023)</h3>
-    <p>If you are in India, you have the right to <strong>access</strong> information about your personal data, to <strong>correct and erase</strong> it, to <strong>grievance redressal</strong>, and to <strong>nominate</strong> another individual to exercise your rights in the event of your death or incapacity. To submit or update a nomination, or to raise a grievance, contact our Grievance Officer (see Section 15). We will acknowledge grievances within <strong>48 hours</strong> and aim to resolve them within <strong>30 days</strong>; certain rights requests may take up to the period allowed under the DPDP Rules.</p>
-
+    <p>You have the right to <strong>access</strong>, <strong>correct and erase</strong>, seek <strong>grievance redressal</strong>, and <strong>nominate</strong> another individual to exercise your rights on death or incapacity. To submit or update a nomination, or to raise a grievance, contact our Grievance Officer (Section 12).</p>
+    <p><strong>Two different clocks, so that you know which applies.</strong> The DPDP Rules set an outer limit of <strong>90 days</strong>. We commit to better than that:</p>
+    <ul>
+    <li>A <strong>grievance</strong> is acknowledged within <strong>48 hours</strong> and we aim to resolve it within <strong>30 days</strong>. The 48-hour acknowledgement is our own commitment, not a period the Rules require.</li>
+    <li>A <strong>rights request</strong> — access, correction, or erasure — is one we aim to complete within <strong>30 days</strong>. Where a request is complex or we need to verify your identity, it may take longer, up to the 90-day outer limit. We will tell you if we need the extra time and why.</li>
+    </ul>
     <hr />
-
     <h2>9. Data Security</h2>
-    <p>We implement appropriate technical and organisational measures to protect your data, including:</p>
     <ul>
-      <li>Encryption in transit (TLS/SSL) and at rest</li>
-      <li>Firebase App Check to verify app integrity, and Firebase Authentication for secure account access</li>
-      <li><strong>Least-privilege access controls</strong> and <strong>logging of staff/administrative access</strong> to personal data</li>
-      <li><strong>Periodic access reviews</strong> and <strong>vendor security reviews</strong> of our sub-processors</li>
-      <li>An <strong>incident-response process</strong> for suspected security events</li>
-      <li>Rate limiting on sensitive operations, and controlled deletion processes</li>
-      <li>Encrypted backups with defined retention (see Section 7)</li>
+    <li>Encryption in transit (TLS) and at rest</li>
+    <li>Firebase App Check for app integrity, and Firebase Authentication for account access</li>
+    <li>Administrative access to production data is limited to a small number of authorised accounts, granted individually and revocable; credentials and API keys are held in a managed secret store, not in application code</li>
+    <li>Server-side rules and function-level checks govern what any account can read, rather than relying on what the app chooses to display</li>
+    <li>Rate limiting on sensitive and paid operations</li>
+    <li>Automated content moderation, and audit logging of security-relevant events</li>
+    <li>Encrypted backups with defined retention (see Section 6)</li>
+    <li>Every service provider that receives personal data is listed in Section 4.2, and is assessed before we start sending it data</li>
+    <li><strong>A written incident-response procedure</strong>, which sets out how a suspected breach is contained, assessed, recorded, and notified within the deadlines in Section 10</li>
     </ul>
-    <p>No system is 100% secure. Please keep your login credentials confidential.</p>
-
+    <p>We are a small team, and we would rather describe our security honestly than impressively. No system is completely secure. Please keep your login credentials confidential, and tell us at <strong>dayzibusiness@gmail.com</strong> if you believe your account has been accessed by someone else.</p>
     <hr />
-
     <h2>10. Data Breach Notification</h2>
-    <p>If we become aware of a personal data breach affecting your personal data, we will notify affected users and the relevant authorities where required by applicable law (including under the GDPR, India's DPDP Rules, and Singapore's PDPA). The notice will describe, in plain language, the nature of the breach, its likely consequences, the measures we have taken or propose to take, and how you can contact us for assistance.</p>
-
+    <p>If we become aware of a personal data breach affecting you, we will notify affected users and the relevant authorities where required by law — including under the GDPR, India's DPDP framework, and Singapore's PDPA. The notice will describe, in plain language, what happened, the likely consequences, what we have done, and how to contact us.</p>
     <hr />
-
     <h2>11. Children's Privacy</h2>
-    <p>Dayzi is intended only for users aged <strong>18 and above</strong>. We do not knowingly collect personal data from anyone under 18. We may ask you to confirm your age at sign-up, and we may <strong>suspend or delete</strong> any account where we reasonably believe the user is under 18. Because our AI provider's API terms require that the service not be directed to, or likely to be accessed by, individuals under 18, we enforce our 18+ requirement strictly. If you believe a minor is using Dayzi, contact us at <strong>dayzibusiness@gmail.com</strong>.</p>
-
+    <p>Dayzi is intended <strong>only for users aged 18 and above</strong>. We do not knowingly collect personal data from anyone under 18.</p>
+    <p><strong>Being straightforward about how this is checked:</strong> at sign-up you select your age, and the App does not permit a value under 18. We do not currently verify age against a document or a third-party age-assurance service, so this is a self-declaration. We also act on reports: if we reasonably believe a user is under 18, we <strong>suspend or delete</strong> the account. If you believe a minor is using Dayzi, contact <strong>dayzibusiness@gmail.com</strong> and we will act.</p>
+    <p>We also have a contractual reason to hold this line. Our AI provider's API terms require that the service <strong>not be directed to, or likely to be accessed by, individuals under 18</strong>. Our 18+ rule is therefore an obligation we owe our vendors as well as a choice we made, and we treat under-18 accounts as a removal matter rather than a warning.</p>
+    <p>Our child-safety standards, including our prohibition on child sexual abuse and exploitation and how to report it, are published separately in our <strong>Child Safety Standards</strong>.</p>
     <hr />
-
-    <h2>12. Push Notifications</h2>
-    <ul>
-      <li><strong>Transactional notifications</strong> (event invitations, approvals, cancellations, request updates) are necessary for event functionality and are part of the service.</li>
-      <li><strong>Promotional or broadcast notifications</strong> are sent only where permitted by law and can be disabled.</li>
-    </ul>
-    <p>You can disable push notifications in your device's system settings, and broadcast/topic subscriptions are cleared on logout. FCM tokens are stored in your user profile and deleted when you log out or delete your account.</p>
-
+    <h2>12. Grievance Officer and Regional Contacts</h2>
+    <p><strong>Grievance Officer (India — DPDP Act, 2023) / Data Protection Officer</strong></p>
+    <p>Name: Vishal Mandhane Designation: Founder, Solika Ventures Pvt Ltd Email: <strong>vishal.mandhane@dayzi.live</strong></p>
+    <p>Acknowledgement within <strong>48 hours</strong>; resolution targeted within <strong>30 days</strong>.</p>
+    <p>EU/EEA and UK representatives: see Section 8.2.</p>
     <hr />
-
-    <h2>13. Cookies, Server Logs, and Tracking</h2>
-    <p>The App does not use browser cookies and uses <strong>Firebase Analytics</strong> for in-app usage measurement. No third-party advertising trackers or ad SDKs are used.</p>
-    <p>The <strong>dayzi.live</strong> website and our infrastructure providers (for example, <strong>Vercel</strong>, <strong>Cloudflare</strong>, <strong>Firebase</strong>, and <strong>EmailOctopus</strong>) may set strictly necessary cookies and generate <strong>server logs</strong> (such as IP address and request metadata) needed to operate, secure, and deliver the Site and to process waitlist sign-ups. Where EmailOctopus records email open/click or unsubscribe status for waitlist campaigns, we use it only to manage those campaigns.</p>
-
+    <h2>13. Push Notifications</h2>
+    <p><strong>Transactional</strong> notifications (invitations, approvals, cancellations, request updates, SOS follow-ups) are part of the service. <strong>Promotional or broadcast</strong> notifications are sent only where permitted and can be disabled.</p>
+    <p>You can disable push notifications in your device settings, and broadcast subscriptions are cleared on logout. FCM tokens are deleted on logout or account deletion.</p>
+    <p><em>Note: the App currently offers a single push switch, which turns off both transactional and promotional notifications together. You can also unsubscribe from promotional messages by contacting us.</em></p>
     <hr />
-
-    <h2>14. Changes to This Policy</h2>
-    <p>We may update this policy from time to time. We will notify you of significant changes via in-app notification, push notification, or on the Site. <strong>Where required by law, we will seek fresh consent before applying material changes to consent-based processing.</strong> Continued use of Dayzi after other updates take effect constitutes acceptance of the updated policy.</p>
-
+    <h2>14. Cookies, Server Logs, and Tracking</h2>
+    <p>The App does not use browser cookies and uses <strong>Firebase Analytics</strong> for in-app usage measurement, associated with your account identifier. <strong>No third-party advertising trackers or ad SDKs are used</strong>, though the Android Advertising ID is collected as described in Section 1.2.</p>
+    <p>The <strong>dayzi.live</strong> website and our infrastructure providers (Vercel, Cloudflare, Firebase, EmailOctopus) may set strictly necessary cookies and generate server logs — including IP address and request metadata — needed to operate and secure the Site and process waitlist sign-ups.</p>
+    <p>Where <strong>EmailOctopus</strong> records email <strong>open, click, or unsubscribe status</strong> for waitlist campaigns, we use it only to manage those campaigns and to honour unsubscribes. We do not use it to build a profile of you or for advertising.</p>
     <hr />
-
-    <h2>15. Grievance Officer and Regional Contacts</h2>
-    <p><strong>Grievance Officer (India &mdash; DPDP Act, 2023) / Data Protection Officer:</strong></p>
-    <p><strong>Name:</strong> Vishal Mandhane<br>
-    <strong>Designation:</strong> Founder, Solika Ventures Pvt Ltd<br>
-    <strong>Email:</strong> <a href="mailto:vishal.mandhane@dayzi.live">vishal.mandhane@dayzi.live</a></p>
-    <p>The Grievance Officer will acknowledge your request within <strong>48 hours</strong> and aim to resolve it within <strong>30 days</strong>. If and where we are required to appoint a representative in the EU/EEA or UK under Article 27 of the GDPR or UK GDPR, we will appoint one and publish their contact details in this policy.</p>
-
+    <h2>15. Changes to This Policy</h2>
+    <p>We may update this policy. We will notify you of significant changes by in-app notification, push notification, or on the Site. <strong>Where required by law, we will seek fresh consent before applying material changes to consent-based processing.</strong> Continued use after other updates take effect constitutes acceptance.</p>
     <hr />
-
     <h2>16. Contact Us</h2>
-    <p>For any privacy-related questions, concerns, or requests:</p>
-    <p><strong>Solika Ventures Pvt Ltd</strong><br>
-    B. No. 1, R. No. 403, Sarvodaya Galaxy, Nr. Kopar, Vishnunagar, Kalyan, Thane &ndash; 421202, Maharashtra, India<br>
-    <strong>Email:</strong> <a href="mailto:dayzibusiness@gmail.com">dayzibusiness@gmail.com</a></p>
-    <p>If you are not satisfied with our response, you may complain to the data protection authority in your jurisdiction (in India, the Data Protection Board of India; in the EU/EEA, your national supervisory authority; in the UK, the ICO; in Singapore, the PDPC).</p>
-  </div>
+    <p><strong>Solika Ventures Pvt Ltd</strong> B. No. 1, R. No. 403, Sarvodaya Galaxy, Nr. Kopar, Vishnunagar, Kalyan, Thane – 421202, Maharashtra, India Email: <strong>dayzibusiness@gmail.com</strong></p>
+    <p>If you are not satisfied with our response you may complain to the data protection authority in your jurisdiction — in India the Data Protection Board of India, in the EU/EEA your national supervisory authority, in the UK the ICO, and in Singapore the PDPC.</p>
 
-  <footer>
-    <p>Dayzi &copy; 2026</p>
-  </footer>
+    <p class="footer">Dayzi &copy; 2026 &middot; Solika Ventures Pvt Ltd</p>
+  </div>
 </body>
 </html>
