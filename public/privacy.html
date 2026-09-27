@@ -87,7 +87,7 @@
     <li><strong>Logs and security events:</strong> authentication events, access logs, rate-limit and abuse-prevention signals, and other security telemetry</li>
     <li><strong>Moderation results:</strong> the outcome of automated content moderation, content hashes of images and text that have been checked, and verification status including limited records of failed attempts</li>
     <li><strong>Push notification tokens:</strong> Firebase Cloud Messaging (FCM) device tokens</li>
-    <li><strong>Crash and performance data:</strong> crash logs and performance metrics, via Firebase Crashlytics</li>
+    <li><strong>Crash and performance data:</strong> crash logs, via Firebase Crashlytics; and performance timings — how long the App takes to start, to draw a screen and to download the event feed — via Firebase Performance Monitoring</li>
     <li><strong>Motion sensor (on-device only):</strong> the App reads the accelerometer so that shaking your phone can open the bug-report tool. This stream stays on your device and is never transmitted.</li>
     <li><strong>Bug reports:</strong> if you submit one, we collect a <strong>screenshot of your screen at that moment</strong>, your device model and OS, the app version, your locale, and your email address. A screenshot may capture whatever was on screen, including another person's message, so please review it before sending.</li>
     </ul>
@@ -192,7 +192,7 @@
     <table>
     <thead><tr><th>Provider</th><th>Role</th><th>What it receives</th><th>Location</th><th>Transfer safeguard</th></tr></thead>
     <tbody>
-    <tr><td><strong>Google Firebase</strong> (Google Cloud)</td><td>Authentication, database, storage, cloud functions, push, analytics, crash reporting, app integrity</td><td>Substantially all account and content data</td><td>USA / global</td><td>Google Cloud Data Processing Addendum + Standard Contractual Clauses</td></tr>
+    <tr><td><strong>Google Firebase</strong> (Google Cloud)</td><td>Authentication, database, storage, cloud functions, push, in-app messages, analytics, crash reporting, performance monitoring, app integrity</td><td>Substantially all account and content data</td><td>USA / global</td><td>Google Cloud Data Processing Addendum + Standard Contractual Clauses</td></tr>
     <tr><td><strong>Amazon Web Services — Rekognition</strong></td><td>Face detection on every profile photo; face comparison for optional verification</td><td>Profile photo and, if you verify, your selfie</td><td>India (ap-south-1)</td><td>AWS Data Processing Addendum + Standard Contractual Clauses; organisation-wide AI services opt-out in force</td></tr>
     <tr><td><strong>Google Gemini API</strong> (via Google Cloud)</td><td>Text moderation, liveness/gesture check, optional description generation, image-moderation fallback</td><td>Profile and event text; your selfie for the gesture check; image bytes on the fallback path</td><td>USA / global</td><td>Google Cloud DPA (paid tier) + Standard Contractual Clauses</td></tr>
     <tr><td><strong>SightEngine</strong></td><td>Image content moderation</td><td>Profile photos and event cover images</td><td>EU</td><td>DPA; processing within the EU</td></tr>
