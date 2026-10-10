@@ -7,7 +7,10 @@
     {
       "source": "/get",
       "destination": "/get.html"
-    }
+    },
+    { "source": "/how-it-works", "destination": "/index.html" },
+    { "source": "/safety", "destination": "/index.html" },
+    { "source": "/faq", "destination": "/index.html" }
   ],
   "headers": [
     {
