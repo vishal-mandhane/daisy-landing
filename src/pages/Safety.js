@@ -2,21 +2,22 @@ import React from 'react';
 import { MEET_SMART, SAFETY } from '../data';
 import Clip from '../components/Clip';
 import Title from '../components/Title';
-import { JoinCta, Masthead, NextPage } from '../components/Layout';
+import { JoinCta, Masthead, NextPage, Ticker } from '../components/Layout';
 
 export default function Safety() {
   return (
     <>
-      <section className="page-hero paper">
+      <section className="page-hero">
+        <div className="hero__bg" style={{ backgroundImage: 'url(/app/p-badge.jpg)' }} aria-hidden="true" />
         <div className="wrap">
           <Masthead right="Safety" />
           <div className="page-hero__grid">
             <div className="reveal">
-              <p className="kicker">Safety</p>
+              <p className="kicker kicker--light">Safety</p>
               <h1 className="h-hero">
                 Show up <em>safe.</em>
               </h1>
-              <p className="lead">
+              <p className="lead lead--light">
                 Meeting new people should feel exciting, not risky. Here’s what’s built into Dayzi, and how to look after
                 yourself when you go.
               </p>
@@ -29,6 +30,7 @@ export default function Safety() {
           </div>
         </div>
       </section>
+      <Ticker />
 
       <section className="night section">
         <div className="wrap">

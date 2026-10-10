@@ -9,10 +9,13 @@ export const SOCIAL = {
   youtube: 'https://www.youtube.com/@DAYZIPARTY',
 };
 
+// `to` is where the link goes; `page` is the page that marks it as current.
+// How it works and Safety scroll to their section on the home page; the full
+// pages are linked from inside those sections.
 export const NAV = [
-  { to: '/how-it-works', label: 'How it works' },
-  { to: '/safety', label: 'Safety' },
-  { to: '/faq', label: 'FAQ' },
+  { to: '/#how-it-works', page: '/how-it-works', label: 'How it works' },
+  { to: '/#safety', page: '/safety', label: 'Safety' },
+  { to: '/faq', page: '/faq', label: 'FAQ' },
 ];
 
 export const TICKER = [

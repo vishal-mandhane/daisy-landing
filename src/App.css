@@ -859,9 +859,29 @@ summary:focus-visible {
 
 /* ---------- Page heroes ---------- */
 
+/* Inner pages open on the same dark, blurred-photo hero as the home page. */
 .page-hero {
+  position: relative;
   padding: 40px 0 72px;
   overflow: hidden;
+  background: var(--night);
+  color: var(--cream);
+}
+
+.page-hero > .wrap {
+  position: relative;
+}
+
+.page-hero .h-hero {
+  color: #fff;
+}
+
+.page-hero .h-hero em {
+  color: #ff4d6d;
+}
+
+.page-hero .inline-link {
+  color: var(--cream);
 }
 
 .page-hero__grid {
@@ -911,6 +931,26 @@ summary:focus-visible {
 
 .chapter-link:hover span {
   background: var(--red);
+}
+
+.page-hero .chapter-link {
+  border-color: var(--night-line);
+  color: var(--cream);
+}
+
+.page-hero .chapter-link span {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.page-hero .chapter-link:hover {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.page-hero .chapter-link:hover span {
+  background: var(--red);
+  color: #fff;
 }
 
 .films {
@@ -1194,10 +1234,14 @@ summary:focus-visible {
   color: var(--ink-2);
 }
 
+.faq-page {
+  max-width: 880px;
+}
+
 .faq-page__pol {
   display: none;
-  width: 160px;
-  margin-top: 36px;
+  width: 210px;
+  margin: 0 auto;
   transform: rotate(-5deg);
 }
 

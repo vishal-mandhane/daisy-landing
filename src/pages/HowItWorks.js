@@ -2,7 +2,7 @@ import React from 'react';
 import { HOME_FEATURES, PROFILE_STEPS } from '../data';
 import Clip from '../components/Clip';
 import Title from '../components/Title';
-import { JoinCta, Masthead, NextPage, Polaroid } from '../components/Layout';
+import { JoinCta, Masthead, NextPage, Polaroid, Ticker } from '../components/Layout';
 
 function Feature({ item, index, tone }) {
   return (
@@ -21,16 +21,17 @@ function Feature({ item, index, tone }) {
 export default function HowItWorks() {
   return (
     <>
-      <section className="page-hero paper">
+      <section className="page-hero">
+        <div className="hero__bg" style={{ backgroundImage: 'url(/app/film-profile.jpg)' }} aria-hidden="true" />
         <div className="wrap">
           <Masthead right="The tour · 2 episodes" />
           <div className="page-hero__grid">
             <div className="reveal">
-              <p className="kicker">How it works</p>
+              <p className="kicker kicker--light">How it works</p>
               <h1 className="h-hero">
                 The <em>tour.</em>
               </h1>
-              <p className="lead">
+              <p className="lead lead--light">
                 Two short episodes: the home where your city’s plans live, and the profile that gets you in. Then the
                 details, one scene at a time.
               </p>
@@ -62,6 +63,7 @@ export default function HowItWorks() {
           </div>
         </div>
       </section>
+      <Ticker />
 
       <section className="night section" id="home-feed">
         <div className="wrap">

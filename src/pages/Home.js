@@ -1,12 +1,11 @@
 import React from 'react';
 import { ArrowRight, BadgeCheck, Ghost, Phone, Users } from 'lucide-react';
 import { Link } from '../router';
-import { STEPS, TICKER } from '../data';
+import { STEPS } from '../data';
 import Clip from '../components/Clip';
 import Title from '../components/Title';
 import SignupForm from '../components/SignupForm';
-import Daisy from '../components/Daisy';
-import { JoinCta, Masthead, Polaroid } from '../components/Layout';
+import { JoinCta, Masthead, Polaroid, Ticker } from '../components/Layout';
 
 function Hero() {
   return (
@@ -44,28 +43,9 @@ function Hero() {
   );
 }
 
-function Ticker() {
-  return (
-    <div className="ticker" aria-hidden="true">
-      <div className="ticker__track">
-        {[0, 1].map((n) => (
-          <div className="ticker__group" key={n}>
-            {TICKER.map((word) => (
-              <span key={word} className="ticker__item">
-                {word}
-                <Daisy size={18} petal="#FFFFFF" center="#F5C518" />
-              </span>
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function Steps() {
   return (
-    <section className="paper section">
+    <section className="paper section" id="how-it-works">
       <div className="wrap">
         <Masthead right="Nº 01 · How it works" />
         <div className="section-head reveal">
@@ -138,7 +118,7 @@ function SafetyStrip() {
     { icon: Phone, title: 'SOS', body: 'One tap reaches the person you picked.' },
   ];
   return (
-    <section className="night section">
+    <section className="night section" id="safety">
       <div className="wrap">
         <div className="safety-strip__head reveal">
           <h2 className="h-xl h-xl--light">

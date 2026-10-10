@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { ArrowRight, Instagram, Menu, X as Close, Youtube } from 'lucide-react';
 import { Link } from '../router';
-import { NAV, SOCIAL } from '../data';
+import { NAV, SOCIAL, TICKER } from '../data';
+import Daisy from './Daisy';
 import Logo from './Logo';
 import SignupForm from './SignupForm';
 
@@ -21,7 +22,7 @@ export function Nav({ path }) {
               key={item.to}
               to={item.to}
               onClick={close}
-              aria-current={path === item.to ? 'page' : undefined}
+              aria-current={path === item.page ? 'page' : undefined}
             >
               {item.label}
             </Link>
@@ -41,6 +42,26 @@ export function Nav({ path }) {
         </button>
       </div>
     </header>
+  );
+}
+
+// The red band under every page's dark hero.
+export function Ticker() {
+  return (
+    <div className="ticker" aria-hidden="true">
+      <div className="ticker__track">
+        {[0, 1].map((n) => (
+          <div className="ticker__group" key={n}>
+            {TICKER.map((word) => (
+              <span key={word} className="ticker__item">
+                {word}
+                <Daisy size={18} petal="#FFFFFF" center="#F5C518" />
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
