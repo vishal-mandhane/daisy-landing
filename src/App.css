@@ -633,21 +633,23 @@ summary:focus-visible {
   color: rgba(243, 237, 228, 0.75);
 }
 
-/* The film sits right and the polaroid gets its own column on the left, so the
-   polaroid only touches the frame's edge and never covers the video. */
+/* The film sits right and the polaroid gets its own column on the left. It
+   reaches about 15% onto the film: the background left of the phone in the
+   video, never the phone itself (which starts ~23% in). */
 .hero__film {
   --pol: 112px;
+  --overlap: 40px; /* how far the polaroid reaches onto the film */
   --hang: 0px; /* how far the polaroid may hang outside, into the column gap */
   position: relative;
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  max-width: calc(320px + var(--pol) - var(--hang));
+  max-width: calc(320px + var(--pol) - var(--overlap) - var(--hang));
   margin: 0 auto;
 }
 
 .hero__film .film {
-  width: calc(100% - var(--pol) + var(--hang));
+  width: calc(100% - var(--pol) + var(--overlap) + var(--hang));
   max-width: 320px;
 }
 
@@ -1421,6 +1423,7 @@ summary:focus-visible {
 
   .hero__film {
     --pol: 160px;
+    --overlap: 48px;
   }
 
   .teaser {
@@ -1485,8 +1488,9 @@ summary:focus-visible {
 
   .hero__film {
     --pol: 140px;
+    --overlap: 54px;
     --hang: 20px;
-    max-width: calc(360px + var(--pol) - var(--hang));
+    max-width: calc(360px + var(--pol) - var(--overlap) - var(--hang));
   }
 
   .hero__film .film {
@@ -1559,6 +1563,7 @@ summary:focus-visible {
     margin-right: -18px;
     padding: 0 18px 8px;
     overflow-x: auto;
+    overflow-y: hidden; /* sideways only: an up/down swipe always scrolls the page */
     scroll-snap-type: x mandatory;
     scroll-padding: 0 18px;
     overscroll-behavior-x: contain;
@@ -1570,6 +1575,15 @@ summary:focus-visible {
     flex: 0 0 78%;
     max-width: 340px;
     scroll-snap-align: start;
+  }
+
+  /* Cards beside the visible one never cross the viewport, so their fade-up
+     never ran: they sat invisible and 26px low (which gave the row its own
+     vertical scroll) until swiped in. In a row, show them as they are. */
+  .steps > .reveal,
+  .features > .reveal {
+    opacity: 1;
+    translate: none;
   }
 
   .swipe-hint {
@@ -1624,6 +1638,10 @@ summary:focus-visible {
   .hero__film,
   .teaser {
     --pol: 92px;
+  }
+
+  .hero__film {
+    --overlap: 32px;
   }
 }
 
