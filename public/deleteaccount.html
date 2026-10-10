@@ -117,6 +117,12 @@
       .site-nav__inner { padding: 0 32px; }
       .container { padding: 48px 32px 96px; }
     }
+    /* Phones: a wide table (privacy has a 5-column one) scrolls sideways inside
+       its own box instead of making the whole page wider than the screen. */
+    @media (max-width: 719px) {
+      table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      th, td { min-width: 150px; }
+    }
   </style>
 </head>
 <body>
