@@ -65,16 +65,6 @@ export function Ticker() {
   );
 }
 
-// The editorial rule from the videos: "DAYZI, EXPLAINED ———— Nº 02 · YOUR HOME"
-export function Masthead({ left = 'Dayzi, explained', right }) {
-  return (
-    <div className="masthead">
-      <span>{left}</span>
-      <span>{right}</span>
-    </div>
-  );
-}
-
 export function Polaroid({ src, caption, className = '' }) {
   return (
     <figure className={`polaroid ${className}`}>
@@ -99,16 +89,12 @@ export function JoinCta({ id = 'join' }) {
   return (
     <section className="cta" id={id}>
       <div className="wrap cta__inner reveal">
-        <p className="kicker kicker--light">
-          <span className="kicker__dot" /> Rolling invites
-        </p>
         <h2 className="cta__title">
           The best nights start before <em>everyone else knows.</em>
         </h2>
-        <p className="cta__lead">You’ll either be early, or you’ll hear about it later.</p>
         <SignupForm
           cta="I’m in"
-          note="No spam. Unsubscribe anytime."
+          note="No spam · Unsubscribe anytime"
           successMessage="Welcome to early access."
           variant="dark"
         />

@@ -33,29 +33,20 @@ export const TICKER = [
 
 // Clips live in /public/app as <name>.mp4 with a <name>.jpg poster.
 
-// Home page: the three-step version.
+// Home page: one look. A step is a label and one short line; the full tour
+// lives on /how-it-works.
 export const STEPS = [
-  {
-    n: '01',
-    clip: 'nearby',
-    label: 'Find a plan',
-    title: ['What’s ', 'hot', ' nearby.'],
-    body: 'Everything near you, in one scroll. Ranked by requests, spots filled and how soon it starts.',
-  },
-  {
-    n: '02',
-    clip: 'details',
-    label: 'Ask to join',
-    title: ['See it ', 'all', '.'],
-    body: 'Who’s going, the ages, the host, the details. Like it? Swipe to send a request.',
-  },
-  {
-    n: '03',
-    clip: 'going',
-    label: 'Show up',
-    title: ['You’re ', 'going', '.'],
-    body: 'Once the host lets you in, the plan is tagged attending and you’re in the group chat.',
-  },
+  { n: '01', clip: 'nearby', label: 'Find a plan', line: 'Everything near you, in one scroll.' },
+  { n: '02', clip: 'details', label: 'Ask to join', line: 'See who’s going. Send a request.' },
+  { n: '03', clip: 'going', label: 'Show up', line: 'The host says yes. You’re in.' },
+];
+
+// Home page safety strip: one short line each; the detail is on /safety.
+export const SAFETY_SHORT = [
+  { icon: 'badge', text: 'Face-verified profiles' },
+  { icon: 'users', text: 'Hosts choose who joins' },
+  { icon: 'ghost', text: 'No-shows are visible' },
+  { icon: 'phone', text: 'SOS to someone you trust' },
 ];
 
 // How it works page, chapter one: the app.
@@ -142,7 +133,7 @@ export const SAFETY = [
   {
     n: '01',
     title: ['Face-', 'verified', '.'],
-    body: 'A selfie with a gesture, matched to your profile photo, proves you’re a real, unique person. The selfie is used for the check and isn’t stored. Verified people get the badge.',
+    body: 'A selfie with a gesture, matched to your profile photo, proves you’re a real, unique person. The selfie isn’t stored. Verified people get the badge.',
   },
   {
     n: '02',

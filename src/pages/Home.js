@@ -1,11 +1,13 @@
 import React from 'react';
 import { ArrowRight, BadgeCheck, Ghost, Phone, Users } from 'lucide-react';
 import { Link } from '../router';
-import { STEPS } from '../data';
+import { SAFETY_SHORT, STEPS } from '../data';
 import Clip from '../components/Clip';
-import Title from '../components/Title';
 import SignupForm from '../components/SignupForm';
-import { JoinCta, Masthead, Polaroid, Ticker } from '../components/Layout';
+import { JoinCta, Polaroid, Ticker } from '../components/Layout';
+
+// The home page is the one-look version: what Dayzi is, how it works in three
+// steps, why it's safe, and one action. Everything else lives on the detail pages.
 
 function Hero() {
   return (
@@ -13,19 +15,13 @@ function Hero() {
       <div className="hero__bg" style={{ backgroundImage: "url(/app/film-home.jpg)" }} aria-hidden="true" />
       <div className="wrap hero__grid">
         <div className="hero__copy reveal">
-          <p className="kicker kicker--light">
-            <span className="kicker__dot" /> Rolling invites · 18+
-          </p>
           <h1 className="hero__title">
             Stop missing out.
             <br />
             Start <em>showing up.</em>
           </h1>
-          <p className="hero__lead">
-            Dayzi is where your city’s plans live. Rooftop gigs, supper clubs, Sunday football. Find one, ask to join,
-            and meet the people going.
-          </p>
-          <SignupForm cta="Get early access" note="No spam. Just access." variant="dark" />
+          <p className="hero__lead">Find plans near you, ask to join, and meet the people going.</p>
+          <SignupForm cta="Get early access" note="Rolling invites · 18+ · No spam" variant="dark" />
         </div>
 
         <div className="hero__film reveal reveal--late">
@@ -47,14 +43,9 @@ function Steps() {
   return (
     <section className="paper section" id="how-it-works">
       <div className="wrap">
-        <Masthead right="Nº 01 · How it works" />
-        <div className="section-head reveal">
-          <p className="kicker">Three steps</p>
-          <h2 className="h-xl">
-            From <em>“we should”</em> to <em>“we did.”</em>
-          </h2>
-        </div>
-        <p className="swipe-hint">Swipe →</p>
+        <h2 className="h-xl section-title section-title--center reveal">
+          How it <em>works.</em>
+        </h2>
         <ol className="steps">
           {STEPS.map((s, i) => (
             <li key={s.n} className="step reveal" style={{ transitionDelay: `${i * 0.08}s` }}>
@@ -64,9 +55,8 @@ function Steps() {
               <div className="step__text">
                 <span className="step__n">{s.n}</span>
                 <div>
-                  <p className="kicker">{s.label}</p>
-                  <Title parts={s.title} className="h-md" />
-                  <p className="muted">{s.body}</p>
+                  <h3 className="h-md">{s.label}</h3>
+                  <p className="muted">{s.line}</p>
                 </div>
               </div>
             </li>
@@ -74,7 +64,7 @@ function Steps() {
         </ol>
         <div className="center reveal">
           <Link to="/how-it-works" className="btn btn--ink">
-            Take the full tour <ArrowRight size={18} />
+            See the full tour <ArrowRight size={18} />
           </Link>
         </div>
       </div>
@@ -82,41 +72,9 @@ function Steps() {
   );
 }
 
-function ProfileTeaser() {
-  return (
-    <section className="paper paper--deep section">
-      <div className="wrap split">
-        <div className="reveal">
-          <Masthead right="Nº 02 · Your profile" />
-          <h2 className="h-xl">
-            More than <em>a selfie.</em>
-          </h2>
-          <p className="lead">
-            Five vibes, an anthem, a show you’d rewatch and three prompts that sound like you. Hosts see it when you ask
-            to join, so every plan fills up with your kind of people.
-          </p>
-          <Link to="/how-it-works#profile" className="text-link">
-            Build your profile <ArrowRight size={18} />
-          </Link>
-        </div>
-        <div className="teaser reveal reveal--late">
-          <div className="teaser__phone">
-            <Clip name="p-mia" label="A Dayzi profile" />
-          </div>
-          <Polaroid src="/app/pol-karaoke.jpg" caption="karaoke, obviously." className="teaser__pol teaser__pol--a" />
-        </div>
-      </div>
-    </section>
-  );
-}
+const SAFETY_ICONS = { badge: BadgeCheck, users: Users, ghost: Ghost, phone: Phone };
 
 function SafetyStrip() {
-  const items = [
-    { icon: BadgeCheck, title: 'Face-verified', body: 'A quick selfie check. The selfie isn’t kept.' },
-    { icon: Users, title: 'Hosts choose', body: 'Ask to join. The host decides who’s in.' },
-    { icon: Ghost, title: 'Ghost counter', body: 'No-shows show up on your profile.' },
-    { icon: Phone, title: 'SOS', body: 'One tap reaches the person you picked.' },
-  ];
   return (
     <section className="night section" id="safety">
       <div className="wrap">
@@ -128,15 +86,17 @@ function SafetyStrip() {
             How we keep it safe <ArrowRight size={18} />
           </Link>
         </div>
-        <div className="safety-strip">
-          {items.map(({ icon: Icon, title, body }, i) => (
-            <div key={title} className="safety-strip__item reveal" style={{ transitionDelay: `${i * 0.06}s` }}>
-              <Icon size={22} />
-              <h3>{title}</h3>
-              <p>{body}</p>
-            </div>
-          ))}
-        </div>
+        <ul className="safety-strip">
+          {SAFETY_SHORT.map(({ icon, text }, i) => {
+            const Icon = SAFETY_ICONS[icon];
+            return (
+              <li key={text} className="safety-strip__item reveal" style={{ transitionDelay: `${i * 0.06}s` }}>
+                <Icon size={22} aria-hidden="true" />
+                <span>{text}</span>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );
@@ -148,7 +108,6 @@ export default function Home() {
       <Hero />
       <Ticker />
       <Steps />
-      <ProfileTeaser />
       <SafetyStrip />
       <JoinCta />
     </>

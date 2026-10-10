@@ -2,7 +2,7 @@ import React from 'react';
 import { MEET_SMART, SAFETY } from '../data';
 import Clip from '../components/Clip';
 import Title from '../components/Title';
-import { JoinCta, Masthead, NextPage, Ticker } from '../components/Layout';
+import { JoinCta, NextPage, Ticker } from '../components/Layout';
 
 export default function Safety() {
   return (
@@ -10,17 +10,12 @@ export default function Safety() {
       <section className="page-hero">
         <div className="hero__bg" style={{ backgroundImage: 'url(/app/p-badge.jpg)' }} aria-hidden="true" />
         <div className="wrap">
-          <Masthead right="Safety" />
           <div className="page-hero__grid">
             <div className="reveal">
-              <p className="kicker kicker--light">Safety</p>
               <h1 className="h-hero">
                 Show up <em>safe.</em>
               </h1>
-              <p className="lead lead--light">
-                Meeting new people should feel exciting, not risky. Here’s what’s built into Dayzi, and how to look after
-                yourself when you go.
-              </p>
+              <p className="lead lead--light">What’s built into Dayzi, and how to look after yourself when you go.</p>
             </div>
             <div className="safety-hero reveal reveal--late">
               <div className="teaser__phone">
@@ -34,7 +29,6 @@ export default function Safety() {
 
       <section className="night section">
         <div className="wrap">
-          <Masthead right="What’s built in" />
           <ol className="safety-list">
             {SAFETY.map((item) => (
               <li key={item.n} className="safety-list__item reveal">
@@ -50,7 +44,6 @@ export default function Safety() {
       <section className="paper section">
         <div className="wrap split split--top">
           <div className="reveal">
-            <Masthead right="When you go" />
             <h2 className="h-xl">
               Meet <em>smart.</em>
             </h2>

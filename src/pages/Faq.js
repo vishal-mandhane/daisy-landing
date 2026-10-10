@@ -1,7 +1,7 @@
 import React from 'react';
 import { Plus } from 'lucide-react';
 import { FAQ, SOCIAL } from '../data';
-import { JoinCta, Masthead, Polaroid, Ticker } from '../components/Layout';
+import { JoinCta, Polaroid, Ticker } from '../components/Layout';
 
 export default function Faq() {
   return (
@@ -9,7 +9,6 @@ export default function Faq() {
       <section className="page-hero">
         <div className="hero__bg" style={{ backgroundImage: 'url(/app/pol-karaoke.jpg)' }} aria-hidden="true" />
         <div className="wrap">
-          <Masthead right="FAQ" />
           <div className="page-hero__grid">
             <div className="reveal">
               <p className="kicker kicker--light">FAQ</p>

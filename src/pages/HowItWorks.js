@@ -2,7 +2,7 @@ import React from 'react';
 import { HOME_FEATURES, PROFILE_STEPS } from '../data';
 import Clip from '../components/Clip';
 import Title from '../components/Title';
-import { JoinCta, Masthead, NextPage, Polaroid, Ticker } from '../components/Layout';
+import { JoinCta, NextPage, Polaroid, Ticker } from '../components/Layout';
 
 function Feature({ item, index, tone }) {
   return (
@@ -11,7 +11,6 @@ function Feature({ item, index, tone }) {
         <Clip name={item.clip} label={`${item.label} in the Dayzi app`} />
         <span className="feature__n">{String(index + 1).padStart(2, '0')}</span>
       </div>
-      <p className="kicker">{item.label}</p>
       <Title parts={item.title} className="h-md" />
       <p className="muted">{item.body}</p>
     </article>
@@ -24,17 +23,13 @@ export default function HowItWorks() {
       <section className="page-hero">
         <div className="hero__bg" style={{ backgroundImage: 'url(/app/film-profile.jpg)' }} aria-hidden="true" />
         <div className="wrap">
-          <Masthead right="The tour · 2 episodes" />
           <div className="page-hero__grid">
             <div className="reveal">
               <p className="kicker kicker--light">How it works</p>
               <h1 className="h-hero">
                 The <em>tour.</em>
               </h1>
-              <p className="lead lead--light">
-                Two short episodes: the home where your city’s plans live, and the profile that gets you in. Then the
-                details, one scene at a time.
-              </p>
+              <p className="lead lead--light">Two short episodes, then every step up close.</p>
               <div className="chapters">
                 <a href="#home-feed" className="chapter-link">
                   <span>Ep. 02</span> Your home
@@ -67,15 +62,9 @@ export default function HowItWorks() {
 
       <section className="night section" id="home-feed">
         <div className="wrap">
-          <Masthead right="Nº 02 · Your home" />
-          <div className="section-head section-head--row reveal">
-            <h2 className="h-xl h-xl--light">
-              Everything near you, <em>in one scroll.</em>
-            </h2>
-            <p className="muted muted--light">
-              Plans ranked by what’s hot, a row for every kind of night, and your own plans pinned on top.
-            </p>
-          </div>
+          <h2 className="h-xl h-xl--light section-title reveal">
+            Everything near you, <em>in one scroll.</em>
+          </h2>
           <p className="swipe-hint">Swipe →</p>
           <div className="features">
             {HOME_FEATURES.map((item, i) => (
@@ -87,7 +76,6 @@ export default function HowItWorks() {
 
       <section className="paper section" id="profile">
         <div className="wrap">
-          <Masthead right="Nº 03 · Your profile" />
           <div className="section-head section-head--row reveal">
             <h2 className="h-xl">
               Your profile, <em>in six steps.</em>
@@ -108,13 +96,11 @@ export default function HowItWorks() {
 
       <section className="host section">
         <div className="wrap host__inner reveal">
-          <p className="kicker kicker--light">Got an idea for Saturday?</p>
           <h2 className="h-xl h-xl--light">
             Host it. <em>Pick your people.</em>
           </h2>
           <p className="lead lead--light">
-            Create a plan in a minute, choose who gets in from the requests, and run it from the group chat. Stuck on
-            the description? Dayzi can write it for you.
+            Create a plan in a minute, pick who gets in, and run it from the group chat.
           </p>
         </div>
       </section>

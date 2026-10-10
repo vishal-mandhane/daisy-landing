@@ -37,6 +37,16 @@ test('nav: How it works and Safety scroll to home sections, FAQ is its own page'
   expect(document.getElementById('safety')).toBeInTheDocument();
 });
 
+// The home page is the one-look version. Detail belongs on /how-it-works,
+// /safety and /faq; if this fails, move copy there instead of raising the cap.
+test('home stays short: at most 110 visible words', () => {
+  renderAt('/');
+  const main = document.querySelector('main').cloneNode(true);
+  main.querySelectorAll('[aria-hidden="true"]').forEach((el) => el.remove());
+  const words = main.textContent.split(/\s+/).filter(Boolean);
+  expect(words.length).toBeLessThanOrEqual(110);
+});
+
 test('unknown paths fall back to home', () => {
   renderAt('/nope');
   expect(screen.getByRole('heading', { level: 1, name: /stop missing out/i })).toBeInTheDocument();
