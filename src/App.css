@@ -633,21 +633,29 @@ summary:focus-visible {
   color: rgba(243, 237, 228, 0.75);
 }
 
+/* The film sits right and the polaroid gets its own column on the left, so the
+   polaroid only touches the frame's edge and never covers the video. */
 .hero__film {
+  --pol: 112px;
+  --hang: 0px; /* how far the polaroid may hang outside, into the column gap */
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: calc(320px + var(--pol) - var(--hang));
+  margin: 0 auto;
 }
 
 .hero__film .film {
+  width: calc(100% - var(--pol) + var(--hang));
   max-width: 320px;
 }
 
 .hero__pol {
   position: absolute;
-  left: 0;
+  left: calc(-1 * var(--hang));
   bottom: 8%;
-  width: 140px;
+  width: var(--pol);
   transform: rotate(-7deg);
 }
 
@@ -755,14 +763,28 @@ summary:focus-visible {
   box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.6);
 }
 
+/* Same idea as the hero: the phone moves right, the polaroid gets the left. */
+.teaser {
+  --pol: 112px;
+  --hang: 0px;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: calc(330px + var(--pol) - var(--hang));
+  margin: 0 auto;
+}
+
+.teaser .teaser__phone {
+  width: calc(100% - var(--pol) + var(--hang));
+}
+
 .teaser__pol {
   position: absolute;
-  width: 130px;
+  width: var(--pol);
 }
 
 .teaser__pol--a {
   top: 0;
-  left: 0;
+  left: calc(-1 * var(--hang, 0px));
   transform: rotate(-8deg);
 }
 
@@ -1397,12 +1419,12 @@ summary:focus-visible {
     grid-template-columns: 1fr 1fr;
   }
 
-  .hero__pol {
-    width: 160px;
+  .hero__film {
+    --pol: 160px;
   }
 
-  .teaser__pol {
-    width: 150px;
+  .teaser {
+    --pol: 150px;
   }
 
   .faq-page__pol {
@@ -1461,12 +1483,18 @@ summary:focus-visible {
     gap: 40px;
   }
 
+  .hero__film {
+    --pol: 140px;
+    --hang: 20px;
+    max-width: calc(360px + var(--pol) - var(--hang));
+  }
+
   .hero__film .film {
     max-width: 360px;
   }
 
-  .hero__pol {
-    left: -10px;
+  .teaser {
+    --hang: 36px;
   }
 
   .steps {
@@ -1576,6 +1604,27 @@ summary:focus-visible {
 
 .night .swipe-hint {
   color: rgba(243, 237, 228, 0.45);
+}
+
+/* Below ~470px the hero film is narrower than 320px and both bar labels no
+   longer fit on one line. The video itself already says "Dayzi, explained",
+   so the bar keeps just the episode. */
+@media (max-width: 469px) {
+  .hero__film .film__bar {
+    justify-content: flex-end;
+  }
+
+  .hero__film .film__bar span:first-child {
+    display: none;
+  }
+}
+
+/* The smallest phones: a smaller polaroid so the video keeps more width. */
+@media (max-width: 359px) {
+  .hero__film,
+  .teaser {
+    --pol: 92px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
