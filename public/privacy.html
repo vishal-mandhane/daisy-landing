@@ -3,128 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="theme-color" content="#0d0c0d" />
   <meta name="description" content="Dayzi Privacy Policy" />
   <title>Privacy Policy - Dayzi</title>
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      background-color: #0a0a0a;
-      color: #ffffff;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.7;
-      padding: 0;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 80px 24px 60px;
-    }
-
-    @media (max-width: 640px) {
-      .container { padding: 48px 16px 40px; }
-    }
-
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #a855f7;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 40px;
-      transition: opacity 0.2s;
-    }
-    .back-link:hover { opacity: 0.8; }
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-      line-height: 1.2;
-    }
-    @media (max-width: 640px) {
-      h1 { font-size: 1.75rem; }
-    }
-
-    .updated {
-      color: #71717a;
-      font-size: 14px;
-      margin-bottom: 48px;
-    }
-
-    h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-top: 40px;
-      margin-bottom: 12px;
-      color: #e4e4e7;
-    }
-
-    h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-top: 24px;
-      margin-bottom: 8px;
-      color: #d4d4d8;
-    }
-
-    p {
-      color: #a1a1aa;
-      font-size: 16px;
-      margin-bottom: 16px;
-    }
-
-    ul, ol {
-      color: #a1a1aa;
-      font-size: 16px;
-      margin-bottom: 16px;
-      padding-left: 24px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    a {
-      color: #a855f7;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid #27272a;
-      margin: 40px 0;
-    }
-
-    strong {
-      color: #e4e4e7;
-    }
-
-    footer {
-      text-align: center;
-      padding: 32px 24px;
-      border-top: 1px solid #27272a;
-      margin-top: 60px;
-    }
-
-    footer p {
-      color: #52525b;
-      font-size: 14px;
-      margin: 0;
-    }
-  </style>
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="/legal.css" />
 </head>
 <body>
+  <header class="site-nav">
+    <div class="site-nav__inner">
+      <a href="/" class="site-nav__brand" aria-label="Dayzi home">
+        <span class="site-nav__tile" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 100 100"><g fill="#FFFFFF"><ellipse cx="50" cy="22" rx="9" ry="21" transform="rotate(0 50 50)"/><ellipse cx="50" cy="22" rx="9" ry="21" transform="rotate(30 50 50)"/><ellipse cx="50" cy="22" rx="9" ry="21" transform="rotate(60 50 50)"/><ellipse cx="50" cy="22" rx="9" ry="21" transform="rotate(90 50 50)"/><ellipse cx="50" cy="22" rx="9" ry="21" transform="rotate(120 50 50)"/><ellipse cx="50" cy="22" rx="9" ry="21" transform="rotate(150 50 50)"/><ellipse cx="50" cy="22" rx="9" ry="21" transform="rotate(180 50 50)"/><ellipse cx="50" cy="22" rx="9" ry="21" transform="rotate(210 50 50)"/><ellipse cx="50" cy="22" rx="9" ry="21" transform="rotate(240 50 50)"/><ellipse cx="50" cy="22" rx="9" ry="21" transform="rotate(270 50 50)"/><ellipse cx="50" cy="22" rx="9" ry="21" transform="rotate(300 50 50)"/><ellipse cx="50" cy="22" rx="9" ry="21" transform="rotate(330 50 50)"/></g><circle cx="50" cy="50" r="15" fill="#F5C518"/></svg></span>
+        <span>Dayzi</span>
+      </a>
+      <a href="/#join" class="site-nav__cta">Get early access</a>
+    </div>
+  </header>
   <div class="container">
+    <div class="masthead"><span>Dayzi, explained</span><span>Legal</span></div>
     <a href="/" class="back-link">&larr; Back to Dayzi</a>
 
     <h1>Privacy Policy</h1>
@@ -334,6 +233,15 @@
   </div>
 
   <footer>
+    <nav class="site-footer__links" aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/how-it-works">How it works</a>
+      <a href="/safety">Safety</a>
+      <a href="/faq">FAQ</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/termsandconditions.html">Terms of Service</a>
+      <a href="/deleteaccount.html">Delete Account</a>
+    </nav>
     <p>Dayzi &copy; 2026</p>
   </footer>
 </body>
