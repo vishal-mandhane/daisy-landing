@@ -76,7 +76,7 @@ export default function SignupForm({ cta = 'Join the list', note, successMessage
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
-        <button type="submit" className="btn btn--ink" disabled={loading}>
+        <button type="submit" className="btn btn--red" disabled={loading}>
           {loading ? 'Sending...' : cta} {!loading && <ArrowRight size={18} />}
         </button>
       </div>

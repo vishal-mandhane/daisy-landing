@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 export const prefersReducedMotion = () =>
   typeof window !== 'undefined' &&
@@ -6,7 +6,7 @@ export const prefersReducedMotion = () =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Adds `is-visible` to `.reveal` elements as they scroll into view.
-export function useReveal() {
+export function useReveal(key) {
   useEffect(() => {
     const els = document.querySelectorAll('.reveal');
     if (prefersReducedMotion() || typeof IntersectionObserver === 'undefined') {
@@ -26,34 +26,5 @@ export function useReveal() {
     );
     els.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
-}
-
-// Muted looping clip that only plays while on screen.
-export function LoopVideo({ name, className }) {
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const video = ref.current;
-    if (!video || prefersReducedMotion() || typeof IntersectionObserver === 'undefined') return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          video.play().catch(() => {});
-        } else {
-          video.pause();
-        }
-      },
-      { threshold: 0.15 }
-    );
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <video ref={ref} className={className} poster={`/media/${name}.jpg`} muted loop playsInline preload="metadata" aria-hidden="true">
-      <source src={`/media/${name}.webm`} type="video/webm" />
-      <source src={`/media/${name}.mp4`} type="video/mp4" />
-    </video>
-  );
+  }, [key]);
 }
