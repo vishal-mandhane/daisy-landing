@@ -9,19 +9,6 @@ export const SOCIAL = {
   youtube: 'https://www.youtube.com/@DAYZIPARTY',
 };
 
-// Instagram reels
-// - `url`: the reel link (Share -> Copy link).
-// - Optional `video`: a downloaded copy saved in /public/reels (e.g. '/reels/night-1.mp4').
-//   When set, the reel autoplays muted and looping, with no Instagram frame.
-//   Without it, Instagram's official embed is used, with a styled fallback card.
-// - Optional `poster`: still image for the card (e.g. '/reels/night-1.jpg').
-export const REELS = [
-  { url: 'https://www.instagram.com/reel/DTsjgDxiFUV/', caption: 'Dayzi vibes' },
-  { url: 'https://www.instagram.com/reel/DTiLjz8CEPb/', caption: 'The night was electric' },
-  { url: 'https://www.instagram.com/reel/DVBhZTriKUd/', caption: 'Energy was unmatched' },
-  { url: 'https://www.instagram.com/reel/DX9cea6oyqw/', caption: 'You had to be there' },
-];
-
 export const TICKER = [
   'Rooftops',
   'Run clubs',

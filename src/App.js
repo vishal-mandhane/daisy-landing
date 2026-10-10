@@ -19,13 +19,11 @@ import {
 import './App.css';
 import Daisy from './components/Daisy';
 import SignupForm from './components/SignupForm';
-import Reels from './components/Reels';
 import { LoopVideo, useReveal } from './components/hooks';
 import { FAQ, SAFETY, SAMPLE_EVENTS, SOCIAL, STEPS, TICKER } from './data';
 
 const NAV = [
   { href: '#how', label: 'How it works' },
-  { href: '#reels', label: 'Reels' },
   { href: '#safety', label: 'Safety' },
   { href: '#faq', label: 'FAQ' },
 ];
@@ -431,7 +429,6 @@ export default function App() {
         <HowItWorks />
         <Profiles />
         <Fomo />
-        <Reels />
         <Safety />
         <Faq />
         <FinalCta />
