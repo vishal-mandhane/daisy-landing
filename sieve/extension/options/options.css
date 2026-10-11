@@ -1,0 +1,25 @@
+html, body { margin: 0; background: var(--s-soft); color: var(--s-fg); font: 14px/1.5 var(--s-font); }
+.o-wrap { max-width: 760px; margin: 0 auto; padding: 28px 16px 60px; }
+.o-head { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 20px; }
+.o-logo { width: 48px; height: 48px; flex: none; }
+.o-head h1 { margin: 0 0 4px; font-size: 24px; letter-spacing: -.02em; }
+.o-head p { margin: 0; }
+.o-card { background: var(--s-bg); border: 1px solid var(--s-line); border-radius: var(--s-radius); padding: 18px 20px; margin-bottom: 16px; }
+.o-card h2 { margin: 0 0 6px; font-size: 17px; }
+.o-card h3 { margin: 18px 0 8px; font-size: 14px; }
+.o-card > p { margin: 0 0 12px; }
+.o-grid { display: grid; gap: 12px; }
+.o-grid label { display: flex; flex-direction: column; gap: 4px; font-weight: 500; font-size: 13px; }
+.o-grid label a { font-weight: 400; margin-left: 6px; }
+.o-grid label.o-inline, .o-scope label.o-inline { flex-direction: row; align-items: center; gap: 8px; font-weight: 400; }
+.o-scope { display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.o-actions { display: flex; align-items: center; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+.o-engines { margin: 0 0 12px; padding-left: 20px; }
+.o-engines li { margin: 4px 0; }
+.o-advanced { margin-top: 12px; }
+.o-advanced summary { cursor: pointer; color: var(--s-muted); font-size: 13px; }
+.o-advanced .o-grid { margin-top: 10px; }
+.o-preset { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border: 1px solid var(--s-line); border-radius: 8px; margin-bottom: 8px; }
+.o-preset .s-spacer { flex: 1; }
+code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--s-soft); padding: 1px 5px; border-radius: 4px; }
+[hidden] { display: none !important; }

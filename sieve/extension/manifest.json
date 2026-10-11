@@ -1,0 +1,82 @@
+{
+  "manifest_version": 3,
+  "name": "Sieve — filter any streaming feed",
+  "short_name": "Sieve",
+  "version": "0.1.0",
+  "description": "Filter Netflix, Prime Video, JioHotstar, Disney+ and YouTube by IMDb/Rotten Tomatoes score or by topic (finance, AI, fitness…). Runs 100% locally. Open source.",
+  "minimum_chrome_version": "121",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "Sieve",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background/sw.js",
+    "scripts": ["background/sw.js"],
+    "type": "module"
+  },
+  "permissions": ["storage", "unlimitedStorage", "offscreen"],
+  "optional_host_permissions": ["http://localhost/*", "http://127.0.0.1/*"],
+  "host_permissions": [
+    "https://www.omdbapi.com/*",
+    "https://api.themoviedb.org/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.youtube.com/*",
+        "*://*.netflix.com/*",
+        "*://*.primevideo.com/*",
+        "*://*.amazon.com/*",
+        "*://*.amazon.in/*",
+        "*://*.amazon.co.uk/*",
+        "*://*.amazon.de/*",
+        "*://*.hotstar.com/*",
+        "*://*.jiohotstar.com/*",
+        "*://*.disneyplus.com/*",
+        "*://*.hulu.com/*",
+        "*://*.max.com/*",
+        "*://tv.apple.com/*"
+      ],
+      "js": ["content/loader.js"],
+      "css": ["content/page.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["content/*.js", "lib/*.js", "lib/**/*.js", "sites/*.js", "ui/*.js", "ui/*.css", "icons/*.svg"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "commands": {
+    "toggle-panel": {
+      "suggested_key": { "default": "Alt+Shift+S" },
+      "description": "Open or close the Sieve panel on this page"
+    },
+    "toggle-topics": {
+      "suggested_key": { "default": "Alt+Shift+T" },
+      "description": "Turn the Topic lens on or off"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "browser_specific_settings": {
+    "gecko": { "id": "sieve@sieve.watch", "strict_min_version": "121.0" }
+  }
+}

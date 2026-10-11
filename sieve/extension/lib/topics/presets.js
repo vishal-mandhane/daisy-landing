@@ -1,0 +1,186 @@
+// Built-in topics. `phrases` are natural-language descriptions used by the
+// embedding and LLM engines; `keywords` are matched literally (stemmed) by the
+// keyword engine; `negative` keywords veto a match. Keep keywords specific —
+// a vague keyword ("video") would let everything through.
+
+export const PRESETS = Object.freeze([
+  {
+    id: 'ai',
+    label: 'AI',
+    emoji: '🤖',
+    phrases: ['artificial intelligence and machine learning', 'large language models like ChatGPT, Claude, Gemini and Llama', 'AI agents, AI tools and AI news', 'deep learning, neural networks and generative AI'],
+    keywords: ['ai', 'artificial intelligence', 'machine learning', 'deep learning', 'neural network', 'llm', 'large language model', 'chatgpt', 'openai', 'claude', 'anthropic', 'gemini', 'llama', 'gpt', 'generative ai', 'ai agent', 'agents', 'transformer', 'diffusion', 'stable diffusion', 'midjourney', 'copilot', 'rag', 'fine tuning', 'prompt engineering', 'agi', 'deepmind', 'mistral', 'ollama', 'hugging face'],
+  },
+  {
+    id: 'tech',
+    label: 'Tech',
+    emoji: '💻',
+    phrases: ['technology news, gadgets and consumer electronics', 'smartphone, laptop and hardware reviews', 'software, apps, operating systems and the tech industry'],
+    keywords: ['tech', 'technology', 'gadget', 'smartphone', 'iphone', 'android', 'pixel', 'samsung', 'galaxy', 'laptop', 'macbook', 'windows', 'linux', 'review', 'unboxing', 'apple', 'google', 'microsoft', 'nvidia', 'intel', 'amd', 'gpu', 'cpu', 'chip', 'semiconductor', 'software', 'app', 'startup', 'silicon valley', 'wwdc', 'ces', 'vr', 'ar', 'headset', 'robot', 'robotics', 'drone', 'ev', 'tesla', 'spacex'],
+  },
+  {
+    id: 'programming',
+    label: 'Programming',
+    emoji: '👨‍💻',
+    phrases: ['software engineering and programming tutorials', 'coding in Python, JavaScript, Rust, Go, Java or C++', 'web development, system design, databases and devops'],
+    keywords: ['programming', 'coding', 'code', 'developer', 'software engineer', 'python', 'javascript', 'typescript', 'rust', 'golang', 'java', 'c++', 'kotlin', 'swift', 'react', 'nextjs', 'node', 'django', 'flutter', 'api', 'backend', 'frontend', 'full stack', 'database', 'sql', 'postgres', 'devops', 'kubernetes', 'docker', 'aws', 'cloud', 'system design', 'leetcode', 'algorithm', 'data structure', 'git', 'github', 'open source', 'vscode', 'neovim', 'linux', 'tutorial'],
+  },
+  {
+    id: 'finance',
+    label: 'Finance',
+    emoji: '📈',
+    phrases: ['personal finance, investing and the stock market', 'mutual funds, SIPs, index funds and ETFs', 'budgeting, saving money, retirement and financial independence', 'economics, interest rates, inflation and markets'],
+    keywords: ['finance', 'financial', 'investing', 'investor', 'investment', 'stock', 'stocks', 'share market', 'stock market', 'mutual fund', 'sip', 'etf', 'index fund', 'nifty', 'sensex', 's&p 500', 'nasdaq', 'dividend', 'portfolio', 'wealth', 'money', 'budget', 'saving', 'savings', 'retirement', 'fire', 'financial independence', 'tax', 'income tax', 'loan', 'emi', 'mortgage', 'credit card', 'credit score', 'insurance', 'bond', 'bonds', 'gold', 'real estate', 'economy', 'economics', 'inflation', 'interest rate', 'fed', 'rbi', 'recession', 'market crash', 'ipo', 'trading', 'options trading', 'warren buffett', 'net worth', 'passive income', 'side hustle', 'crypto', 'bitcoin'],
+  },
+  {
+    id: 'business',
+    label: 'Business',
+    emoji: '🏢',
+    phrases: ['business, entrepreneurship and startups', 'marketing, sales, leadership and management', 'company case studies and the economics of businesses'],
+    keywords: ['business', 'entrepreneur', 'entrepreneurship', 'startup', 'founder', 'ceo', 'marketing', 'sales', 'branding', 'leadership', 'management', 'strategy', 'case study', 'company', 'revenue', 'profit', 'ecommerce', 'dropshipping', 'shark tank', 'venture capital', 'vc', 'business model', 'growth', 'product management', 'mba'],
+  },
+  {
+    id: 'science',
+    label: 'Science',
+    emoji: '🔬',
+    phrases: ['science explained: physics, chemistry, biology and astronomy', 'space exploration, nasa and the universe', 'science documentaries and experiments'],
+    keywords: ['science', 'physics', 'chemistry', 'biology', 'astronomy', 'space', 'nasa', 'isro', 'spacex', 'universe', 'galaxy', 'black hole', 'quantum', 'relativity', 'evolution', 'dna', 'genetics', 'experiment', 'scientist', 'rocket', 'mars', 'moon', 'planet', 'telescope', 'climate', 'geology', 'neuroscience', 'brain'],
+  },
+  {
+    id: 'math',
+    label: 'Math',
+    emoji: '🧮',
+    phrases: ['mathematics explained: calculus, algebra, probability and statistics', 'math puzzles, proofs and olympiad problems'],
+    keywords: ['math', 'maths', 'mathematics', 'calculus', 'algebra', 'geometry', 'probability', 'statistics', 'theorem', 'proof', 'equation', 'integral', 'derivative', 'number theory', 'prime', 'olympiad', 'linear algebra', 'topology', 'puzzle'],
+  },
+  {
+    id: 'health',
+    label: 'Health & Fitness',
+    emoji: '💪',
+    phrases: ['fitness, workouts, gym and strength training', 'health, nutrition, diet and weight loss', 'sleep, longevity, medicine and wellbeing'],
+    keywords: ['fitness', 'workout', 'gym', 'exercise', 'training', 'strength', 'muscle', 'bodybuilding', 'cardio', 'running', 'marathon', 'yoga', 'stretching', 'mobility', 'health', 'healthy', 'nutrition', 'diet', 'protein', 'calories', 'weight loss', 'fat loss', 'sleep', 'longevity', 'doctor', 'medicine', 'medical', 'mental health', 'supplement', 'creatine', 'fasting', 'keto'],
+  },
+  {
+    id: 'cooking',
+    label: 'Cooking',
+    emoji: '🍳',
+    phrases: ['cooking, recipes and food', 'baking, street food and restaurant reviews'],
+    keywords: ['cooking', 'cook', 'recipe', 'recipes', 'food', 'kitchen', 'baking', 'bake', 'chef', 'dinner', 'lunch', 'breakfast', 'dessert', 'curry', 'biryani', 'pasta', 'pizza', 'bread', 'cake', 'street food', 'restaurant', 'tasting', 'meal prep', 'vegan', 'vegetarian', 'bbq', 'grill'],
+  },
+  {
+    id: 'travel',
+    label: 'Travel',
+    emoji: '✈️',
+    phrases: ['travel vlogs, destinations and trip guides', 'backpacking, road trips, hotels and flights'],
+    keywords: ['travel', 'trip', 'vlog', 'tour', 'journey', 'backpacking', 'road trip', 'flight', 'airport', 'hotel', 'resort', 'destination', 'itinerary', 'visa', 'island', 'beach', 'hiking', 'trek', 'camping', 'van life', 'europe', 'japan', 'bali', 'thailand', 'dubai'],
+  },
+  {
+    id: 'gaming',
+    label: 'Gaming',
+    emoji: '🎮',
+    phrases: ['video games, gameplay and esports', 'game reviews, speedruns and gaming news'],
+    keywords: ['gaming', 'game', 'games', 'gameplay', 'gamer', 'playstation', 'ps5', 'xbox', 'nintendo', 'switch', 'steam', 'pc gaming', 'esports', 'minecraft', 'fortnite', 'gta', 'valorant', 'league of legends', 'cs2', 'call of duty', 'elden ring', 'zelda', 'pokemon', 'speedrun', 'walkthrough', 'let s play', 'roblox', 'bgmi', 'free fire'],
+  },
+  {
+    id: 'music',
+    label: 'Music',
+    emoji: '🎵',
+    phrases: ['music, songs, albums and live performances', 'music production, guitar, piano and singing'],
+    keywords: ['music', 'song', 'songs', 'album', 'lyrics', 'official video', 'official audio', 'live performance', 'concert', 'remix', 'cover', 'guitar', 'piano', 'drums', 'singing', 'vocal', 'producer', 'beat', 'playlist', 'mix', 'dj', 'rap', 'hip hop', 'jazz', 'classical', 'bollywood song', 'lofi'],
+  },
+  {
+    id: 'film',
+    label: 'Film & TV',
+    emoji: '🎬',
+    phrases: ['movies, television series and trailers', 'film reviews, breakdowns and behind the scenes'],
+    keywords: ['movie', 'movies', 'film', 'cinema', 'trailer', 'teaser', 'review', 'explained', 'ending explained', 'behind the scenes', 'director', 'actor', 'actress', 'netflix', 'series', 'season', 'episode', 'anime', 'marvel', 'dc', 'star wars', 'oscars', 'hollywood', 'bollywood', 'documentary'],
+  },
+  {
+    id: 'sports',
+    label: 'Sports',
+    emoji: '⚽',
+    phrases: ['sports highlights, matches and analysis', 'football, cricket, basketball, tennis, formula 1 and more'],
+    keywords: ['sports', 'football', 'soccer', 'cricket', 'ipl', 'basketball', 'nba', 'nfl', 'tennis', 'golf', 'f1', 'formula 1', 'ufc', 'mma', 'boxing', 'wrestling', 'wwe', 'olympics', 'highlights', 'match', 'goal', 'world cup', 'premier league', 'champions league', 'messi', 'ronaldo', 'kohli', 'cycling', 'swimming', 'athletics'],
+  },
+  {
+    id: 'news',
+    label: 'News & Politics',
+    emoji: '📰',
+    phrases: ['news, current affairs and politics', 'elections, government policy and world events'],
+    keywords: ['news', 'breaking', 'politics', 'political', 'election', 'president', 'prime minister', 'parliament', 'congress', 'senate', 'government', 'policy', 'minister', 'war', 'geopolitics', 'ukraine', 'israel', 'china', 'live', 'debate', 'protest', 'court', 'supreme court'],
+  },
+  {
+    id: 'history',
+    label: 'History',
+    emoji: '🏛️',
+    phrases: ['history documentaries and explainers', 'ancient civilizations, world wars and historical events'],
+    keywords: ['history', 'historical', 'ancient', 'medieval', 'empire', 'rome', 'roman', 'greek', 'egypt', 'ww1', 'ww2', 'world war', 'cold war', 'civil war', 'revolution', 'dynasty', 'archaeology', 'documentary', 'century', 'kingdom', 'mughal', 'viking'],
+  },
+  {
+    id: 'education',
+    label: 'Education',
+    emoji: '🎓',
+    phrases: ['educational lessons, lectures and courses', 'exam preparation and study techniques'],
+    keywords: ['lecture', 'lesson', 'course', 'class', 'tutorial', 'explained', 'learn', 'learning', 'study', 'exam', 'upsc', 'jee', 'neet', 'gate', 'sat', 'gre', 'ielts', 'university', 'college', 'school', 'teacher', 'professor', 'crash course', 'how to', 'guide', 'masterclass'],
+  },
+  {
+    id: 'design',
+    label: 'Art & Design',
+    emoji: '🎨',
+    phrases: ['art, drawing, painting and illustration', 'graphic design, ui ux design, architecture and photography'],
+    keywords: ['art', 'artist', 'drawing', 'painting', 'sketch', 'illustration', 'design', 'designer', 'graphic design', 'ui', 'ux', 'figma', 'typography', 'logo', 'architecture', 'interior design', 'photography', 'photo', 'camera', 'lightroom', 'photoshop', 'blender', '3d', 'animation', 'procreate'],
+  },
+  {
+    id: 'productivity',
+    label: 'Productivity & Mindset',
+    emoji: '🧠',
+    phrases: ['productivity, habits, focus and time management', 'self improvement, motivation, psychology and mindset'],
+    keywords: ['productivity', 'productive', 'habit', 'habits', 'focus', 'discipline', 'motivation', 'motivational', 'mindset', 'self improvement', 'self help', 'routine', 'morning routine', 'time management', 'goal', 'goals', 'psychology', 'stoic', 'stoicism', 'meditation', 'mindfulness', 'notion', 'obsidian', 'journaling', 'deep work', 'procrastination'],
+  },
+  {
+    id: 'comedy',
+    label: 'Comedy',
+    emoji: '😂',
+    phrases: ['comedy, stand-up and sketches', 'funny videos, memes and roasts'],
+    keywords: ['comedy', 'comedian', 'stand up', 'standup', 'funny', 'sketch', 'parody', 'roast', 'meme', 'memes', 'prank', 'jokes', 'satire', 'try not to laugh', 'snl'],
+  },
+  {
+    id: 'kids',
+    label: 'Kids',
+    emoji: '🧸',
+    phrases: ['content for children: cartoons, nursery rhymes and kids learning', 'family friendly animated shows'],
+    keywords: ['kids', 'children', 'cartoon', 'nursery rhyme', 'rhymes', 'abc', 'peppa', 'cocomelon', 'baby', 'toddler', 'preschool', 'learning colors', 'toys', 'bluey', 'paw patrol', 'disney junior'],
+  },
+  {
+    id: 'spirituality',
+    label: 'Spirituality',
+    emoji: '🕉️',
+    phrases: ['spirituality, religion, philosophy and meditation', 'bhagavad gita, bible, quran, buddhism and yoga philosophy'],
+    keywords: ['spiritual', 'spirituality', 'religion', 'religious', 'philosophy', 'meditation', 'gita', 'bhagavad gita', 'vedanta', 'bible', 'quran', 'buddhism', 'buddha', 'zen', 'yoga', 'bhajan', 'kirtan', 'sermon', 'prayer', 'temple', 'church', 'mosque', 'sadhguru', 'osho', 'dharma', 'karma'],
+  },
+  {
+    id: 'auto',
+    label: 'Cars & Bikes',
+    emoji: '🚗',
+    phrases: ['cars, motorcycles and automotive reviews', 'electric vehicles, racing and car mechanics'],
+    keywords: ['car', 'cars', 'bike', 'motorcycle', 'automotive', 'ev', 'electric vehicle', 'tesla', 'bmw', 'mercedes', 'porsche', 'ferrari', 'lamborghini', 'toyota', 'honda', 'supercar', 'test drive', 'review', 'mechanic', 'engine', 'f1', 'racing', 'drift', 'off road', 'suv', 'sedan', 'hatchback', 'royal enfield'],
+  },
+  {
+    id: 'diy',
+    label: 'DIY & Making',
+    emoji: '🔧',
+    phrases: ['do it yourself projects, woodworking and home repair', 'electronics, 3d printing and maker builds'],
+    keywords: ['diy', 'do it yourself', 'woodworking', 'build', 'builds', 'repair', 'restoration', 'home improvement', 'renovation', 'maker', 'arduino', 'raspberry pi', 'electronics', 'soldering', '3d printing', '3d printer', 'cnc', 'welding', 'workshop', 'tools', 'hack', 'crafts'],
+  },
+  {
+    id: 'language',
+    label: 'Languages',
+    emoji: '🗣️',
+    phrases: ['learning languages: english, spanish, japanese, french and more', 'grammar, vocabulary, pronunciation and speaking practice'],
+    keywords: ['language', 'learn english', 'english speaking', 'spoken english', 'grammar', 'vocabulary', 'pronunciation', 'spanish', 'french', 'german', 'japanese', 'korean', 'chinese', 'mandarin', 'hindi', 'arabic', 'italian', 'duolingo', 'fluent', 'polyglot', 'ielts', 'toefl'],
+  },
+]);
+
+export function presetById(id, custom = []) {
+  return custom.find((p) => p.id === id) ?? PRESETS.find((p) => p.id === id) ?? null;
+}

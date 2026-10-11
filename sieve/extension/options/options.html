@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sieve settings</title>
+  <link rel="stylesheet" href="../ui/panel.css">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main class="o-wrap">
+    <header class="o-head">
+      <span class="s-logo o-logo" id="logo"></span>
+      <div>
+        <h1>Sieve</h1>
+        <p class="s-muted">Filter any streaming feed by rating or by topic. Everything runs in your browser; nothing is sent anywhere you did not configure.</p>
+      </div>
+    </header>
+
+    <section class="o-card" id="ratings">
+      <h2>★ Ratings lens</h2>
+      <p class="s-muted">Shows IMDb / Rotten Tomatoes / TMDB scores on Netflix, Prime Video, JioHotstar, Disney+ and others, and dims or hides titles under your threshold. Bring your own free API key, and the lookups are yours; Sieve has no server.</p>
+      <div class="o-grid">
+        <label>Provider
+          <select data-set="ratings.provider">
+            <option value="omdb">OMDb — IMDb + Rotten Tomatoes + Metacritic (free key, 1,000 lookups/day)</option>
+            <option value="tmdb">TMDB — community score 0–10 (free key, works where OMDb is blocked)</option>
+          </select>
+        </label>
+        <label data-show="omdb">OMDb API key <a href="https://www.omdbapi.com/apikey.aspx" target="_blank" rel="noopener">get one free ↗</a>
+          <input type="password" data-set="ratings.keys.omdb" placeholder="e.g. 1a2b3c4d" autocomplete="off">
+        </label>
+        <label data-show="tmdb">TMDB API key (v3) <a href="https://www.themoviedb.org/settings/api" target="_blank" rel="noopener">get one free ↗</a>
+          <input type="password" data-set="ratings.keys.tmdb" placeholder="32-character v3 key" autocomplete="off">
+        </label>
+      </div>
+      <div class="o-actions">
+        <button class="s-btn" id="test-ratings">Test lookup</button>
+        <span id="ratings-result" class="s-muted"></span>
+      </div>
+      <details class="o-advanced"><summary>Advanced: endpoints</summary>
+        <div class="o-grid">
+          <label>OMDb endpoint <input type="url" data-set="ratings.endpoints.omdb"></label>
+          <label>TMDB endpoint <input type="url" data-set="ratings.endpoints.tmdb"></label>
+          <p class="s-muted">Point these at a proxy if your network blocks the providers.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="o-card" id="topics">
+      <h2>🎯 Topic lens</h2>
+      <p class="s-muted">Type what you want to see (“finance, mutual funds -crypto”) or switch on presets, and everything else disappears from YouTube’s home, search, subscriptions and recommendations. Three engines, all local, best one wins:</p>
+      <ol class="o-engines">
+        <li><b>Keyword</b> — always on. Instant, zero setup. Great for precise topics.</li>
+        <li><b>Embeddings</b> — a small open-source model (MiniLM, ~23 MB, downloaded once from Hugging Face and cached) understands meaning: “how I invest my salary” matches <i>finance</i> with no keyword in common. Runs in the browser via Transformers.js.</li>
+        <li><b>LLM</b> — an open-weight model such as Llama, Qwen or Gemma running in <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> on your machine judges each batch of titles. Most accurate, needs a machine that can run it.</li>
+      </ol>
+      <div class="o-grid">
+        <label>Engine strategy
+          <select data-set="topics.engine">
+            <option value="auto">Auto — keyword, then embeddings, then LLM if available</option>
+            <option value="keyword">Keyword only</option>
+            <option value="embedding">Embeddings only</option>
+            <option value="llm">LLM only</option>
+          </select>
+        </label>
+      </div>
+      <h3>Embeddings</h3>
+      <div class="o-grid">
+        <label class="o-inline"><input type="checkbox" class="s-check" data-set="topics.embedding.enabled"> Use the embedding engine</label>
+        <label>Model
+          <select data-set="topics.embedding.model">
+            <option value="Xenova/all-MiniLM-L6-v2">all-MiniLM-L6-v2 — English, fastest (23 MB)</option>
+            <option value="Xenova/paraphrase-multilingual-MiniLM-L12-v2">paraphrase-multilingual-MiniLM-L12-v2 — 50+ languages (118 MB)</option>
+            <option value="Xenova/bge-small-en-v1.5">bge-small-en-v1.5 — English, more accurate (33 MB)</option>
+          </select>
+        </label>
+      </div>
+      <div class="o-actions">
+        <button class="s-btn" id="warm-embedding">Download / load model now</button>
+        <span id="embedding-result" class="s-muted"></span>
+      </div>
+      <h3>LLM</h3>
+      <div class="o-grid">
+        <label class="o-inline"><input type="checkbox" class="s-check" data-set="topics.llm.enabled"> Use an LLM to judge titles</label>
+        <label>Provider
+          <select data-set="topics.llm.provider">
+            <option value="ollama">Ollama (local) — Llama, Qwen, Gemma, Mistral…</option>
+            <option value="openai">OpenAI-compatible endpoint — LM Studio, vLLM, Groq, OpenRouter…</option>
+            <option value="chrome">Chrome built-in AI (Gemini Nano), when your Chrome has it</option>
+          </select>
+        </label>
+        <label data-show-llm="ollama">Ollama URL <input type="url" data-set="topics.llm.ollamaUrl" placeholder="http://localhost:11434"></label>
+        <label data-show-llm="ollama">Ollama model <input type="text" data-set="topics.llm.ollamaModel" placeholder="llama3.2"> <span class="s-muted">run <code>ollama pull llama3.2</code> first</span></label>
+        <label data-show-llm="openai">Endpoint base URL <input type="url" data-set="topics.llm.openaiUrl" placeholder="https://api.groq.com/openai/v1"></label>
+        <label data-show-llm="openai">API key (if the endpoint needs one) <input type="password" data-set="topics.llm.openaiKey" autocomplete="off"></label>
+        <label data-show-llm="openai">Model <input type="text" data-set="topics.llm.openaiModel" placeholder="llama-3.1-8b-instant"></label>
+      </div>
+      <div class="o-actions">
+        <button class="s-btn" id="test-llm">Test LLM</button>
+        <span id="llm-result" class="s-muted"></span>
+      </div>
+      <h3>Where the Topic lens applies on YouTube</h3>
+      <div class="o-scope">
+        <label class="o-inline"><input type="checkbox" class="s-check" data-set="topics.scope.home"> Home</label>
+        <label class="o-inline"><input type="checkbox" class="s-check" data-set="topics.scope.search"> Search results</label>
+        <label class="o-inline"><input type="checkbox" class="s-check" data-set="topics.scope.watch"> Recommendations next to a video</label>
+        <label class="o-inline"><input type="checkbox" class="s-check" data-set="topics.scope.subscriptions"> Subscriptions</label>
+        <label class="o-inline"><input type="checkbox" class="s-check" data-set="topics.scope.shorts"> Shorts</label>
+        <label class="o-inline"><input type="checkbox" class="s-check" data-set="topics.scope.channel"> Channel pages</label>
+      </div>
+    </section>
+
+    <section class="o-card" id="presets">
+      <h2>Custom presets</h2>
+      <p class="s-muted">Your own topics. Keywords are matched literally; the description is what the embedding and LLM engines read.</p>
+      <div id="custom-list"></div>
+      <div class="o-grid">
+        <label>Name <input type="text" id="cp-label" placeholder="e.g. Indian stock market"></label>
+        <label>Keywords (comma separated) <input type="text" id="cp-keywords" placeholder="nifty, sensex, zerodha, groww, sebi"></label>
+        <label>Description for the semantic engines <input type="text" id="cp-phrases" placeholder="investing in the Indian stock market; indian mutual funds and SIPs"></label>
+      </div>
+      <div class="o-actions"><button class="s-btn s-primary" id="cp-add">Add preset</button></div>
+    </section>
+
+    <section class="o-card" id="sites">
+      <h2>Sites</h2>
+      <div class="o-scope" id="site-list"></div>
+      <h3>Toolbar</h3>
+      <div class="o-scope">
+        <label class="o-inline"><input type="checkbox" class="s-check" data-set="ui.toolbar"> Show the floating Sieve pill on pages (the toolbar icon works either way)</label>
+        <label>Position
+          <select data-set="ui.position">
+            <option value="bottom-right">Bottom right</option>
+            <option value="bottom-left">Bottom left</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section class="o-card" id="data">
+      <h2>Data</h2>
+      <p class="s-muted" id="cache-stats"></p>
+      <div class="o-actions">
+        <button class="s-btn" id="clear-cache">Clear caches</button>
+        <button class="s-btn" id="export">Export settings</button>
+        <button class="s-btn" id="import">Import settings</button>
+        <input type="file" id="import-file" accept="application/json" hidden>
+        <span id="data-result" class="s-muted"></span>
+      </div>
+      <h3>Privacy</h3>
+      <p class="s-muted">Sieve has no backend and no telemetry. Settings live in your browser profile (synced by your browser if you sign in). The only network calls are the ones you configure: the ratings provider you chose, the embedding model download from huggingface.co, and the LLM endpoint you entered. Titles of what you browse are sent only to those. <a href="https://github.com/vishal-mandhane/daisy-landing/tree/main/sieve" target="_blank" rel="noopener">Source code ↗</a></p>
+    </section>
+  </main>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

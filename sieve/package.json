@@ -1,0 +1,21 @@
+{
+  "name": "sieve-extension",
+  "version": "0.1.0",
+  "description": "Sieve: filter any streaming feed (Netflix, Prime Video, JioHotstar, Disney+, YouTube) by rating or by topic. 100% local, open source, no backend.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "e2e": "node e2e/run.mjs",
+    "vendor": "node scripts/vendor.mjs",
+    "icons": "node scripts/icons.mjs",
+    "lint": "node scripts/check-manifest.mjs",
+    "zip": "node scripts/zip.mjs",
+    "build": "npm run vendor && npm run lint && npm run zip"
+  },
+  "devDependencies": {
+    "@huggingface/transformers": "^3.8.1",
+    "playwright": "1.56.1"
+  }
+}

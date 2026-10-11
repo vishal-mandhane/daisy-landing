@@ -1,0 +1,30 @@
+name: sieve
+on:
+  push:
+    paths: ['sieve/**', '.github/workflows/sieve.yml']
+  pull_request:
+    paths: ['sieve/**', '.github/workflows/sieve.yml']
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sieve
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: sieve/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run lint
+      - run: npm run vendor
+      - run: npx playwright install --with-deps chromium
+      - run: npm run e2e
+      - run: npm run zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sieve-extension
+          path: sieve/dist/*.zip

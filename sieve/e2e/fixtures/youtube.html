@@ -1,0 +1,33 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>YouTube fixture</title>
+<meta name="sieve-site" content="youtube">
+<style>
+  body { font-family: sans-serif; background:#0f0f0f; color:#fff; margin:0; padding:20px; }
+  ytd-rich-item-renderer, yt-lockup-view-model, ytd-video-renderer { display:block; width: 300px; padding: 10px; margin: 8px; background:#1c1c1c; border-radius: 8px; }
+  #grid { display:flex; flex-wrap:wrap; }
+</style></head>
+<body>
+<h1>Home</h1>
+<div id="grid">
+  <ytd-rich-item-renderer><a id="video-title-link" href="/watch?v=1"><yt-formatted-string id="video-title">How I invest my salary every month (SIP + index funds)</yt-formatted-string></a><ytd-channel-name><a>Money Matters</a></ytd-channel-name></ytd-rich-item-renderer>
+  <ytd-rich-item-renderer><a id="video-title-link" href="/watch?v=2"><yt-formatted-string id="video-title">Minecraft speedrun world record 2026</yt-formatted-string></a><ytd-channel-name><a>Gamer</a></ytd-channel-name></ytd-rich-item-renderer>
+  <ytd-rich-item-renderer><a id="video-title-link" href="/watch?v=3"><yt-formatted-string id="video-title">Best mutual funds for 2026 — full breakdown</yt-formatted-string></a><ytd-channel-name><a>Finance Guy</a></ytd-channel-name></ytd-rich-item-renderer>
+  <ytd-rich-item-renderer><a id="video-title-link" href="/watch?v=4"><yt-formatted-string id="video-title">Why Bitcoin and crypto will 10x your money</yt-formatted-string></a><ytd-channel-name><a>Crypto Bro</a></ytd-channel-name></ytd-rich-item-renderer>
+  <ytd-rich-item-renderer><a id="video-title-link" href="/watch?v=5"><yt-formatted-string id="video-title">Thailand travel vlog: Chiang Mai street food</yt-formatted-string></a><ytd-channel-name><a>Wanderer</a></ytd-channel-name></ytd-rich-item-renderer>
+  <ytd-rich-item-renderer>
+    <yt-lockup-view-model><h3><a class="yt-lockup-metadata-view-model__title" href="/watch?v=6" title="Stock market crash explained">Stock market crash explained</a></h3><span class="yt-content-metadata-view-model__metadata-text">Econ Daily</span></yt-lockup-view-model>
+  </ytd-rich-item-renderer>
+  <yt-lockup-view-model><h3><a class="yt-lockup-metadata-view-model__title" href="/watch?v=7" title="Top 10 funniest cat videos">Top 10 funniest cat videos</a></h3><span class="yt-content-metadata-view-model__metadata-text">Cats</span></yt-lockup-view-model>
+  <ytd-video-renderer><a id="video-title" title="Learn Python in 1 hour">Learn Python in 1 hour</a><ytd-channel-name><a>Code Camp</a></ytd-channel-name><yt-formatted-string class="metadata-snippet-text">A complete beginner tutorial on programming.</yt-formatted-string></ytd-video-renderer>
+</div>
+<button id="more">load more</button>
+<script>
+  // Simulates lazy loading: appends two more cards after a click.
+  document.getElementById('more').addEventListener('click', () => {
+    const grid = document.getElementById('grid');
+    grid.insertAdjacentHTML('beforeend', `
+      <ytd-rich-item-renderer><a id="video-title-link" href="/watch?v=8"><yt-formatted-string id="video-title">Warren Buffett on investing in index funds</yt-formatted-string></a><ytd-channel-name><a>Investor Clips</a></ytd-channel-name></ytd-rich-item-renderer>
+      <ytd-rich-item-renderer><a id="video-title-link" href="/watch?v=9"><yt-formatted-string id="video-title">Fortnite chapter 7 gameplay</yt-formatted-string></a><ytd-channel-name><a>Gamer</a></ytd-channel-name></ytd-rich-item-renderer>`);
+  });
+</script>
+</body></html>
