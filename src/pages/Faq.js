@@ -1,6 +1,7 @@
 import React from 'react';
 import { Plus } from 'lucide-react';
-import { FAQ, SOCIAL } from '../data';
+import { FAQ, GUIDE_LINKS, SOCIAL } from '../data';
+import { Link } from '../router';
 import { JoinCta, Polaroid, Ticker } from '../components/Layout';
 
 export default function Faq() {
@@ -45,6 +46,15 @@ export default function Faq() {
               </details>
             ))}
           </div>
+          <p className="fineprint reveal">
+            Guides:{' '}
+            {GUIDE_LINKS.map((item, i) => (
+              <React.Fragment key={item.to}>
+                {i > 0 && ' · '}
+                <Link to={item.to}>{item.label}</Link>
+              </React.Fragment>
+            ))}
+          </p>
         </div>
       </section>
       <JoinCta />

@@ -1,3 +1,29 @@
-# https://www.robotstxt.org/robotstxt.html
+# dayzi.live is public. Search engines and AI assistants are welcome to read
+# and cite it. A plain-text summary for AI assistants is at /llms.txt.
+#
+# One group for everyone; the AI crawlers are named so it's plain that they
+# are allowed, not left out by accident. If you add a Disallow, it applies to
+# all of them.
 User-agent: *
-Disallow:
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Applebot
+User-agent: DuckDuckBot
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: DuckAssistBot
+User-agent: meta-externalagent
+User-agent: Amazonbot
+User-agent: MistralAI-User
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://dayzi.live/sitemap.xml

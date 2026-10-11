@@ -1,31 +1,46 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import { usePath } from './router';
+import { canonicalUrl, normalizePath, pageMeta } from './seo';
 import { useReveal } from './components/hooks';
 import { Footer, Nav } from './components/Layout';
 import Home from './pages/Home';
 import HowItWorks from './pages/HowItWorks';
 import Safety from './pages/Safety';
 import Faq from './pages/Faq';
+import Guide from './pages/Guide';
+import { GUIDES } from './data';
 
+function guidePage(path) {
+  return function GuidePage() {
+    return <Guide guide={GUIDES[path]} />;
+  };
+}
+
+// Titles and descriptions live in seo.js, next to the structured data.
 const PAGES = {
-  '/': { component: Home, title: 'Dayzi — Stop missing out. Start showing up.' },
-  '/how-it-works': { component: HowItWorks, title: 'How it works — Dayzi' },
-  '/safety': { component: Safety, title: 'Safety — Dayzi' },
-  '/faq': { component: Faq, title: 'FAQ — Dayzi' },
+  '/': Home,
+  '/how-it-works': HowItWorks,
+  '/safety': Safety,
+  '/faq': Faq,
+  ...Object.fromEntries(Object.keys(GUIDES).map((path) => [path, guidePage(path)])),
 };
 
-export default function App() {
-  const rawPath = usePath();
-  const path = rawPath.length > 1 ? rawPath.replace(/\/+$/, '') : rawPath;
-  const page = PAGES[path] || PAGES['/'];
-  const Page = page.component;
+// `initialPath` is only passed by the prerender (scripts/prerender.js).
+export default function App({ initialPath }) {
+  const path = normalizePath(usePath(initialPath));
+  const Page = PAGES[path] || PAGES['/'];
 
   useReveal(path);
 
+  // The prerendered HTML already has the right tags; this keeps them right
+  // after moving to another page without a reload.
   useEffect(() => {
-    document.title = page.title;
-  }, [page]);
+    const meta = pageMeta(path);
+    document.title = meta.title;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', meta.description);
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonicalUrl(PAGES[path] ? path : '/'));
+  }, [path]);
 
   // Deep links like /how-it-works#profile
   useEffect(() => {

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
 // A tiny client-side router: real URLs (/safety, /faq...) without a dependency.
-// vercel.json rewrites those paths to index.html so they also work on reload.
+// Each path is prerendered to its own HTML file at build time
+// (scripts/prerender.js), so it also works on reload and without JavaScript.
 
 const NAV_EVENT = 'dayzi:navigate';
 
-export function usePath() {
-  const [path, setPath] = useState(() => window.location.pathname);
+// `initial` is only passed by the prerender, which has no window.
+export function usePath(initial) {
+  const [path, setPath] = useState(() => initial ?? window.location.pathname);
   useEffect(() => {
     const update = () => setPath(window.location.pathname);
     window.addEventListener('popstate', update);

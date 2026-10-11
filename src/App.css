@@ -742,6 +742,51 @@ summary:focus-visible {
   color: var(--ink);
 }
 
+/* ---------- Guides ---------- */
+
+.guide {
+  max-width: 720px;
+}
+
+.guide__section + .guide__section {
+  margin-top: 48px;
+}
+
+.guide__section .h-lg {
+  margin-bottom: 16px;
+}
+
+.guide p,
+.guide__items li {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.guide p {
+  margin: 0 0 14px;
+}
+
+.guide__items {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+}
+
+.guide__items li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.guide__items strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.guide .text-link {
+  margin-top: 6px;
+}
+
 /* ---------- Split layout + phone frame ---------- */
 
 .split {
@@ -1355,9 +1400,9 @@ summary:focus-visible {
   }
 
   .footer__cols {
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(4, auto);
     justify-content: end;
-    gap: 64px;
+    gap: 48px;
   }
 }
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, Instagram, Menu, X as Close, Youtube } from 'lucide-react';
 import { Link } from '../router';
-import { NAV, SOCIAL, TICKER } from '../data';
+import { GUIDE_LINKS, NAV, SOCIAL, TICKER } from '../data';
 import Daisy from './Daisy';
 import Logo from './Logo';
 import SignupForm from './SignupForm';
@@ -122,6 +122,14 @@ export function Footer() {
               <span className="footer__head">Explore</span>
               <Link to="/">Home</Link>
               {NAV.map((item) => (
+                <Link key={item.to} to={item.to}>
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+            <nav aria-label="Guides">
+              <span className="footer__head">Guides</span>
+              {GUIDE_LINKS.map((item) => (
                 <Link key={item.to} to={item.to}>
                   {item.label}
                 </Link>

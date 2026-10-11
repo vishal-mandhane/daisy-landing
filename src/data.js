@@ -164,14 +164,51 @@ export const MEET_SMART = [
   'Trust your gut. Leaving is always allowed.',
 ];
 
+// Every answer here is checked against the app and the Terms: the app is free
+// (Terms: "provided free of charge"), not a dating app ("a listings and
+// coordination platform"), has no city list (plans within 100 km of the city
+// you pick), and is in testing, not in the stores. Keep it that way; these
+// answers are also what search engines and AI assistants quote.
 export const FAQ = [
   {
     q: 'What is Dayzi?',
-    a: 'A social events app. Find plans happening around you, ask to join, chat with everyone going, and show up. Or host your own.',
+    a: 'A free app for finding plans near you and going to them: a run, a board games night, a gig, a trek. Ask to join, the host says yes, and you’re in the group chat. Or host your own.',
   },
   {
-    q: 'How do I get in?',
-    a: 'Join the list with your email and city. We’re sending rolling invites, and people on the list get in first.',
+    q: 'How do I get Dayzi? Is it on Android and iPhone?',
+    a: 'Dayzi is being tested on Android and iPhone and isn’t in the app stores yet. Join the list with your email and city. We’re sending rolling invites, and people on the list get in first.',
+  },
+  {
+    q: 'Is Dayzi free?',
+    a: 'Yes. Dayzi is free. Some plans cost money, like a turf booking or a ticket, and hosts are asked to say so on the plan.',
+  },
+  {
+    q: 'Is Dayzi a dating app?',
+    a: 'No. Dayzi is for plans: runs, gigs, football, board games, treks, brunch. You ask to join a plan, and the host decides who comes.',
+  },
+  {
+    q: 'Can I go on my own?',
+    a: 'Yes. You don’t need to bring anyone. You ask to join by yourself, and you can see who’s hosting and who’s going before you do.',
+  },
+  {
+    q: 'Where does Dayzi work? Is it in Mumbai?',
+    a: 'Dayzi isn’t limited to a list of cities. It shows plans within 100 km of the city you choose, so it works in Mumbai, Thane, Navi Mumbai, Pune, Delhi, Bengaluru or anywhere else in India. It’s new, so how many plans you see depends on how many people near you have joined.',
+  },
+  {
+    q: 'What kind of plans are on Dayzi?',
+    a: 'Whatever people near you post, across 15 categories: sports, fitness, wellness, outdoors, food, nightlife, music, entertainment, games, creative, learning, networking, community, hangouts, and festivals. Think box cricket, run clubs, treks, board games, karaoke, open mics, pottery, café hopping, garba and pandal hopping.',
+  },
+  {
+    q: 'My friends are always busy. Can I still go out?',
+    a: 'Yes, that’s what Dayzi is for. Find a plan you’d go to anyway, ask to join, and go. You don’t need anyone to come with you.',
+  },
+  {
+    q: 'Will Dayzi help me make friends?',
+    a: 'Maybe. Go to plans that interest you, talk to people in the group chat, and show up in real life. The app can only do so much; the rest is on you.',
+  },
+  {
+    q: 'Is Dayzi for people who feel lonely?',
+    a: 'Dayzi is for anyone who wants something to do this week: your friends are busy, you’ve just moved, or you want a change. It isn’t therapy and can’t promise friendship. If loneliness or low mood is weighing on you, talk to someone. In India, Tele-MANAS is a free, 24x7 government helpline: call 14416.',
   },
   {
     q: 'Can I host my own plans?',
@@ -187,6 +224,151 @@ export const FAQ = [
   },
   {
     q: 'Who can use Dayzi?',
-    a: 'Anyone 18 or older.',
+    a: 'Anyone 18 or older. Hosts can also set an age range for their plan.',
   },
+  {
+    q: 'Why is it called Dayzi?',
+    a: 'Because EventMeetupSocialNetworkingPlatform was taken. Also, daisies are chill and we wanted a chill vibe.',
+  },
+];
+
+// Guides: one page each, written for what people actually search
+// ("things to do in mumbai with friends", "nobody to go out with"). Plain
+// advice first, Dayzi last. No venue or brand names, no claims about how many
+// plans there are.
+//
+// A section has a heading `h` and any of: `body` (paragraphs), `items`
+// ([lead, text] pairs), `link` ({ to, label } inside the site, or { href, label }).
+export const GUIDES = {
+  '/things-to-do-in-mumbai': {
+    kicker: 'Mumbai',
+    title: ['Things to do ', 'in Mumbai', '.'],
+    lead: 'Something is on every night of the week. The hard part is rarely finding a plan; it’s finding someone free to go with. Here’s what’s worth going to, with friends or on your own.',
+    image: '/app/vibes.jpg',
+    sections: [
+      {
+        h: 'Weeknights, after work',
+        items: [
+          ['Board games nights.', 'A table, a stack of games and someone explaining the rules. One of the easiest rooms to walk into alone: there’s always something to do.'],
+          ['Quiz and trivia nights.', 'Played in teams, so a team that’s one short will often take you in.'],
+          ['Karaoke.', 'Nobody is judging your singing. Everyone is waiting for their own turn.'],
+          ['Open mics.', 'Poetry, comedy, music. Perform, or just watch.'],
+          ['Café hopping and chai.', 'The low-effort plan: an hour, a table, a conversation.'],
+        ],
+      },
+      {
+        h: 'Mornings and weekends',
+        items: [
+          ['Run clubs.', 'Look for a beginners’ group that runs at a pace you can talk at.'],
+          ['Turf football and box cricket.', 'Turfs are booked by the hour, and a game that’s a few players short is the classic way in.'],
+          ['Sunset by the sea.', 'Marine Drive, Carter Road, Juhu: free, and on every evening.'],
+          ['Brunch.', 'A long Sunday table is better with more people around it.'],
+          ['Treks.', 'Monsoon is trek season in the hills around Mumbai. Go with a group, and with someone who knows the route.'],
+        ],
+      },
+      {
+        h: 'Nights out',
+        body: [
+          'Gigs, DJ nights, techno and Bollywood nights, rooftop parties, bar hopping. A group of four is easier to plan and safer to get home with: share the cab, and tell someone where you are.',
+        ],
+      },
+      {
+        h: 'Festival season',
+        body: [
+          'Mumbai goes big for festivals: pandal hopping at Ganeshotsav, garba and dandiya at Navratri, Diwali parties, Christmas. All of them are better in a group.',
+        ],
+      },
+      {
+        h: 'Cheap or free',
+        body: [
+          'Plenty of good plans cost little or nothing: a run, a sunset walk, a beach clean-up, a board games night at someone’s place, chai after work.',
+        ],
+      },
+      {
+        h: 'When your friends can’t come',
+        body: ['Go anyway. At a run, a quiz or a trek, everyone came for the same thing, so the activity does the talking.'],
+        link: { to: '/going-out-alone', label: 'How to go out alone' },
+      },
+      {
+        h: 'Finding plans on Dayzi',
+        body: [
+          'Dayzi shows plans within 100 km of your city: Mumbai, Thane, Navi Mumbai or anywhere else in India. Each one shows who’s hosting, who’s going and their ages. Ask to join; when the host says yes, you’re in the group chat. Or post your own plan and pick who comes.',
+          'Dayzi is free and invite-only while it’s in testing. It’s new, so the number of plans near you grows as more people join.',
+        ],
+        link: { to: '/how-it-works', label: 'See how it works' },
+      },
+    ],
+  },
+  '/going-out-alone': {
+    kicker: 'Going out alone',
+    title: ['Nobody to go with? ', 'Go anyway', '.'],
+    lead: 'Three maybes, one no, and a plan you really wanted to do. It happens to everyone. Here’s how to go on your own and have a good time.',
+    image: '/app/going.jpg',
+    sections: [
+      {
+        h: 'It’s easier than it sounds',
+        body: [
+          'You’ll know nobody. That’s normal. At a run, a quiz, a football game or a trek, everyone came for the same thing, so you don’t need an opening line: the activity is the conversation.',
+          'And if you talk to nobody and still enjoy the run, the night worked.',
+        ],
+      },
+      {
+        h: 'Pick plans with something to do',
+        items: [
+          ['Choose an activity, not a crowd.', 'Board games, football, a workshop or a trek give you something to do. A party where everyone already knows each other doesn’t.'],
+          ['Go small.', 'A group of four to eight is easier to join than a room of fifty.'],
+          ['Go near home.', 'If the plan is close, you’ll actually go. In a city like Mumbai, the commute decides more than the plan does.'],
+        ],
+      },
+      {
+        h: 'The first ten minutes',
+        items: [
+          ['Be on time.', 'Groups settle in the first few minutes. Arriving late is harder than arriving alone.'],
+          ['Say hi to the host.', 'They said yes to you. They’re expecting you.'],
+          ['Ask one question.', 'About the game, the route, the band. One is enough to start.'],
+          ['Leave when you want.', 'Staying an hour is a win. Leaving is always allowed.'],
+        ],
+      },
+      {
+        h: 'If you’ve just moved',
+        body: [
+          'A new city resets your weekends. Start with one plan a week, ideally the same kind, so you keep seeing the same faces. New to Mumbai, Thane or Navi Mumbai? Look for plans near where you live or work first.',
+        ],
+      },
+      {
+        h: 'If your friends are always busy',
+        body: ['Don’t cancel your plan because theirs changed. Go, and tell them about it after. Next time, they might come.'],
+      },
+      {
+        h: 'Stay safe',
+        items: [
+          ['Meet in public places,', 'at least the first time.'],
+          ['Tell a friend', 'where you’re going.'],
+          ['Get yourself there and back.', 'Your own ride means you can leave when you want.'],
+          ['On Dayzi,', 'SOS reaches the one person you picked in a tap. Dayzi doesn’t organise or supervise plans, so trust your judgement.'],
+        ],
+        link: { to: '/safety', label: 'How Dayzi keeps it safe' },
+      },
+      {
+        h: 'If it’s more than a quiet weekend',
+        body: [
+          'Feeling low or lonely for weeks at a stretch is common, and worth talking about. In India, Tele-MANAS is a free, 24x7 government mental health helpline: call 14416.',
+        ],
+        link: { href: 'https://telemanas.mohfw.gov.in/', label: 'Tele-MANAS' },
+      },
+      {
+        h: 'How Dayzi helps',
+        body: [
+          'Every plan on Dayzi can be joined on your own. You see who’s hosting and who’s going, ask to join, and the host decides. No need to bring anyone.',
+          'Dayzi is free, 18+, and invite-only while it’s in testing.',
+        ],
+      },
+    ],
+  },
+};
+
+// Footer links to the guides, in this order.
+export const GUIDE_LINKS = [
+  { to: '/things-to-do-in-mumbai', label: 'Things to do in Mumbai' },
+  { to: '/going-out-alone', label: 'Going out alone' },
 ];

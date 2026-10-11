@@ -1,4 +1,5 @@
 {
+  "trailingSlash": false,
   "rewrites": [
     {
       "source": "/e/:id",
@@ -8,18 +9,72 @@
       "source": "/get",
       "destination": "/get.html"
     },
-    { "source": "/how-it-works", "destination": "/index.html" },
-    { "source": "/safety", "destination": "/index.html" },
-    { "source": "/faq", "destination": "/index.html" }
+    {
+      "source": "/how-it-works",
+      "destination": "/how-it-works/index.html"
+    },
+    {
+      "source": "/safety",
+      "destination": "/safety/index.html"
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq/index.html"
+    },
+    {
+      "source": "/things-to-do-in-mumbai",
+      "destination": "/things-to-do-in-mumbai/index.html"
+    },
+    {
+      "source": "/going-out-alone",
+      "destination": "/going-out-alone/index.html"
+    }
   ],
   "headers": [
     {
+      "source": "/e/:id",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
       "source": "/.well-known/apple-app-site-association",
-      "headers": [{ "key": "Content-Type", "value": "application/json" }]
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ]
     },
     {
       "source": "/.well-known/assetlinks.json",
-      "headers": [{ "key": "Content-Type", "value": "application/json" }]
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "source": "/get",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/get.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
     }
   ]
 }
