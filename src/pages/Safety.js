@@ -48,7 +48,7 @@ export default function Safety() {
               Meet <em>smart.</em>
             </h2>
             <p className="lead">
-              Dayzi doesn’t organise or supervise events, and can’t vet everyone. These habits go a long way.
+              Dayzi doesn’t organise, vet or supervise plans or the people at them. These habits go a long way.
             </p>
           </div>
           <ul className="tips reveal reveal--late">
@@ -62,7 +62,7 @@ export default function Safety() {
         </div>
         <div className="wrap">
           <p className="fineprint reveal">
-            In danger? Call your local emergency number first. Read our{' '}
+            In danger? Call 112 in India, or your local emergency number, first. Read our{' '}
             <a href="/termsandconditions.html">Terms of Service</a> and <a href="/privacy.html">Privacy Policy</a> for the
             full details.
           </p>

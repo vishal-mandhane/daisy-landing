@@ -1,14 +1,40 @@
-import React, { useState } from 'react';
-import { ArrowRight, Instagram, Menu, X as Close, Youtube } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { ArrowRight, ChevronDown, Instagram, Menu, X as Close, Youtube } from 'lucide-react';
 import { Link } from '../router';
 import { GUIDE_LINKS, NAV, SOCIAL, TICKER } from '../data';
 import Daisy from './Daisy';
 import Logo from './Logo';
 import SignupForm from './SignupForm';
 
+// On phones the menu button opens one list with every page; the guides sit
+// under a "Guides" label. On laptops the guides are a dropdown.
 export function Nav({ path }) {
   const [open, setOpen] = useState(false);
-  const close = () => setOpen(false);
+  const [guidesOpen, setGuidesOpen] = useState(false);
+  const guidesRef = useRef(null);
+  const close = () => {
+    setOpen(false);
+    setGuidesOpen(false);
+  };
+
+  // Close the dropdown on a click outside it, or on Escape.
+  useEffect(() => {
+    if (!guidesOpen) return undefined;
+    const onPointer = (e) => {
+      if (!guidesRef.current?.contains(e.target)) setGuidesOpen(false);
+    };
+    const onKey = (e) => {
+      if (e.key === 'Escape') setGuidesOpen(false);
+    };
+    document.addEventListener('pointerdown', onPointer);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('pointerdown', onPointer);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [guidesOpen]);
+
+  const onGuide = GUIDE_LINKS.some((item) => item.to === path);
   return (
     <header className="nav">
       <div className="wrap nav__inner">
@@ -22,11 +48,35 @@ export function Nav({ path }) {
               key={item.to}
               to={item.to}
               onClick={close}
-              aria-current={path === item.page ? 'page' : undefined}
+              aria-current={path === item.to ? 'page' : undefined}
             >
               {item.label}
             </Link>
           ))}
+          <div className={`nav__menu${guidesOpen ? ' is-open' : ''}${onGuide ? ' is-current' : ''}`} ref={guidesRef}>
+            <span className="nav__menu-label">Guides</span>
+            <button
+              type="button"
+              className="nav__menu-toggle"
+              aria-expanded={guidesOpen}
+              aria-controls="nav-guides"
+              onClick={() => setGuidesOpen((v) => !v)}
+            >
+              Guides <ChevronDown size={16} aria-hidden="true" />
+            </button>
+            <div className="nav__menu-list" id="nav-guides">
+              {GUIDE_LINKS.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={close}
+                  aria-current={path === item.to ? 'page' : undefined}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
           <Link to="/#join" className="btn btn--red btn--sm" onClick={close}>
             Get early access
           </Link>
@@ -90,12 +140,12 @@ export function JoinCta({ id = 'join' }) {
     <section className="cta" id={id}>
       <div className="wrap cta__inner reveal">
         <h2 className="cta__title">
-          The best nights start before <em>everyone else knows.</em>
+          Next time they bail, <em>go anyway.</em>
         </h2>
         <SignupForm
           cta="I’m in"
-          note="No spam · Unsubscribe anytime"
-          successMessage="Welcome to early access."
+          note="No spam · Unsubscribe any time"
+          successMessage="You’re on the list."
           variant="dark"
         />
       </div>
@@ -139,6 +189,7 @@ export function Footer() {
               <span className="footer__head">Legal</span>
               <a href="/privacy.html">Privacy Policy</a>
               <a href="/termsandconditions.html">Terms of Service</a>
+              <a href="/community-guidelines.html">Community Guidelines</a>
               <a href="/deleteaccount.html">Delete Account</a>
             </nav>
             <div>

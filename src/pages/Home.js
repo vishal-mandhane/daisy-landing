@@ -20,7 +20,7 @@ function Hero() {
             <br />
             Start <em>showing up.</em>
           </h1>
-          <p className="hero__lead">Find plans near you, ask to join, and meet the people going.</p>
+          <p className="hero__lead">Friends bailed? Ask to join people near you who are already going, and go anyway.</p>
           <SignupForm cta="Get early access" note="Rolling invites · 18+ · No spam" variant="dark" />
         </div>
 
@@ -76,10 +76,10 @@ function SafetyStrip() {
       <div className="wrap">
         <div className="safety-strip__head reveal">
           <h2 className="h-xl h-xl--light">
-            Real people. <em>Real plans.</em>
+            Know who’s going. <em>Before you go.</em>
           </h2>
           <Link to="/safety" className="text-link text-link--light">
-            How we keep it safe <ArrowRight size={18} />
+            How safety works on Dayzi <ArrowRight size={18} />
           </Link>
         </div>
         <ul className="safety-strip">

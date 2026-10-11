@@ -39,18 +39,20 @@ test.each([
   ['/safety', /show up safe/i],
   ['/faq', /good questions/i],
   ['/things-to-do-in-mumbai', /things to do in mumbai/i],
-  ['/going-out-alone', /nobody to go with/i],
+  ['/no-one-to-go-with', /friends bailed/i],
+  ['/meet-locals', /new in town/i],
 ])('%s renders its page', (path, heading) => {
   renderAt(path);
   expect(screen.getByRole('heading', { level: 1, name: heading })).toBeInTheDocument();
 });
 
-test('nav: How it works and Safety scroll to home sections, FAQ is its own page', () => {
+// Every page is one tap from the nav (phone menu and laptop bar alike).
+test('the nav links to every page, with the guides under Guides', () => {
   renderAt('/');
   const nav = screen.getByRole('navigation', { name: 'Main' });
-  expect(within(nav).getByRole('link', { name: 'How it works' })).toHaveAttribute('href', '/#how-it-works');
-  expect(within(nav).getByRole('link', { name: 'Safety' })).toHaveAttribute('href', '/#safety');
-  expect(within(nav).getByRole('link', { name: 'FAQ' })).toHaveAttribute('href', '/faq');
+  const hrefs = within(nav).getAllByRole('link').map((a) => a.getAttribute('href'));
+  ROUTES.filter((r) => r !== '/').forEach((route) => expect(hrefs).toContain(route));
+  expect(within(nav).getByRole('button', { name: /guides/i })).toHaveAttribute('aria-expanded', 'false');
   expect(document.getElementById('how-it-works')).toBeInTheDocument();
   expect(document.getElementById('safety')).toBeInTheDocument();
 });
@@ -119,7 +121,7 @@ function everything() {
 
 // Trademark safety: no other company's name, visible or hidden.
 test('no competitor brand names anywhere on the site', () => {
-  // \b: "EventMeetupSocialNetworkingPlatform" in the FAQ is a joke, not a brand.
+  // \b, so a brand name inside a longer word doesn't count.
   const brands = /\b(Timeleft|Meetup|Bumble|BookMyShow|Zomato|Eventbrite|Partiful|AllEvents|HighApe|Sort My Scene|SkillBox|Urbanaut|Playo|Tinder|Hinge|FRND)\b/;
   expect('EventMeetupSocialNetworkingPlatform').not.toMatch(brands);
   expect('Meetup').toMatch(brands);

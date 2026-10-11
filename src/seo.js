@@ -17,15 +17,15 @@ export const SITE = {
   logo: 'https://dayzi.live/logo512.png',
   twitter: '@Dayzi_events',
   description:
-    'Dayzi is a free app for finding plans near you and going to them, on your own or with friends: runs, board games, gigs, football, treks, brunch. Ask to join, the host approves, and you’re in the group chat. Or host your own plan. 18+.',
+    'Dayzi is a free app for the plans you don’t want to miss, big or small: a gig, a club night, a run, chai, the big match. Find a plan near you, ask to join, and when the host says yes, you’re in the group chat. No need to bring anyone. Or host your own plan. 18+. It’s in testing on Android and iPhone; join the invite list at dayzi.live.',
 };
 
 // Titles: 60 characters at most. Descriptions: 160 at most (App.test.js).
 export const PAGES = {
   '/': {
-    title: 'Dayzi: things to do near you, and people to go with',
+    title: 'Dayzi app: friends bailed? Find a plan nearby and go',
     description:
-      'Find plans near you and go, even on your own: runs, board games, gigs, football, treks. Ask to join, the host says yes, you show up. Free, 18+.',
+      'A gig, a run, chai, the big match: when friends can’t make it, find a plan near you, ask to join and go anyway. Free, 18+, invite-only for now.',
   },
   '/how-it-works': {
     title: 'How Dayzi works: find a plan, ask to join, show up',
@@ -33,24 +33,29 @@ export const PAGES = {
       'See plans near you, who’s going and who’s hosting. Ask to join, the host decides, and the group chat does the rest. Or host your own plan in a minute.',
   },
   '/safety': {
-    title: 'Safety on Dayzi: verified profiles, host approval, SOS',
+    title: 'Safety on Dayzi: verified badge, host approval, SOS',
     description:
-      'Face-verified profiles, hosts who approve every guest, visible no-shows, moderated content and SOS to someone you trust. Plus how to meet smart.',
+      'An optional face-verified badge, hosts who approve every guest, visible no-shows, screened content and SOS to someone you trust. Plus how to meet smart.',
   },
   '/faq': {
-    title: 'Dayzi FAQ: is it free, is it a dating app, where it works',
+    title: 'Dayzi FAQ: is it free, can I go alone, where does it work',
     description:
-      'What Dayzi is, what it costs (nothing), whether it’s a dating app (no), going alone, where it works, and how to get an invite.',
+      'What Dayzi is, what it costs (nothing), going on your own, concerts and match screenings, travelling, whether it’s a dating app (no) and how to get in.',
   },
   '/things-to-do-in-mumbai': {
     title: 'Things to do in Mumbai, with friends or on your own | Dayzi',
     description:
-      'Board games nights, run clubs, turf football, karaoke, treks, sunset walks, gigs and festivals: what to do in Mumbai, and how to go when friends can’t.',
+      'Gigs, club nights, match screenings, sunset walks, run clubs, turf football, treks and festivals: what to do in Mumbai, and how to go when friends can’t.',
   },
-  '/going-out-alone': {
-    title: 'Nobody to go out with? How to go anyway | Dayzi',
+  '/meet-locals': {
+    title: 'New in town or travelling? How to meet locals | Dayzi',
     description:
-      'Friends busy, new in the city, or got three maybes? How to pick a plan, go on your own and enjoy it, and stay safe. Plain tips, no pep talk.',
+      'Here for work, studies or a holiday? Join what locals do, from runs to match screenings, or post your own plan and let people nearby join. Plus safety tips.',
+  },
+  '/no-one-to-go-with': {
+    title: 'No one to go with? How to go anyway | Dayzi',
+    description:
+      'Friends bailed on the gig, the match or the run? How to go on your own, pick plans that are easy to walk into, and get home safe.',
   },
 };
 
@@ -126,12 +131,12 @@ export function structuredData(path) {
       isAccessibleForFree: true,
       audience: { '@type': 'PeopleAudience', suggestedMinAge: 18 },
       featureList: [
-        'Plans near you, within 100 km of your city',
+        'Plans within 100 km of the location on your profile',
         'Ask to join; the host approves who comes',
         'A group chat for every plan',
         'Host your own plan',
         'Optional face-verified badge',
-        'SOS to one person you trust',
+        'SOS: opens WhatsApp with your location for one person you trust',
       ],
       publisher: { '@id': ORG_ID },
     },
@@ -200,12 +205,14 @@ export function llmsTxt() {
     '- Status: in testing on Android and iPhone; not in the App Store or Google Play yet. Invite-only for now: join the early access list (email and city) at https://dayzi.live/#join.',
     '- Price: free. Some plans cost money (a turf booking, a ticket); hosts are asked to say so on the plan.',
     '- Not a dating app: you ask to join a plan, and the host decides who comes.',
-    '- Where: not limited to a list of cities. Dayzi shows plans within 100 km of the city you choose, for example Mumbai, Thane, Navi Mumbai, Pune, Delhi or Bengaluru. It is new, so the number of plans depends on how many people nearby have joined.',
+    '- Where: anywhere. Dayzi runs on location (coordinates), not a list of cities or countries. It shows plans within 100 km of the location on your profile, for example Mumbai, Thane, Navi Mumbai, Pune, Delhi, Bengaluru or a city abroad; change it to any city or country (one country at a time). It is new, so the number of plans depends on how many people nearby have joined.',
+    '- Travellers, tourists and people new to a city: join plans locals post, or post your own (for example "new in town, anyone for chai at 6?") and people nearby can ask to join; a plan shows to people near its venue.',
     '- Going alone: yes. You do not need to bring anyone, and you can see who is hosting and who is going before you ask to join.',
-    '- Plans: 15 categories, including sports, fitness, wellness, outdoors, food, nightlife, music, entertainment, games, creative, learning, networking, community, hangouts and festivals. Examples: box cricket, run clubs, treks, board games, karaoke, open mics, pottery, cafe hopping, garba, pandal hopping.',
+    '- Plans, big and small: 15 categories, including sports, fitness, wellness, outdoors, food, nightlife, music, entertainment, games, creative, learning, networking, community, hangouts, and culture and spirituality. Examples: concerts, club nights, treks, evening walks, runs, chai and cafe hopping, watching cricket or football together, console and board games, karaoke, open mics, garba, pandal hopping.',
+    '- Tickets: Dayzi does not sell tickets or take payments. If a plan needs a ticket, hosts are asked to say so and people buy their own.',
     '- Hosting: anyone can create a plan, choose who joins from the requests, and run it from the group chat.',
-    '- Safety: optional face verification for a verified badge (the selfie is not stored), hosts approve every guest, no-shows are shown on profiles, photos and text are screened automatically, and SOS reaches one person you choose. 18+ only. Dayzi does not organise, vet or supervise events.',
-    '- Who it is for: adults (18+) who want something to do near them, whose friends are busy, who have just moved to a new city, or who want to go to plans on their own.',
+    '- Safety: an optional face-verified badge (the selfie is not stored), hosts approve every guest, attendees can mark no-shows and they show on profiles, photos and text are screened automatically, and SOS opens WhatsApp with your location for one person you choose. 18+ only. Dayzi does not organise, vet or supervise plans.',
+    '- Who it is for: adults (18+) who do not want to miss a plan because their friends bailed or are busy, who are new to a city, travelling or on holiday, or who want to go to plans on their own.',
     '',
     '## Pages',
     '',

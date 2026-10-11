@@ -53,7 +53,7 @@ export default function HowItWorks() {
       <section className="night section" id="home-feed">
         <div className="wrap">
           <h2 className="h-xl h-xl--light section-title reveal">
-            Everything near you, <em>in one scroll.</em>
+            Plans near you, <em>in one scroll.</em>
           </h2>
           <p className="swipe-hint">Swipe →</p>
           <div className="features">
@@ -72,7 +72,7 @@ export default function HowItWorks() {
             </h2>
             <div className="pol-row" aria-hidden="true">
               <Polaroid src="/app/pol-selfie.jpg" caption="yes, it’s really me." className="pol-row__a" />
-              <Polaroid src="/app/pol-mia.jpg" caption="nice to meet you." className="pol-row__b" />
+              <Polaroid src="/app/pol-mia.jpg" caption="see you at the run." className="pol-row__b" />
             </div>
           </div>
           <p className="swipe-hint">Swipe →</p>
@@ -87,7 +87,7 @@ export default function HowItWorks() {
       <section className="host section">
         <div className="wrap host__inner reveal">
           <h2 className="h-xl h-xl--light">
-            Host it. <em>Pick your people.</em>
+            Host it. <em>Pick who comes.</em>
           </h2>
           <p className="lead lead--light">
             Create a plan in a minute, pick who gets in, and run it from the group chat.

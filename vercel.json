@@ -26,8 +26,12 @@
       "destination": "/things-to-do-in-mumbai/index.html"
     },
     {
-      "source": "/going-out-alone",
-      "destination": "/going-out-alone/index.html"
+      "source": "/no-one-to-go-with",
+      "destination": "/no-one-to-go-with/index.html"
+    },
+    {
+      "source": "/meet-locals",
+      "destination": "/meet-locals/index.html"
     }
   ],
   "headers": [

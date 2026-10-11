@@ -405,6 +405,34 @@ summary:focus-visible {
   align-self: flex-start;
 }
 
+/* Guides. Phones: a label over its links, always open inside the menu. */
+.nav__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav__menu-label {
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--night-line);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(243, 237, 228, 0.5);
+}
+
+.nav__menu-toggle {
+  display: none;
+}
+
+.nav__menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .nav__toggle {
   display: grid;
   place-items: center;
@@ -665,7 +693,7 @@ summary:focus-visible {
 .ticker__track {
   display: flex;
   width: max-content;
-  animation: ticker 40s linear infinite;
+  animation: ticker 60s linear infinite; /* ~4s per item, so more items don't scroll faster */
 }
 
 .ticker__group {
@@ -1431,11 +1459,70 @@ summary:focus-visible {
     color: #fff;
   }
 
-  .nav__links a[aria-current='page'] {
+  .nav__links a[aria-current='page'],
+  .nav__menu.is-current .nav__menu-toggle {
     text-decoration: underline;
     text-decoration-color: var(--red);
     text-underline-offset: 6px;
     text-decoration-thickness: 2px;
+  }
+
+  /* Guides. Laptops: a dropdown under its button. */
+  .nav__menu {
+    position: relative;
+  }
+
+  .nav__menu-label {
+    display: none;
+  }
+
+  .nav__menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 0;
+    border: 0;
+    background: none;
+    color: rgba(243, 237, 228, 0.8);
+    font: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .nav__menu-toggle:hover,
+  .nav__menu.is-open .nav__menu-toggle {
+    color: #fff;
+  }
+
+  .nav__menu-toggle svg {
+    transition: transform 0.2s var(--ease);
+  }
+
+  .nav__menu.is-open .nav__menu-toggle svg {
+    transform: rotate(180deg);
+  }
+
+  .nav__menu-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -16px;
+    min-width: 240px;
+    padding: 8px 16px;
+    background: var(--night);
+    border: 1px solid var(--night-line);
+    border-radius: 14px;
+    box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.6);
+  }
+
+  .nav__menu.is-open .nav__menu-list {
+    display: flex;
+  }
+
+  .nav__menu-list a[aria-current='page'] {
+    text-decoration: none;
+    color: #fff;
   }
 
   /* The hero fits the first screen, even on a short laptop (1366x768 leaves

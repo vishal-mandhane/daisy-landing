@@ -9,26 +9,31 @@ export const SOCIAL = {
   youtube: 'https://www.youtube.com/@DAYZIPARTY',
 };
 
-// `to` is where the link goes; `page` is the page that marks it as current.
-// How it works and Safety scroll to their section on the home page; the full
-// pages are linked from inside those sections.
+// Every page is one tap from the nav: these three, then the guides
+// (GUIDE_LINKS) under "Guides".
 export const NAV = [
-  { to: '/#how-it-works', page: '/how-it-works', label: 'How it works' },
-  { to: '/#safety', page: '/safety', label: 'Safety' },
-  { to: '/faq', page: '/faq', label: 'FAQ' },
+  { to: '/how-it-works', label: 'How it works' },
+  { to: '/safety', label: 'Safety' },
+  { to: '/faq', label: 'FAQ' },
 ];
 
+// Big nights and small plans, mixed: Dayzi is for both.
 export const TICKER = [
   'Rooftop gigs',
-  'Board games & chill',
-  'Sunset picnics',
+  'Evening walks',
+  'Board game nights',
+  'Match screenings',
   'Techno nights',
+  'Run clubs',
+  'Sunset picnics',
+  'Console nights',
   'Sunday football',
-  'Candlelit supper clubs',
-  'Pottery for beginners',
-  'Bar hopping',
-  'Brunch',
+  'Chai & café hopping',
+  'Supper clubs',
   'Karaoke',
+  'Bar hopping',
+  'Pottery for beginners',
+  'Brunch',
 ];
 
 // Clips live in /public/app as <name>.mp4 with a <name>.jpg poster.
@@ -36,14 +41,14 @@ export const TICKER = [
 // Home page: one look. A step is a clip, a label and one short line; the full
 // tour lives on /how-it-works.
 export const STEPS = [
-  { n: '01', clip: 'nearby', label: 'Find a plan', line: 'Everything near you, in one scroll.' },
+  { n: '01', clip: 'nearby', label: 'Find a plan', line: 'Plans near you, in one scroll.' },
   { n: '02', clip: 'details', label: 'Ask to join', line: 'See who’s going. Send a request.' },
   { n: '03', clip: 'going', label: 'Show up', line: 'The host says yes. You’re in.' },
 ];
 
 // Home page safety strip: one short line each; the detail is on /safety.
 export const SAFETY_SHORT = [
-  { icon: 'badge', text: 'Face-verified profiles' },
+  { icon: 'badge', text: 'Face-verified badges' },
   { icon: 'users', text: 'Hosts choose who joins' },
   { icon: 'ghost', text: 'No-shows are visible' },
   { icon: 'phone', text: 'SOS to someone you trust' },
@@ -55,7 +60,7 @@ export const HOME_FEATURES = [
     clip: 'nearby',
     label: 'Trending near you',
     title: ['What’s ', 'hot', ' nearby.'],
-    body: 'Ranked by requests, spots filled and how soon it starts. Tap the heart to save one.',
+    body: 'Ranked by requests, spots filled and how soon it starts. Save one for later.',
   },
   {
     clip: 'vibes',
@@ -67,7 +72,7 @@ export const HOME_FEATURES = [
     clip: 'details',
     label: 'Tap any plan',
     title: ['See it ', 'all', '.'],
-    body: 'Who’s going, the ages, the host, the details. Swipe to send a request.',
+    body: 'Who’s going, the ages, the host, the details. Then send a request.',
   },
   {
     clip: 'going',
@@ -79,7 +84,7 @@ export const HOME_FEATURES = [
     clip: 'hosting',
     label: 'Your plans',
     title: ['You’re ', 'hosting', '.'],
-    body: 'Plans you made are tagged hosting. Swipe through them all.',
+    body: 'Plans you made are tagged hosting. Scroll through them all.',
   },
   {
     clip: 'requests',
@@ -95,7 +100,7 @@ export const PROFILE_STEPS = [
     clip: 'p-vibes',
     label: 'Vibes',
     title: ['Pick five ', 'vibes', '.'],
-    body: 'Exactly five. Karaoke, rooftop parties, run clubs: whatever is you.',
+    body: 'Exactly five. Karaoke, rooftop parties, run clubs: whatever you’re into.',
   },
   {
     clip: 'p-face',
@@ -107,13 +112,13 @@ export const PROFILE_STEPS = [
     clip: 'p-badge',
     label: 'Verified badge',
     title: ['Get the ', 'badge', '.'],
-    body: 'A selfie doing the gesture we ask for, matched to your photo. The selfie isn’t kept.',
+    body: 'A selfie doing the gesture we ask for, matched to your photo. The selfie isn’t stored.',
   },
   {
     clip: 'p-anthem',
     label: 'Your song',
     title: ['Your ', 'anthem', '.'],
-    body: 'Pick a song. The selfie check finishes in the background, so you never wait.',
+    body: 'Pick a song. The selfie check finishes in the background, so you don’t have to wait.',
   },
   {
     clip: 'p-three',
@@ -124,7 +129,7 @@ export const PROFILE_STEPS = [
   {
     clip: 'p-mia',
     label: 'The result',
-    title: ['Meet ', 'you', '.'],
+    title: ['That’s ', 'you', '.'],
     body: 'Photo, verified badge, vibes, prompts, song and show. All on one page.',
   },
 ];
@@ -133,27 +138,27 @@ export const SAFETY = [
   {
     n: '01',
     title: ['Face-', 'verified', '.'],
-    body: 'A selfie with a gesture, matched to your profile photo, proves you’re a real, unique person. The selfie isn’t stored. Verified people get the badge.',
+    body: 'Take a selfie doing the gesture we ask for. If it matches your profile photo, you get the verified badge. It’s optional, so look for it on profiles. The selfie isn’t stored.',
   },
   {
     n: '02',
     title: ['Hosts ', 'choose', '.'],
-    body: 'Nobody walks into a plan uninvited. You ask to join, the host sees your profile, and they decide.',
+    body: 'Nobody joins a plan on Dayzi without the host’s yes. You ask to join, the host sees your profile, and they decide.',
   },
   {
     n: '03',
     title: ['The ghost ', 'counter', '.'],
-    body: 'RSVP and don’t turn up? It shows on your profile. Plans only work when people show up.',
+    body: 'Got in and didn’t turn up? The group can mark you as a no-show, and it shows on your profile. Plans only work when people show up.',
   },
   {
     n: '04',
     title: ['SOS to ', 'your person', '.'],
-    body: 'Pick one person you trust. If you ever need them, SOS reaches them in a tap.',
+    body: 'Pick one person you trust. If you ever need them, SOS opens WhatsApp with your location, ready to send to them.',
   },
   {
     n: '05',
     title: ['Moderated, ', '18+', '.'],
-    body: 'Photos and text are screened automatically, and Dayzi is for adults only. No exceptions.',
+    body: 'Photos and text are screened automatically, and Dayzi is for adults only: you must be 18 or older.',
   },
 ];
 
@@ -165,54 +170,59 @@ export const MEET_SMART = [
 ];
 
 // Every answer here is checked against the app and the Terms: the app is free
-// (Terms: "provided free of charge"), not a dating app ("a listings and
-// coordination platform"), has no city list (plans within 100 km of the city
-// you pick), and is in testing, not in the stores. Keep it that way; these
-// answers are also what search engines and AI assistants quote.
+// and takes no payments ("provided free of charge"; "does not currently take
+// payments"), is not a dating app ("a listings and coordination platform"),
+// works anywhere (it runs on coordinates: plans within 100 km of the location
+// on your profile, which you can change to any city or country; a plan shows
+// to people near its venue), and is in testing, not in the stores. Keep it that way; these answers are also what search engines and AI
+// assistants quote.
+//
+// The angle is missing out, not loneliness: Dayzi is for the plans, big or
+// small, you'd otherwise skip because nobody could come.
 export const FAQ = [
   {
     q: 'What is Dayzi?',
-    a: 'A free app for finding plans near you and going to them: a run, a board games night, a gig, a trek. Ask to join, the host says yes, and you’re in the group chat. Or host your own.',
+    a: 'An app for the plans you don’t want to miss, big or small: a gig, a club night, a run, chai at the café, the big match on a big screen. Find a plan near you, ask to join, and when the host says yes, you’re in the group chat. Or host your own. It’s free, and in testing now: join the invite list.',
   },
   {
-    q: 'How do I get Dayzi? Is it on Android and iPhone?',
-    a: 'Dayzi is being tested on Android and iPhone and isn’t in the app stores yet. Join the list with your email and city. We’re sending rolling invites, and people on the list get in first.',
+    q: 'My friends bailed. Can I still go?',
+    a: 'Yes, that’s what Dayzi is for. Look for a plan near you for the same thing, like the gig, the match or a run, and ask to join. Or post your own: “Going to the gig on Saturday, anyone else?” You don’t need anyone to come with you.',
+  },
+  {
+    q: 'What kind of plans are on Dayzi?',
+    a: 'Big nights and small ones. Concerts, club nights and treks, but also an evening walk, a run, chai at the café down the road, a match screening or a gaming session nearby. Plans come in 15 categories, from sports, fitness and outdoors to nightlife, food, games, music, and culture and spirituality, like garba and pandal hopping.',
+  },
+  {
+    q: 'Can I find people to go to a concert, watch a match or play games with?',
+    a: 'Yes. Anyone can post a plan for a gig, a club night, watching the cricket or football together, or a console or board games session, and you can ask to join. Dayzi doesn’t sell tickets: if a plan needs one, hosts are asked to say so, and you buy your own.',
+  },
+  {
+    q: 'Can I go on my own?',
+    a: 'Yes. You don’t need to bring anyone. You ask to join on your own, and you can see who’s hosting and who’s going first.',
+  },
+  {
+    q: 'I’m new in town, or travelling. Can I use Dayzi?',
+    a: 'Yes, in any city or country. Set the location on your profile to where you are, and you’ll see plans within 100 km: a run, chai, a match screening, a festival night. Or post your own, like “new in town, anyone for chai at 6?”, and people nearby can ask to join. Dayzi is new, so how many plans you find depends on how many people there have joined.',
   },
   {
     q: 'Is Dayzi free?',
-    a: 'Yes. Dayzi is free. Some plans cost money, like a turf booking or a ticket, and hosts are asked to say so on the plan.',
+    a: 'Yes. Dayzi is free, and it doesn’t sell tickets or take payments. Some plans cost money, like a ticket or a turf booking, and hosts are asked to say so on the plan.',
   },
   {
     q: 'Is Dayzi a dating app?',
     a: 'No. Dayzi is for plans: runs, gigs, football, board games, treks, brunch. You ask to join a plan, and the host decides who comes.',
   },
   {
-    q: 'Can I go on my own?',
-    a: 'Yes. You don’t need to bring anyone. You ask to join by yourself, and you can see who’s hosting and who’s going before you do.',
-  },
-  {
     q: 'Where does Dayzi work? Is it in Mumbai?',
-    a: 'Dayzi isn’t limited to a list of cities. It shows plans within 100 km of the city you choose, so it works in Mumbai, Thane, Navi Mumbai, Pune, Delhi, Bengaluru or anywhere else in India. It’s new, so how many plans you see depends on how many people near you have joined.',
+    a: 'Anywhere. Dayzi runs on location, not a list of cities: it shows plans within 100 km of the location on your profile, whether that’s Mumbai, Thane, Navi Mumbai, Pune, Delhi, Bengaluru or a city abroad. It’s new, so how many plans you see depends on how many people near you have joined.',
   },
   {
-    q: 'What kind of plans are on Dayzi?',
-    a: 'Whatever people near you post, across 15 categories: sports, fitness, wellness, outdoors, food, nightlife, music, entertainment, games, creative, learning, networking, community, hangouts, and festivals. Think box cricket, run clubs, treks, board games, karaoke, open mics, pottery, café hopping, garba and pandal hopping.',
-  },
-  {
-    q: 'My friends are always busy. Can I still go out?',
-    a: 'Yes, that’s what Dayzi is for. Find a plan you’d go to anyway, ask to join, and go. You don’t need anyone to come with you.',
-  },
-  {
-    q: 'Will Dayzi help me make friends?',
-    a: 'Maybe. Go to plans that interest you, talk to people in the group chat, and show up in real life. The app can only do so much; the rest is on you.',
-  },
-  {
-    q: 'Is Dayzi for people who feel lonely?',
-    a: 'Dayzi is for anyone who wants something to do this week: your friends are busy, you’ve just moved, or you want a change. It isn’t therapy and can’t promise friendship. If loneliness or low mood is weighing on you, talk to someone. In India, Tele-MANAS is a free, 24x7 government helpline: call 14416.',
+    q: 'How do I get Dayzi? Is it on Android and iPhone?',
+    a: 'Dayzi is being tested on Android and iPhone and isn’t in the app stores yet. Join the list with your email and city. We’ll send invites in batches, and people on the list get in first.',
   },
   {
     q: 'Can I host my own plans?',
-    a: 'Yes. Create a plan in a minute, choose who gets in from the requests, and run it from the group chat. Dayzi can even help write the description.',
+    a: 'Yes. Create a plan in a minute, choose who gets in from the requests, and run it from the group chat. Dayzi can draft the description for you.',
   },
   {
     q: 'What goes on my profile?',
@@ -220,22 +230,39 @@ export const FAQ = [
   },
   {
     q: 'Is it safe to meet people from Dayzi?',
-    a: 'Profiles can be face-verified, hosts choose who joins, no-shows are visible, content is moderated, and SOS reaches a person you choose. Dayzi doesn’t vet or supervise events, so meet in public and trust your judgement.',
+    a: 'Profiles can carry a face-verified badge, hosts choose who joins, no-shows are visible, photos and text are screened automatically, and SOS opens WhatsApp with your location for a person you choose. Dayzi doesn’t organise, vet or supervise plans, so meet in public and trust your judgement.',
+  },
+  {
+    q: 'Can people see where I live?',
+    a: 'No. Your profile shows your city, not your exact location, and nearby plans are worked out from that city, not from your phone’s GPS. Hosts are encouraged to put just the area on a plan and share the exact spot in the group chat.',
   },
   {
     q: 'Who can use Dayzi?',
     a: 'Anyone 18 or older. Hosts can also set an age range for their plan.',
   },
   {
+    q: 'Will Dayzi help me make friends?',
+    a: 'Dayzi can’t promise that. It gets you to the run, the gig or the match with people who wanted to go too. Talk in the group chat, turn up, and see what happens.',
+  },
+  {
+    q: 'Is Dayzi just for lonely people?',
+    a: 'No. It’s for the night your friends can’t make it, the city you’ve just moved to, or the plan you don’t want to skip. It isn’t therapy and can’t promise friendship. If loneliness or low mood is weighing on you, talk to someone: in India, Tele-MANAS is a free, 24x7 government helpline on 14416.',
+  },
+  {
+    q: 'Who makes Dayzi?',
+    a: 'Dayzi is made in India by Solika Ventures Pvt Ltd, based in Maharashtra. Questions? DM us on Instagram, @dayzi_india.',
+  },
+  {
     q: 'Why is it called Dayzi?',
-    a: 'Because EventMeetupSocialNetworkingPlatform was taken. Also, daisies are chill and we wanted a chill vibe.',
+    a: 'Because EventsNearYouAppForPlans was taken. Also, daisies are chill, and so is the vibe. It’s spelled D-A-Y-Z-I.',
   },
 ];
 
-// Guides: one page each, written for what people actually search
-// ("things to do in mumbai with friends", "nobody to go out with"). Plain
-// advice first, Dayzi last. No venue or brand names, no claims about how many
-// plans there are.
+// Guides: one page each, written for what people actually search ("things to
+// do in mumbai with friends", "no one to go to concert with", "friend bailed
+// on concert", "match screening mumbai"). Plain advice first, Dayzi last. No
+// venue names, no other companies' or leagues' brand names, no claims about
+// how many plans there are.
 //
 // A section has a heading `h` and any of: `body` (paragraphs), `items`
 // ([lead, text] pairs), `link` ({ to, label } inside the site, or { href, label }).
@@ -243,17 +270,32 @@ export const GUIDES = {
   '/things-to-do-in-mumbai': {
     kicker: 'Mumbai',
     title: ['Things to do ', 'in Mumbai', '.'],
-    lead: 'Something is on every night of the week. The hard part is rarely finding a plan; it’s finding someone free to go with. Here’s what’s worth going to, with friends or on your own.',
+    lead: 'Something is on every night: a gig, a match, a walk by the sea, chai at the corner café. The hard part is rarely finding a plan; it’s finding someone free to go with. Here’s what’s worth going to, and how to go even when your friends can’t.',
     image: '/app/vibes.jpg',
     sections: [
       {
+        h: 'Gigs, concerts and club nights',
+        body: [
+          'From big concerts to small gigs, techno to Bollywood nights, there’s usually something on. If your friends bail, go anyway: get there early, check a club’s entry rules first (some have couples-only nights or limit stag entry), keep your drink in your hand, and know how you’re getting home before you leave.',
+        ],
+        link: { to: '/no-one-to-go-with', label: 'How to go when your friends bail' },
+      },
+      {
         h: 'Weeknights, after work',
         items: [
-          ['Board games nights.', 'A table, a stack of games and someone explaining the rules. One of the easiest rooms to walk into alone: there’s always something to do.'],
+          ['Match screenings.', 'Cricket, football or a fight night on a big screen, in a room full of people on the same side.'],
+          ['Board game nights.', 'A table, a stack of games and someone explaining the rules. One of the easiest rooms to walk into alone.'],
           ['Quiz and trivia nights.', 'Played in teams, so a team that’s one short will often take you in.'],
           ['Karaoke.', 'Nobody is judging your singing. Everyone is waiting for their own turn.'],
           ['Open mics.', 'Poetry, comedy, music. Perform, or just watch.'],
-          ['Café hopping and chai.', 'The low-effort plan: an hour, a table, a conversation.'],
+        ],
+      },
+      {
+        h: 'Small plans, any day',
+        items: [
+          ['Sunset walks.', 'Marine Drive, Carter Road, Juhu: free, and there every evening.'],
+          ['Chai and cafés.', 'The low-effort plan: an hour, a table, a conversation.'],
+          ['Gaming sessions.', 'Console, cards or board games. The game breaks the ice for you.'],
         ],
       },
       {
@@ -261,15 +303,7 @@ export const GUIDES = {
         items: [
           ['Run clubs.', 'Look for a beginners’ group that runs at a pace you can talk at.'],
           ['Turf football and box cricket.', 'Turfs are booked by the hour, and a game that’s a few players short is the classic way in.'],
-          ['Sunset by the sea.', 'Marine Drive, Carter Road, Juhu: free, and on every evening.'],
-          ['Brunch.', 'A long Sunday table is better with more people around it.'],
-          ['Treks.', 'Monsoon is trek season in the hills around Mumbai. Go with a group, and with someone who knows the route.'],
-        ],
-      },
-      {
-        h: 'Nights out',
-        body: [
-          'Gigs, DJ nights, techno and Bollywood nights, rooftop parties, bar hopping. A group of four is easier to plan and safer to get home with: share the cab, and tell someone where you are.',
+          ['Treks.', 'Monsoon is peak trek season in the hills around Mumbai. Go with a group and a leader who knows the route, and check for closures: some spots shut in heavy rain.'],
         ],
       },
       {
@@ -281,43 +315,63 @@ export const GUIDES = {
       {
         h: 'Cheap or free',
         body: [
-          'Plenty of good plans cost little or nothing: a run, a sunset walk, a beach clean-up, a board games night at someone’s place, chai after work.',
+          'Plenty of good plans cost little or nothing: a run, a sunset walk, a beach clean-up, a board game night, chai after work.',
         ],
       },
       {
-        h: 'When your friends can’t come',
-        body: ['Go anyway. At a run, a quiz or a trek, everyone came for the same thing, so the activity does the talking.'],
-        link: { to: '/going-out-alone', label: 'How to go out alone' },
+        h: 'Visiting Mumbai?',
+        body: [
+          'In town for work or a few days? Set your location to Mumbai on Dayzi and see what people here are up to: a walk by the sea, a match screening, chai after work. Or post your own plan and let locals join you. It beats another evening in the hotel room.',
+        ],
+        link: { to: '/meet-locals', label: 'New in town? How to meet locals' },
       },
       {
         h: 'Finding plans on Dayzi',
         body: [
-          'Dayzi shows plans within 100 km of your city: Mumbai, Thane, Navi Mumbai or anywhere else in India. Each one shows who’s hosting, who’s going and their ages. Ask to join; when the host says yes, you’re in the group chat. Or post your own plan and pick who comes.',
+          'Dayzi shows plans within 100 km of the location on your profile: Mumbai, Thane, Navi Mumbai or anywhere else in the world. Each one shows who’s hosting, who’s going and their ages. Ask to join; when the host says yes, you’re in the group chat. Or post your own plan and pick who comes.',
           'Dayzi is free and invite-only while it’s in testing. It’s new, so the number of plans near you grows as more people join.',
         ],
         link: { to: '/how-it-works', label: 'See how it works' },
       },
     ],
   },
-  '/going-out-alone': {
-    kicker: 'Going out alone',
-    title: ['Nobody to go with? ', 'Go anyway', '.'],
-    lead: 'Three maybes, one no, and a plan you really wanted to do. It happens to everyone. Here’s how to go on your own and have a good time.',
+  '/no-one-to-go-with': {
+    kicker: 'When friends bail',
+    title: ['Friends bailed? ', 'Go anyway', '.'],
+    lead: 'The artist is in town, the match is on, the café you keep meaning to try is right there, and the group chat just went quiet. Don’t miss it because someone else can’t make it.',
     image: '/app/going.jpg',
     sections: [
       {
-        h: 'It’s easier than it sounds',
+        h: 'It happens to everyone',
         body: [
-          'You’ll know nobody. That’s normal. At a run, a quiz, a football game or a trek, everyone came for the same thing, so you don’t need an opening line: the activity is the conversation.',
-          'And if you talk to nobody and still enjoy the run, the night worked.',
+          'Three maybes that mean no. A last-minute “next time, pakka”. A friend who found a better offer. Plans fall through all the time, and missing the night usually stings longer than walking in on your own.',
         ],
       },
       {
-        h: 'Pick plans with something to do',
+        h: 'Going to a concert or club night alone',
         items: [
-          ['Choose an activity, not a crowd.', 'Board games, football, a workshop or a trek give you something to do. A party where everyone already knows each other doesn’t.'],
+          ['Concerts and gigs.', 'Everyone is facing the stage. Get there early for a better spot, and plan your way home before you go.'],
+          ['Club nights.', 'Easier, and safer, in a group of three or four. Check the entry rules first: some clubs have couples-only nights or limit stag entry. Keep your drink in your hand, and book your ride home before the night ends.'],
+          ['Or find people already going.', 'On Dayzi, look for a plan for the same gig or night, or post your own and let people join you.'],
+        ],
+      },
+      {
+        h: 'Small plans count too',
+        body: [
+          'Not every plan is a big night. An evening walk, a run, chai at the café down the road, the big match on a big screen, a gaming session nearby. They’re the easiest to go to on your own, and the easiest to say yes to.',
+        ],
+        items: [
+          ['Walks and runs.', 'The group sets the pace, and you don’t have to talk to keep up.'],
+          ['Match nights.', 'Cricket, football or a fight night: a screen, a crowd on the same side, and something to shout about.'],
+          ['Gaming.', 'Console or board games: the game breaks the ice for you.'],
+        ],
+      },
+      {
+        h: 'Pick plans that do the talking',
+        items: [
+          ['Choose an activity, not a crowd.', 'A run, a match, a game or a trek gives you something to do. A party where everyone already knows each other doesn’t.'],
           ['Go small.', 'A group of four to eight is easier to join than a room of fifty.'],
-          ['Go near home.', 'If the plan is close, you’ll actually go. In a city like Mumbai, the commute decides more than the plan does.'],
+          ['Go near home.', 'If the plan is close, you’ll actually go. In a big city, the commute decides more than the plan does.'],
         ],
       },
       {
@@ -326,18 +380,19 @@ export const GUIDES = {
           ['Be on time.', 'Groups settle in the first few minutes. Arriving late is harder than arriving alone.'],
           ['Say hi to the host.', 'They said yes to you. They’re expecting you.'],
           ['Ask one question.', 'About the game, the route, the band. One is enough to start.'],
-          ['Leave when you want.', 'Staying an hour is a win. Leaving is always allowed.'],
+          ['Stay as long as it’s fun.', 'Heading off early is fine.'],
         ],
       },
       {
-        h: 'If you’ve just moved',
+        h: 'When your friends always cancel',
+        body: ['Stop waiting for the group chat to agree. Decide what you want to do this week, go, and tell them about it after. Next time, they might come.'],
+      },
+      {
+        h: 'New in town, or just visiting',
         body: [
-          'A new city resets your weekends. Start with one plan a week, ideally the same kind, so you keep seeing the same faces. New to Mumbai, Thane or Navi Mumbai? Look for plans near where you live or work first.',
+          'A new city, or a week somewhere new, resets your plans. Start small: a run, a walk, a match screening, chai. On Dayzi, set the location on your profile to where you are, in India or abroad, and join what people there are doing, or post your own plan and let them join you.',
         ],
-      },
-      {
-        h: 'If your friends are always busy',
-        body: ['Don’t cancel your plan because theirs changed. Go, and tell them about it after. Next time, they might come.'],
+        link: { to: '/meet-locals', label: 'How to meet locals in a new city' },
       },
       {
         h: 'Stay safe',
@@ -345,30 +400,75 @@ export const GUIDES = {
           ['Meet in public places,', 'at least the first time.'],
           ['Tell a friend', 'where you’re going.'],
           ['Get yourself there and back.', 'Your own ride means you can leave when you want.'],
-          ['On Dayzi,', 'SOS reaches the one person you picked in a tap. Dayzi doesn’t organise or supervise plans, so trust your judgement.'],
+          ['On Dayzi,', 'SOS opens WhatsApp with your location, ready to send to the one person you picked. Dayzi doesn’t organise, vet or supervise plans, so trust your judgement.'],
         ],
-        link: { to: '/safety', label: 'How Dayzi keeps it safe' },
-      },
-      {
-        h: 'If it’s more than a quiet weekend',
-        body: [
-          'Feeling low or lonely for weeks at a stretch is common, and worth talking about. In India, Tele-MANAS is a free, 24x7 government mental health helpline: call 14416.',
-        ],
-        link: { href: 'https://telemanas.mohfw.gov.in/', label: 'Tele-MANAS' },
+        link: { to: '/safety', label: 'How safety works on Dayzi' },
       },
       {
         h: 'How Dayzi helps',
         body: [
-          'Every plan on Dayzi can be joined on your own. You see who’s hosting and who’s going, ask to join, and the host decides. No need to bring anyone.',
-          'Dayzi is free, 18+, and invite-only while it’s in testing.',
+          'Dayzi is for the plans you nearly didn’t go to. See what’s on near you, who’s hosting and who’s going, ask to join, and the host decides. No need to bring anyone.',
+          'Dayzi is free, 18+, and invite-only while it’s in testing. It’s new, so the number of plans near you grows as more people join.',
         ],
+      },
+    ],
+  },
+  '/meet-locals': {
+    kicker: 'New in town',
+    title: ['New in town? ', 'Join the locals', '.'],
+    lead: 'Moved for work, here for a semester, or passing through for a week: a new city is better with people who know it. Here’s how to find them, and how to let them find you.',
+    image: '/app/nearby.jpg',
+    sections: [
+      {
+        h: 'Join what locals already do',
+        items: [
+          ['Runs and walks.', 'Morning runs and evening walks happen in every city. The route is the tour.'],
+          ['Street food walks and cafés.', 'Eat where the people who live there eat.'],
+          ['Match screenings.', 'Cheering for the same side turns a room of strangers into a crowd.'],
+          ['Board games, quizzes and open mics.', 'Easy rooms to walk into, with something to do from the first minute.'],
+          ['Festivals.', 'Wherever you are, a local festival is a good way in. Ask what’s on.'],
+        ],
+      },
+      {
+        h: 'Or start your own plan',
+        body: [
+          'You don’t have to wait to be asked. On Dayzi, post a plan where you are: “New in town, anyone up for chai near the station at 6?” People nearby see it, ask to join, and you pick who comes.',
+          'Say exactly what, when and where. A clear plan beats “anyone free?”',
+        ],
+      },
+      {
+        h: 'If you’ve moved for work or studies',
+        body: [
+          'A new city resets your weekends. Pick one kind of plan, like a Sunday run or a weekly quiz, and go every week. Seeing the same faces is how a new place starts to feel like yours.',
+        ],
+      },
+      {
+        h: 'Travel smart',
+        items: [
+          ['Meet in public places,', 'at least the first time.'],
+          ['Tell someone where you are,', 'back home or where you’re staying.'],
+          ['Know your way back', 'before you go out, and keep your phone charged.'],
+          ['Keep where you’re staying to yourself', 'until you know people.'],
+          ['Respect local customs and laws.', 'What’s fine at home may not be fine here.'],
+          ['On Dayzi,', 'SOS opens WhatsApp with your location, ready to send to the one person you picked. Dayzi doesn’t organise, vet or supervise plans, so trust your judgement.'],
+        ],
+        link: { to: '/safety', label: 'How safety works on Dayzi' },
+      },
+      {
+        h: 'Dayzi works anywhere',
+        body: [
+          'Dayzi runs on location, not a list of cities. Set the location on your profile to where you are, in India or abroad, and you’ll see plans within 100 km. Change it to another country and your feed shows plans there, one country at a time. A plan you post shows to people near it.',
+          'Dayzi is free, 18+, and invite-only while it’s in testing. It’s new, so how many plans you find depends on how many people there have joined.',
+        ],
+        link: { to: '/how-it-works', label: 'See how it works' },
       },
     ],
   },
 };
 
-// Footer links to the guides, in this order.
+// Nav ("Guides") and footer links to the guides, in this order.
 export const GUIDE_LINKS = [
   { to: '/things-to-do-in-mumbai', label: 'Things to do in Mumbai' },
-  { to: '/going-out-alone', label: 'Going out alone' },
+  { to: '/no-one-to-go-with', label: 'Friends bailed? Go anyway' },
+  { to: '/meet-locals', label: 'New in town? Meet locals' },
 ];
