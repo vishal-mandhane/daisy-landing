@@ -201,12 +201,28 @@ export const FAQ = [
     a: 'Yes. You don’t need to bring anyone. You ask to join on your own, and you can see who’s hosting and who’s going first.',
   },
   {
+    q: 'Can I bring a friend?',
+    a: 'Yes, if they’re on Dayzi. Once you’re in a plan, you can suggest it to a friend, and the host decides if they join.',
+  },
+  {
+    q: 'What if the host says no?',
+    a: 'You get a notification that your request was declined. Hosts choose who joins, so a no is often about the plan, not you. Ask to join another plan, or post your own.',
+  },
+  {
+    q: 'Can I leave a plan? Will it count as a no-show?',
+    a: 'Yes, you can leave. If you leave before the plan, you won’t be in its no-show vote, but you can’t ask to join that plan again. If you can’t make it, leaving beats not turning up.',
+  },
+  {
     q: 'I’m new in town, or travelling. Can I use Dayzi?',
     a: 'Yes, in any city or country. Set the location on your profile to where you are, and you’ll see plans within 100 km: a run, chai, a match screening, a festival night. Or post your own, like “new in town, anyone for chai at 6?”, and people nearby can ask to join. Dayzi is new, so how many plans you find depends on how many people there have joined.',
   },
   {
     q: 'Is Dayzi free?',
     a: 'Yes. Dayzi is free, and it doesn’t sell tickets or take payments. Some plans cost money, like a ticket or a turf booking, and hosts are asked to say so on the plan.',
+  },
+  {
+    q: 'A plan costs money. How do we split it?',
+    a: 'Between yourselves, in the group chat. Hosts are asked to put the cost on the plan, like a turf booking or a ticket, so you know before you ask to join. Dayzi doesn’t handle money.',
   },
   {
     q: 'Is Dayzi a dating app?',
@@ -218,7 +234,7 @@ export const FAQ = [
   },
   {
     q: 'How do I get Dayzi? Is it on Android and iPhone?',
-    a: 'Dayzi is being tested on Android and iPhone and isn’t in the app stores yet. Join the list with your email and city. We’ll send invites in batches, and people on the list get in first.',
+    a: 'Dayzi is being tested on Android and iPhone and isn’t in the app stores yet. Join the list with your email and city. We’ll send invites in batches, starting soon, and people on the list get in first.',
   },
   {
     q: 'Can I host my own plans?',
