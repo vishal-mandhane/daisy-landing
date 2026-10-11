@@ -570,7 +570,7 @@ summary:focus-visible {
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 48px 0 64px;
+  padding: 32px 0 64px;
   background: var(--night);
   color: var(--cream);
 }
@@ -1385,12 +1385,12 @@ summary:focus-visible {
     text-decoration-thickness: 2px;
   }
 
+  /* The hero fits the first screen, even on a short laptop (1366x768 leaves
+     ~625px): the film shrinks to fit instead of pushing the form below the
+     fold, and the copy sits a little above centre, where the eye lands first.
+     On big screens the hero ends with the film, so the red band shows below. */
   .hero {
-    min-height: calc(100vh - 63px);
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 56px 0;
+    padding: 32px 0;
   }
 
   .hero__grid {
@@ -1398,15 +1398,20 @@ summary:focus-visible {
     gap: 40px;
   }
 
+  .hero__copy {
+    padding-bottom: 64px;
+  }
+
   .hero__film {
-    --pol: 140px;
-    --overlap: 54px;
+    --film-w: min(360px, calc((100vh - 63px - 64px) * 9 / 16));
+    --pol: min(140px, calc(var(--film-w) * 0.4)); /* scale with the film */
+    --overlap: min(54px, calc(var(--film-w) * 0.15));
     --hang: 20px;
-    max-width: calc(360px + var(--pol) - var(--overlap) - var(--hang));
+    max-width: calc(var(--film-w) + var(--pol) - var(--overlap) - var(--hang));
   }
 
   .hero__film .film {
-    max-width: 360px;
+    max-width: var(--film-w);
   }
 
   .steps {
