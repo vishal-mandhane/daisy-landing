@@ -29,28 +29,18 @@ export default function HowItWorks() {
               <h1 className="h-hero">
                 The <em>tour.</em>
               </h1>
-              <p className="lead lead--light">Two short episodes, then every step up close.</p>
-              <div className="chapters">
-                <a href="#home-feed" className="chapter-link">
-                  <span>Ep. 02</span> Your home
-                </a>
-                <a href="#profile" className="chapter-link">
-                  <span>Ep. 03</span> Your profile
-                </a>
-              </div>
+              <p className="lead lead--light">Two short videos, then every step up close.</p>
             </div>
             <div className="films reveal reveal--late">
               <div className="film film--sm film--tilt-l">
-                <Clip name="film-home" className="film__video" label="Dayzi, explained. Episode 2: your home" />
+                <Clip name="film-home" className="film__video" label="A tour of the home screen in the Dayzi app" />
                 <div className="film__bar">
-                  <span>Ep. 02</span>
                   <span>Your home</span>
                 </div>
               </div>
               <div className="film film--sm film--tilt-r">
-                <Clip name="film-profile" className="film__video" label="Dayzi, explained. Episode 3: your profile" />
+                <Clip name="film-profile" className="film__video" label="Making your profile in the Dayzi app" />
                 <div className="film__bar">
-                  <span>Ep. 03</span>
                   <span>Your profile</span>
                 </div>
               </div>

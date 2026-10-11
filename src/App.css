@@ -176,7 +176,7 @@ body {
   color: rgba(243, 237, 228, 0.6);
 }
 
-/* The rule from the films: DAYZI, EXPLAINED ——— Nº 02 · YOUR HOME */
+/* A double rule with small caps at each end, like the top of the films. */
 .masthead {
   display: flex;
   justify-content: space-between;
@@ -887,69 +887,6 @@ summary:focus-visible {
   align-items: center;
 }
 
-.chapters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.chapter-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 18px 10px 10px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--ink);
-  text-decoration: none;
-  font-family: var(--font-serif);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  font-size: 1.05rem;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-.chapter-link span {
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--cream);
-  font-family: var(--font-sans);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.chapter-link:hover {
-  background: var(--ink);
-  color: var(--cream);
-}
-
-.chapter-link:hover span {
-  background: var(--red);
-}
-
-.page-hero .chapter-link {
-  border-color: var(--night-line);
-  color: var(--cream);
-}
-
-.page-hero .chapter-link span {
-  background: var(--cream);
-  color: var(--ink);
-}
-
-.page-hero .chapter-link:hover {
-  background: var(--cream);
-  color: var(--ink);
-}
-
-.page-hero .chapter-link:hover span {
-  background: var(--red);
-  color: #fff;
-}
-
 .films {
   display: flex;
   justify-content: center;
@@ -1583,19 +1520,6 @@ summary:focus-visible {
 
 .night .swipe-hint {
   color: rgba(243, 237, 228, 0.45);
-}
-
-/* Below ~470px the hero film is narrower than 320px and both bar labels no
-   longer fit on one line. The video itself already says "Dayzi, explained",
-   so the bar keeps just the episode. */
-@media (max-width: 469px) {
-  .hero__film .film__bar {
-    justify-content: flex-end;
-  }
-
-  .hero__film .film__bar span:first-child {
-    display: none;
-  }
 }
 
 /* The smallest phones: a smaller polaroid so the video keeps more width. */

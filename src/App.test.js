@@ -47,6 +47,14 @@ test('home stays short: at most 110 visible words', () => {
   expect(words.length).toBeLessThanOrEqual(110);
 });
 
+// The films came from a series ("Dayzi, explained", episodes 02 and 03) whose
+// numbers mean nothing on the site, where there is no episode 01.
+test.each(['/', '/how-it-works', '/safety', '/faq'])('%s has no episode numbers', (path) => {
+  renderAt(path);
+  const labels = [...document.querySelectorAll('[aria-label]')].map((el) => el.getAttribute('aria-label'));
+  expect([document.body.textContent, ...labels].join(' ')).not.toMatch(/\bep\.|episode|nº/i);
+});
+
 test('unknown paths fall back to home', () => {
   renderAt('/nope');
   expect(screen.getByRole('heading', { level: 1, name: /stop missing out/i })).toBeInTheDocument();

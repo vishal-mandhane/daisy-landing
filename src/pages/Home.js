@@ -26,11 +26,7 @@ function Hero() {
 
         <div className="hero__film reveal reveal--late">
           <div className="film">
-            <Clip name="film-home" className="film__video" label="Dayzi, explained. Episode 2: your home" />
-            <div className="film__bar">
-              <span>Dayzi, explained</span>
-              <span>Ep. 02 · Your home</span>
-            </div>
+            <Clip name="film-home" className="film__video" label="A tour of the home screen in the Dayzi app" />
           </div>
           <Polaroid src="/app/pol-night.jpg" caption="perfect night out." className="hero__pol" />
         </div>
