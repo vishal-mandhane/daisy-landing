@@ -23,6 +23,12 @@ test('home has the hero and one signup form, which every "Get early access" link
   });
 });
 
+test('home keeps the videos: the hero film and one clip per step', () => {
+  renderAt('/');
+  const sources = [...document.querySelectorAll('main video')].map((v) => v.getAttribute('src'));
+  expect(sources).toEqual(['/app/film-home.mp4', '/app/nearby.mp4', '/app/details.mp4', '/app/going.mp4']);
+});
+
 test.each([
   ['/how-it-works', /the tour/i],
   ['/safety', /show up safe/i],

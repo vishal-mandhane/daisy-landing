@@ -45,10 +45,15 @@ function Steps() {
         <ol className="steps">
           {STEPS.map((s, i) => (
             <li key={s.n} className="step reveal" style={{ transitionDelay: `${i * 0.08}s` }}>
-              <span className="step__n">{s.n}</span>
-              <div>
-                <h3 className="h-md">{s.label}</h3>
-                <p className="muted">{s.line}</p>
+              <div className="step__media">
+                <Clip name={s.clip} label={`${s.label} in the Dayzi app`} />
+              </div>
+              <div className="step__text">
+                <span className="step__n">{s.n}</span>
+                <div>
+                  <h3 className="h-md">{s.label}</h3>
+                  <p className="muted">{s.line}</p>
+                </div>
               </div>
             </li>
           ))}

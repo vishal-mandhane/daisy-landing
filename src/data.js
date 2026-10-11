@@ -33,12 +33,12 @@ export const TICKER = [
 
 // Clips live in /public/app as <name>.mp4 with a <name>.jpg poster.
 
-// Home page: one look. A step is a label and one short line; the full tour,
-// with the clips, lives on /how-it-works.
+// Home page: one look. A step is a clip, a label and one short line; the full
+// tour lives on /how-it-works.
 export const STEPS = [
-  { n: '01', label: 'Find a plan', line: 'Everything near you, in one scroll.' },
-  { n: '02', label: 'Ask to join', line: 'See who’s going. Send a request.' },
-  { n: '03', label: 'Show up', line: 'The host says yes. You’re in.' },
+  { n: '01', clip: 'nearby', label: 'Find a plan', line: 'Everything near you, in one scroll.' },
+  { n: '02', clip: 'details', label: 'Ask to join', line: 'See who’s going. Send a request.' },
+  { n: '03', clip: 'going', label: 'Show up', line: 'The host says yes. You’re in.' },
 ];
 
 // Home page safety strip: one short line each; the detail is on /safety.
