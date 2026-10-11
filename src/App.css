@@ -702,27 +702,20 @@ summary:focus-visible {
   margin: 0 0 40px;
   padding: 0;
   display: grid;
-  gap: 18px;
+  gap: 24px;
 }
 
 .step {
-  display: grid;
-  grid-template-columns: 112px 1fr;
-  gap: 18px;
-  align-items: center;
-}
-
-.step__media {
-  overflow: hidden;
-  aspect-ratio: 600 / 778;
-  border-radius: 16px;
-  background: var(--night);
-  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.55);
-}
-
-.step__text {
   display: flex;
-  gap: 14px;
+  gap: 16px;
+}
+
+.step .h-md {
+  margin-bottom: 4px;
+}
+
+.step__n {
+  min-width: 2.2ch; /* 01, 02 and 03 differ in width; keep the text in one column */
 }
 
 .step__n {
@@ -779,7 +772,7 @@ summary:focus-visible {
 
 .safety-strip {
   list-style: none;
-  margin: 0;
+  margin: 0 0 40px;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1322,18 +1315,14 @@ summary:focus-visible {
   }
 
   .step {
-    display: block;
-  }
-
-  .step__media {
-    border-radius: 22px;
-  }
-
-  .step__text {
-    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
   }
 
   .step__n {
+    min-width: 0;
     font-size: 3.4rem;
   }
 

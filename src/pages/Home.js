@@ -4,14 +4,14 @@ import { Link } from '../router';
 import { SAFETY_SHORT, STEPS } from '../data';
 import Clip from '../components/Clip';
 import SignupForm from '../components/SignupForm';
-import { JoinCta, Polaroid, Ticker } from '../components/Layout';
+import { Polaroid, Ticker } from '../components/Layout';
 
 // The home page is the one-look version: what Dayzi is, how it works in three
-// steps, why it's safe, and one action. Everything else lives on the detail pages.
+// steps, why it's safe, and one form. Everything else lives on the detail pages.
 
 function Hero() {
   return (
-    <section className="hero">
+    <section className="hero" id="join">
       <div className="hero__bg" style={{ backgroundImage: "url(/app/film-home.jpg)" }} aria-hidden="true" />
       <div className="wrap hero__grid">
         <div className="hero__copy reveal">
@@ -45,15 +45,10 @@ function Steps() {
         <ol className="steps">
           {STEPS.map((s, i) => (
             <li key={s.n} className="step reveal" style={{ transitionDelay: `${i * 0.08}s` }}>
-              <div className="step__media">
-                <Clip name={s.clip} label={`${s.label} in the Dayzi app`} />
-              </div>
-              <div className="step__text">
-                <span className="step__n">{s.n}</span>
-                <div>
-                  <h3 className="h-md">{s.label}</h3>
-                  <p className="muted">{s.line}</p>
-                </div>
+              <span className="step__n">{s.n}</span>
+              <div>
+                <h3 className="h-md">{s.label}</h3>
+                <p className="muted">{s.line}</p>
               </div>
             </li>
           ))}
@@ -93,6 +88,11 @@ function SafetyStrip() {
             );
           })}
         </ul>
+        <div className="center reveal">
+          <Link to="/#join" className="btn btn--red">
+            Get early access <ArrowRight size={18} />
+          </Link>
+        </div>
       </div>
     </section>
   );
@@ -105,7 +105,6 @@ export default function Home() {
       <Ticker />
       <Steps />
       <SafetyStrip />
-      <JoinCta />
     </>
   );
 }
