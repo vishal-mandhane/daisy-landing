@@ -32,15 +32,15 @@ a { color: var(--accent); }
 <main>
 <div class="brand"><span class="mark">अ</span>Bolo</div>
 <h1>Bolo Privacy Policy</h1>
-<p><strong>Last updated:</strong> 16 October 2026</p>
+<p><strong>Last updated:</strong> 20 October 2026</p>
 <p>Bolo is a translator for Indians travelling abroad. It is owned and run by <strong>Solika Ventures Pvt Ltd</strong>, a company incorporated in India ("we", "us"). This policy follows India's Digital Personal Data Protection Act, 2023 (DPDP Act) and the Information Technology Act, 2000.</p>
 <h2>1. The short version</h2>
 <ul>
-<li><strong>No account, no ads, no analytics.</strong> Bolo has no server of ours behind it.</li>
+<li><strong>No account, no ads, and no analytics of ours.</strong> Bolo has no server of ours behind it. Google's ML Kit, which does the translating and photo reading, sends Google its own usage and performance statistics (section 3).</li>
 <li><strong>What you type, say and photograph is not sent to us.</strong> Translation and reading text in photos happen on your phone once a language is downloaded.</li>
 <li><strong>Until a language is downloaded</strong>, Bolo can translate over the internet with MyMemory (section 3). You can turn that off in Settings.</li>
 <li><strong>What Bolo remembers stays on your phone</strong>, and you can delete it.</li>
-<li>Two things can involve Google: downloading language models, and your phone's speech recognition when it has no offline voice pack (section 3).</li>
+<li>Google is involved in three ways: downloading language models, ML Kit's usage statistics, and (on Android) speech recognition when the phone has no offline voice pack. On an iPhone, speech recognition is Apple's (section 3).</li>
 </ul>
 <h2>2. What stays on your phone</h2>
 <ul>
@@ -52,8 +52,9 @@ a { color: var(--accent); }
 <h2>3. What leaves your phone, and to whom</h2>
 <ul>
 <li><strong>Language models (Google ML Kit):</strong> when you finish setup, choose a new destination or tap Download, your phone downloads that language's translation model (about 30 MB) from Google. Like any download, Google sees the request. Bolo downloads on any connection unless you choose "Download only on Wi-Fi" on the Trip tab.</li>
-<li><strong>Online translation while a language isn't downloaded (MyMemory, run by Translated srl, Italy):</strong> if a language you need isn't on the phone yet, Bolo sends the words to be translated (only those words, with no name, account or device ID) to <a href="https://mymemory.translated.net">MyMemory</a> and shows the answer marked "Translated online". MyMemory may keep the text under <a href="https://mymemory.translated.net/doc/terms.php">its own terms and privacy policy</a>. Once the language is downloaded, Bolo stops using it for that language. Turn it off in Settings → "Translate online until a language is downloaded".</li>
-<li><strong>Speech recognition (your phone's own service, usually Google):</strong> Bolo uses Android's speech recogniser. If your phone has the offline speech pack for that language, recognition happens on the phone. If not, Android may send the audio to Google to recognise it, under <a href="https://policies.google.com/privacy">Google's privacy policy</a>. Bolo does not receive or keep the audio.</li>
+<li><strong>ML Kit's usage statistics (Google):</strong> the Google ML Kit software inside Bolo, which translates and reads photos on the phone, sends Google information about how it is working: device and app details (such as the phone model, Android or iOS version and Bolo's version), performance (such as how long a translation took), how it is set up (such as which languages), and error codes. It does not send what you type, say or photograph: that is processed on the phone. Google says this data is encrypted in transit and not shared with third parties, and uses it for diagnostics and to improve ML Kit (<a href="https://developers.google.com/ml-kit/terms">ML Kit terms</a>). We don't receive it.</li>
+<li><strong>Online translation while a language isn't downloaded (MyMemory, run by Translated srl, Italy):</strong> if a language you need isn't on the phone yet, Bolo sends the words to be translated (only those words, with no name, account or device ID) to <a href="https://mymemory.translated.net">MyMemory</a> and shows the answer marked "Translated online by MyMemory". MyMemory may keep the text under <a href="https://mymemory.translated.net/terms-and-conditions">its own terms</a>. Once the language is downloaded, Bolo stops using it for that language. Turn it off in Settings → "Translate online until a language is downloaded".</li>
+<li><strong>Speech recognition (your phone's own service):</strong> on Android, Bolo uses the phone's speech recogniser, usually Google's. If your phone has the offline speech pack for that language, recognition happens on the phone; if not, Android may send the audio to Google to recognise it, under <a href="https://policies.google.com/privacy">Google's privacy policy</a>. On an iPhone, Bolo uses Apple's speech recognition, which may send the audio to Apple to recognise it, under <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>. Bolo does not receive or keep the audio.</li>
 <li><strong>Speaking aloud:</strong> your phone's text-to-speech engine says the words, on the phone.</li>
 <li><strong>Calls and websites:</strong> when you tap Call, your phone's dialler opens with the number; when you tap a website, your browser opens it. Bolo doesn't place calls or see what you do there.</li>
 </ul>
@@ -61,19 +62,21 @@ a { color: var(--accent); }
 <h2>4. Permissions</h2>
 <ul>
 <li><strong>Microphone:</strong> used only while a microphone button is listening.</li>
-<li><strong>Camera:</strong> used only when you tap "Take a photo", through Android's camera.</li>
-<li><strong>Internet:</strong> to download language models, for online translation until a language is downloaded (if on), and for speech recognition when your phone needs it.</li>
+<li><strong>Speech recognition (iPhone):</strong> to turn what you say into text, only while a microphone button is listening.</li>
+<li><strong>Camera:</strong> used only when you tap "Take a photo". On Android this opens the phone's camera app, so Bolo doesn't ask for the camera itself; on an iPhone, iOS asks you once.</li>
+<li><strong>Photos (iPhone):</strong> only when you pick a photo with Gallery, and only the photo you pick.</li>
+<li><strong>Internet:</strong> to download language models, for online translation until a language is downloaded (if on), for speech recognition when your phone needs it, and for ML Kit's usage statistics.</li>
 </ul>
 <h2>5. Your rights and choices</h2>
 <p>Under the DPDP Act you can see, correct and erase your data. With Bolo it's all on your phone:</p>
 <ul>
 <li><strong>Change</strong> your settings, food rules and addresses in Trip.</li>
 <li><strong>Erase</strong> your conversation in Talk or Settings, and addresses in My addresses.</li>
-<li><strong>Erase everything:</strong> uninstall Bolo, or go to your phone's Settings → Apps → Bolo → Storage → Clear storage.</li>
+<li><strong>Erase everything:</strong> uninstall Bolo. On Android you can also go to Settings → Apps → Bolo → Storage → Clear storage.</li>
 <li><strong>Remove language models:</strong> clearing Bolo's storage or uninstalling removes them.</li>
 </ul>
 <h2>6. Children</h2>
-<p>Bolo is made for travellers and collects nothing from anyone, children included.</p>
+<p>Bolo is made for travellers. We collect nothing from anyone, children included.</p>
 <h2>7. Security</h2>
 <p>Bolo keeps your data in its private storage on the phone, which other apps can't read. Keep your phone locked.</p>
 <h2>8. Grievance Officer</h2>
