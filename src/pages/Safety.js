@@ -2,7 +2,7 @@ import React from 'react';
 import { MEET_SMART, SAFETY } from '../data';
 import Clip from '../components/Clip';
 import Title from '../components/Title';
-import { JoinCta, NextPage, Ticker } from '../components/Layout';
+import { DownloadCta, NextPage, Ticker } from '../components/Layout';
 
 export default function Safety() {
   return (
@@ -69,7 +69,7 @@ export default function Safety() {
           <NextPage to="/faq" label="Next" title="FAQ" />
         </div>
       </section>
-      <JoinCta />
+      <DownloadCta />
     </>
   );
 }

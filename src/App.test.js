@@ -1,10 +1,12 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import { renderToString } from 'react-dom/server';
 import fs from 'fs';
 import path from 'path';
 import App from './App';
+import { formatCountdown } from './components/StoreBadges';
 import { FAQ } from './data';
 import { PAGES, ROUTES, headTags, llmsTxt, sitemapXml, structuredData } from './seo';
+import { APP_STORE_ID, APP_STORE_LIVE, APP_STORE_URL, PLAY_STORE_URL } from './stores';
 
 function renderAt(path) {
   window.history.pushState({}, '', path);
@@ -17,15 +19,58 @@ beforeAll(() => {
   window.HTMLMediaElement.prototype.pause = () => {};
 });
 
-test('home has the hero and one signup form, which every "Get early access" link reaches', () => {
+test('home opens on the store badges at #download, which every "Download Dayzi" link reaches', () => {
   renderAt('/');
   const hero = screen.getByRole('heading', { level: 1, name: /stop missing out/i }).closest('section');
-  expect(document.querySelectorAll('main form')).toHaveLength(1);
-  expect(hero.querySelector('form')).toBeInTheDocument();
-  expect(hero).toHaveAttribute('id', 'join');
-  screen.getAllByRole('link', { name: /get early access/i }).forEach((link) => {
-    expect(link).toHaveAttribute('href', '/#join');
-  });
+  expect(hero).toHaveAttribute('id', 'download');
+  expect(within(hero).getByRole('link', { name: 'Get it on Google Play' })).toHaveAttribute('href', PLAY_STORE_URL);
+  expect(document.querySelectorAll('main form')).toHaveLength(0);
+  const links = screen.getAllByRole('link', { name: /download dayzi/i });
+  expect(links).toHaveLength(2); // the nav and the safety strip
+  links.forEach((link) => expect(link).toHaveAttribute('href', '/#download'));
+});
+
+// The App Store page 404s until launch day, so until APP_STORE_LIVE the badge
+// is not a link and says when.
+test('the App Store badge is a link only once the app is in the App Store', () => {
+  renderAt('/');
+  const hero = document.getElementById('download');
+  const badge = within(hero).getByRole('img', { name: 'Download on the App Store' });
+  if (APP_STORE_LIVE) {
+    expect(badge.closest('a')).toHaveAttribute('href', APP_STORE_URL);
+  } else {
+    expect(badge.closest('a')).toBeNull();
+    expect(hero).toHaveTextContent('Coming 10 Nov');
+  }
+});
+
+test('the countdown reads days, hours, minutes and seconds', () => {
+  expect(formatCountdown(((2 * 24 + 21) * 3600 + 14 * 60 + 5) * 1000)).toBe('2d 21h 14m 05s');
+  expect(formatCountdown((3 * 3600 + 7) * 1000 + 999)).toBe('03h 00m 07s');
+  expect(formatCountdown(-1000)).toBe('00h 00m 00s');
+});
+
+test.each(ROUTES.filter((r) => r !== '/'))('%s ends with the store badges at #download', (route) => {
+  renderAt(route);
+  expect(document.querySelectorAll('[id="download"]')).toHaveLength(1);
+  const cta = document.getElementById('download');
+  expect(within(cta).getByRole('link', { name: 'Get it on Google Play' })).toHaveAttribute('href', PLAY_STORE_URL);
+  expect(document.querySelectorAll('main form')).toHaveLength(0);
+});
+
+// #join was the waitlist form; old links to it (bios, posts) land on the badges.
+test('old #join links land on the store badges', async () => {
+  const scrolled = [];
+  window.HTMLElement.prototype.scrollIntoView = function scrollIntoView() {
+    scrolled.push(this.id);
+  };
+  try {
+    renderAt('/#join');
+    await waitFor(() => expect(scrolled).toContain('download'));
+  } finally {
+    delete window.HTMLElement.prototype.scrollIntoView;
+    window.history.pushState({}, '', '/');
+  }
 });
 
 // Someone searching "dayzi" should find the name in the first screen, not
@@ -138,11 +183,37 @@ test('no competitor brand names anywhere on the site', () => {
   expect(everything()).not.toMatch(brands);
 });
 
-// The apps are in testing, not in the stores: no download claims or store links
-// until they are (then update the FAQ, seo.js and this test together).
-test('no download claims or store links while Dayzi is invite-only', () => {
+// The store links live in stores.js and nowhere else in the app, so launch
+// day is one switch (APP_STORE_LIVE). Until then the App Store link appears
+// nowhere: it 404s.
+test('store links come from stores.js, and the App Store link waits for launch day', () => {
   const all = everything();
-  expect(all).not.toMatch(/download|play\.google\.com|apps\.apple\.com|app store now|available now/i);
+  expect(all).toContain(PLAY_STORE_URL);
+  if (!APP_STORE_LIVE) expect(all).not.toContain('apps.apple.com');
   expect(all).not.toMatch(/aggregateRating|ratingValue|reviewCount/);
+
+  const files = fs
+    .readdirSync(__dirname, { recursive: true })
+    .filter((f) => f.endsWith('.js') && !f.endsWith('.test.js') && f !== 'stores.js');
+  files.forEach((f) => {
+    expect([f, /play\.google\.com|apps\.apple\.com/.test(fs.readFileSync(path.join(__dirname, f), 'utf8'))]).toEqual([f, false]);
+  });
+});
+
+// Dayzi is out: nothing anywhere should still talk like a waitlist.
+test('no waitlist wording left anywhere', () => {
+  expect(everything()).not.toMatch(
+    /early access|invite[- ]only|invite list|send invites|join the list|on the list|in testing|being tested|rolling invites|waitlist|isn’t in the app stores/i
+  );
+});
+
+// The Smart App Banner: Safari on iPhone offers the app at the top of every
+// page. index.html is the template for every prerendered page.
+test('every page carries the Smart App Banner tag', () => {
+  const tag = `<meta name="apple-itunes-app" content="app-id=${APP_STORE_ID}"`;
+  const pub = path.join(__dirname, '..', 'public');
+  fs.readdirSync(pub)
+    .filter((f) => f.endsWith('.html'))
+    .forEach((f) => expect([f, fs.readFileSync(path.join(pub, f), 'utf8').includes(tag)]).toEqual([f, true]));
 });
 

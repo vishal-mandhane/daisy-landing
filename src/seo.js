@@ -5,19 +5,22 @@
 // step when you move between pages.
 //
 // Only say what is true today, and keep it in line with the FAQ in data.js.
-// No ratings, reviews, user counts or download links until they exist, and no
-// other company's brand names anywhere (titles, descriptions, keywords, alt
-// text): Indian courts treat hidden use of a rival's mark as infringement.
+// Store links come from stores.js, and the App Store only once APP_STORE_LIVE.
+// No ratings, reviews or user counts until they exist, and no other
+// company's brand names anywhere (titles, descriptions, keywords, alt text):
+// Indian courts treat hidden use of a rival's mark as infringement.
 import { FAQ, GUIDES, SOCIAL } from './data';
+import { APP_STORE_LIVE, APP_STORE_URL, AVAILABILITY, DOWNLOAD_URL, PLAY_STORE_URL } from './stores';
 
 export const SITE = {
   url: 'https://dayzi.live',
   name: 'Dayzi',
-  image: 'https://dayzi.live/og.png',
+  // The link-preview card. A JPEG, to stay well under the ~300 KB WhatsApp is
+  // reported to allow for a preview image (og.png is the same card, 470 KB).
+  image: 'https://dayzi.live/og.jpg',
   logo: 'https://dayzi.live/logo512.png',
   twitter: '@Dayzi_events',
-  description:
-    'Dayzi is a free app for the plans you don’t want to miss, big or small: a gig, a club night, a run, chai, the big match. Find a plan near you, ask to join, and when the host says yes, you’re in the group chat. No need to bring anyone. Or host your own plan. 18+. It’s in testing on Android and iPhone; join the invite list at dayzi.live.',
+  description: `Dayzi is a free app for the plans you don’t want to miss, big or small: a gig, a club night, a run, chai, the big match. Find a plan near you, ask to join, and when the host says yes, you’re in the group chat. No need to bring anyone. Or host your own plan. 18+. It’s ${AVAILABILITY}.`,
 };
 
 // Titles: 60 characters at most. Descriptions: 160 at most (App.test.js).
@@ -40,7 +43,7 @@ export const PAGES = {
   '/faq': {
     title: 'Dayzi FAQ: is it free, can I go alone, where does it work',
     description:
-      'What Dayzi is, what it costs (nothing), going on your own, concerts and match screenings, travelling, whether it’s a dating app (no) and how to get in.',
+      'What Dayzi is, what it costs (nothing), going on your own, concerts and match screenings, travelling, whether it’s a dating app (no) and how to get it.',
   },
   '/things-to-do-in-mumbai': {
     title: 'Things to do and outings in Mumbai with friends | Dayzi',
@@ -134,7 +137,7 @@ export function structuredData(path) {
       }),
     },
     {
-      // Not in the stores yet, so no downloadUrl, offers or ratings.
+      // The store pages it's on today. No ratings until there are real ones.
       '@type': 'MobileApplication',
       '@id': APP_ID,
       name: SITE.name,
@@ -143,7 +146,9 @@ export function structuredData(path) {
       operatingSystem: 'Android, iOS',
       applicationCategory: 'SocialNetworkingApplication',
       applicationSubCategory: 'Events',
+      downloadUrl: APP_STORE_LIVE ? [PLAY_STORE_URL, APP_STORE_URL] : PLAY_STORE_URL,
       isAccessibleForFree: true,
+      offers: { '@type': 'Offer', price: 0, priceCurrency: 'INR' },
       audience: { '@type': 'PeopleAudience', suggestedMinAge: 18 },
       featureList: [
         'Plans within 100 km of the location on your profile',
@@ -220,7 +225,9 @@ export function llmsTxt() {
     '',
     '## Key facts',
     '',
-    '- Status: in testing on Android and iPhone; not in the App Store or Google Play yet. Invite-only for now: join the early access list (email and city) at https://dayzi.live/#join.',
+    APP_STORE_LIVE
+      ? `- Status: free on Google Play (${PLAY_STORE_URL}) and the App Store (${APP_STORE_URL}). On a phone, ${DOWNLOAD_URL} opens the right store.`
+      : `- Status: free on Google Play (${PLAY_STORE_URL}); the iPhone app comes to the App Store on 10 November 2026. On an Android phone, ${DOWNLOAD_URL} opens Google Play.`,
     '- Price: free. Some plans cost money (a turf booking, a ticket); hosts are asked to say so on the plan.',
     '- Not a dating app: you ask to join a plan, and the host decides who comes.',
     '- Where: anywhere. Dayzi runs on location (coordinates), not a list of cities or countries. It shows plans within 100 km of the location on your profile, for example Mumbai, Thane, Navi Mumbai, Pune, Delhi, Bengaluru or a city abroad; change it to any city or country (one country at a time). It is new, so the number of plans depends on how many people nearby have joined.',

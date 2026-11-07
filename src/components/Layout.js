@@ -4,7 +4,7 @@ import { Link } from '../router';
 import { GUIDE_LINKS, NAV, SOCIAL, TICKER } from '../data';
 import Daisy from './Daisy';
 import Logo from './Logo';
-import SignupForm from './SignupForm';
+import StoreBadges from './StoreBadges';
 
 // On phones the menu button opens one list with every page; the guides sit
 // under a "Guides" label. On laptops the guides are a dropdown.
@@ -77,8 +77,8 @@ export function Nav({ path }) {
               ))}
             </div>
           </div>
-          <Link to="/#join" className="btn btn--red btn--sm" onClick={close}>
-            Get early access
+          <Link to="/#download" className="btn btn--red btn--sm" onClick={close}>
+            Download Dayzi
           </Link>
         </nav>
         <button
@@ -135,19 +135,15 @@ export function NextPage({ to, label, title }) {
   );
 }
 
-export function JoinCta({ id = 'join' }) {
+// How every page but home ends (home has the badges in its hero).
+export function DownloadCta() {
   return (
-    <section className="cta" id={id}>
+    <section className="cta" id="download">
       <div className="wrap cta__inner reveal">
         <h2 className="cta__title">
           Next time they bail, <em>go anyway.</em>
         </h2>
-        <SignupForm
-          cta="I’m in"
-          note="No spam · Unsubscribe any time"
-          successMessage="You’re on the list."
-          variant="dark"
-        />
+        <StoreBadges />
       </div>
     </section>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from '../router';
 import Title from '../components/Title';
-import { JoinCta, Ticker } from '../components/Layout';
+import { DownloadCta, Ticker } from '../components/Layout';
 
 function GuideLink({ to, href, label }) {
   if (href) {
@@ -59,7 +59,7 @@ export default function Guide({ guide }) {
           </article>
         </div>
       </section>
-      <JoinCta />
+      <DownloadCta />
     </>
   );
 }

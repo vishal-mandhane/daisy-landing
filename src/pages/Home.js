@@ -3,15 +3,18 @@ import { ArrowRight, BadgeCheck, Ghost, Phone, Users } from 'lucide-react';
 import { Link } from '../router';
 import { SAFETY_SHORT, STEPS } from '../data';
 import Clip from '../components/Clip';
-import SignupForm from '../components/SignupForm';
+import StoreBadges from '../components/StoreBadges';
 import { Polaroid, Ticker } from '../components/Layout';
 
 // The home page is the one-look version: what Dayzi is, how it works in three
-// steps, why it's safe, and one form. Everything else lives on the detail pages.
+// steps, why it's safe, and the store badges. Everything else lives on the
+// detail pages.
 
+// #download: where every "Download Dayzi" button and dayzi.live/download on a
+// laptop land.
 function Hero() {
   return (
-    <section className="hero" id="join">
+    <section className="hero" id="download">
       <div className="hero__bg" style={{ backgroundImage: "url(/app/film-home.jpg)" }} aria-hidden="true" />
       <div className="wrap hero__grid">
         <div className="hero__copy reveal">
@@ -23,7 +26,7 @@ function Hero() {
             Start <em>showing up.</em>
           </h1>
           <p className="hero__lead">Friends bailed? Ask to join people near you who are already going, and go anyway.</p>
-          <SignupForm cta="Get early access" note="Rolling invites · 18+ · No spam" variant="dark" />
+          <StoreBadges />
         </div>
 
         <div className="hero__film reveal reveal--late">
@@ -96,8 +99,8 @@ function SafetyStrip() {
           })}
         </ul>
         <div className="center reveal">
-          <Link to="/#join" className="btn btn--red">
-            Get early access <ArrowRight size={18} />
+          <Link to="/#download" className="btn btn--red">
+            Download Dayzi <ArrowRight size={18} />
           </Link>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Plus } from 'lucide-react';
 import { FAQ, GUIDE_LINKS, SOCIAL } from '../data';
 import { Link } from '../router';
-import { JoinCta, Polaroid, Ticker } from '../components/Layout';
+import { DownloadCta, Polaroid, Ticker } from '../components/Layout';
 
 export default function Faq() {
   return (
@@ -57,7 +57,7 @@ export default function Faq() {
           </p>
         </div>
       </section>
-      <JoinCta />
+      <DownloadCta />
     </>
   );
 }

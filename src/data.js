@@ -1,4 +1,5 @@
 // Everything the site says lives here, so copy edits don't need to touch layout.
+import { APP_STORE_LIVE, AVAILABILITY } from './stores';
 
 export const FORM_ACTION = 'https://eomail5.com/form/b7b93d50-eaf6-11f0-abdc-bf3561320fe8';
 
@@ -174,7 +175,9 @@ export const MEET_SMART = [
 // payments"), is not a dating app ("a listings and coordination platform"),
 // works anywhere (it runs on coordinates: plans within 100 km of the location
 // on your profile, which you can change to any city or country; a plan shows
-// to people near its venue), and is in testing, not in the stores. Keep it that way; these answers are also what search engines and AI
+// to people near its venue), and is on Google Play, with the iPhone app on the
+// App Store from 10 November (AVAILABILITY and APP_STORE_LIVE, in stores.js).
+// Keep it that way; these answers are also what search engines and AI
 // assistants quote.
 //
 // The angle is missing out, not loneliness: Dayzi is for the plans, big or
@@ -182,7 +185,7 @@ export const MEET_SMART = [
 export const FAQ = [
   {
     q: 'What is Dayzi?',
-    a: 'An app for the plans you don’t want to miss, big or small: a gig, a club night, a run, chai at the café, the big match on a big screen. Find a plan near you, ask to join, and when the host says yes, you’re in the group chat. Or host your own. It’s free, and in testing now: join the invite list.',
+    a: `An app for the plans you don’t want to miss, big or small: a gig, a club night, a run, chai at the café, the big match on a big screen. Find a plan near you, ask to join, and when the host says yes, you’re in the group chat. Or host your own. It’s free, and ${AVAILABILITY}.`,
   },
   {
     q: 'My friends bailed. Can I still go?',
@@ -234,7 +237,9 @@ export const FAQ = [
   },
   {
     q: 'How do I get Dayzi? Is it on Android and iPhone?',
-    a: 'Dayzi is being tested on Android and iPhone and isn’t in the app stores yet. Join the list with your email and city. We’ll send invites in batches, starting soon, and people on the list get in first.',
+    a: APP_STORE_LIVE
+      ? 'Yes, both. Dayzi is free on Google Play and the App Store. On your phone, dayzi.live/download takes you straight to the right store.'
+      : 'Yes, both. On Android, get it free on Google Play now. The iPhone app comes to the App Store on 10 November. On an Android phone, dayzi.live/download takes you straight to Google Play.',
   },
   {
     q: 'Can I host my own plans?',
@@ -360,7 +365,7 @@ export const GUIDES = {
         h: 'Finding plans on Dayzi',
         body: [
           'Dayzi shows plans within 100 km of the location on your profile: Mumbai, Thane, Navi Mumbai or anywhere else in the world. Each one shows who’s hosting, who’s going and their ages. Ask to join; when the host says yes, you’re in the group chat. Or post your own plan and pick who comes.',
-          'Dayzi is free and invite-only while it’s in testing. It’s new, so the number of plans near you grows as more people join.',
+          `Dayzi is free, 18+, and ${AVAILABILITY}. It’s new, so the number of plans near you grows as more people join.`,
         ],
         link: { to: '/how-it-works', label: 'See how it works' },
       },
@@ -426,7 +431,7 @@ export const GUIDES = {
         h: 'When nobody’s free',
         body: [
           'Everyone’s busy, or someone bails on Saturday morning. On Dayzi, see what people near you are doing this weekend, in Mumbai, Thane, Navi Mumbai or anywhere else: a run, a match screening, a trek, chai. Ask to join, and when the host says yes, you’re in the group chat. Or post your own plan and pick who comes.',
-          'Dayzi is free and invite-only while it’s in testing. It’s new, so the number of plans near you grows as more people join.',
+          `Dayzi is free, 18+, and ${AVAILABILITY}. It’s new, so the number of plans near you grows as more people join.`,
         ],
         link: { to: '/how-it-works', label: 'See how it works' },
       },
@@ -496,7 +501,7 @@ export const GUIDES = {
         h: 'When your friends can’t make it',
         body: [
           'Half the plans above die in the group chat. Don’t let yours: decide what you want to do, and go anyway. On Dayzi, see plans near you for the same thing, who’s hosting and who’s going, and ask to join. Or post your own, like “Sunday 7am run, who’s in?”, and pick who comes.',
-          'Dayzi is free, 18+, and invite-only while it’s in testing. It’s new, so the number of plans near you grows as more people join.',
+          `Dayzi is free, 18+, and ${AVAILABILITY}. It’s new, so the number of plans near you grows as more people join.`,
         ],
         link: { to: '/no-one-to-go-with', label: 'How to go when your friends bail' },
       },
@@ -575,7 +580,7 @@ export const GUIDES = {
         h: 'How Dayzi helps',
         body: [
           'Dayzi is for the plans you nearly didn’t go to. See what’s on near you, who’s hosting and who’s going, ask to join, and the host decides. No need to bring anyone.',
-          'Dayzi is free, 18+, and invite-only while it’s in testing. It’s new, so the number of plans near you grows as more people join.',
+          `Dayzi is free, 18+, and ${AVAILABILITY}. It’s new, so the number of plans near you grows as more people join.`,
         ],
       },
     ],
@@ -625,7 +630,7 @@ export const GUIDES = {
         h: 'Dayzi works anywhere',
         body: [
           'Dayzi runs on location, not a list of cities. Set the location on your profile to where you are, in India or abroad, and you’ll see plans within 100 km. Change it to another country and your feed shows plans there, one country at a time. A plan you post shows to people near it.',
-          'Dayzi is free, 18+, and invite-only while it’s in testing. It’s new, so how many plans you find depends on how many people there have joined.',
+          `Dayzi is free, 18+, and ${AVAILABILITY}. It’s new, so how many plans you find depends on how many people there have joined.`,
         ],
         link: { to: '/how-it-works', label: 'See how it works' },
       },

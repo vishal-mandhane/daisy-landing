@@ -2,7 +2,7 @@ import React from 'react';
 import { HOME_FEATURES, PROFILE_STEPS } from '../data';
 import Clip from '../components/Clip';
 import Title from '../components/Title';
-import { JoinCta, NextPage, Polaroid, Ticker } from '../components/Layout';
+import { DownloadCta, NextPage, Polaroid, Ticker } from '../components/Layout';
 
 function Feature({ item, index, tone }) {
   return (
@@ -100,7 +100,7 @@ export default function HowItWorks() {
           <NextPage to="/safety" label="Next" title="Safety" />
         </div>
       </div>
-      <JoinCta />
+      <DownloadCta />
     </>
   );
 }

@@ -42,11 +42,12 @@ export default function App({ initialPath }) {
     document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonicalUrl(PAGES[path] ? path : '/'));
   }, [path]);
 
-  // Deep links like /how-it-works#profile
+  // Deep links like /how-it-works#profile. #join was the waitlist form, from
+  // before the app was out; links to it now land on the store badges.
   useEffect(() => {
     const hash = window.location.hash.slice(1);
     if (!hash) return;
-    const el = document.getElementById(hash);
+    const el = document.getElementById(hash === 'join' ? 'download' : hash);
     if (el) requestAnimationFrame(() => el.scrollIntoView({ block: 'start' }));
   }, [path]);
 
