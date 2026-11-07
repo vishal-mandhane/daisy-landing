@@ -25,7 +25,7 @@ export const PAGES = {
   '/': {
     title: 'Dayzi app: friends bailed? Find a plan nearby and go',
     description:
-      'A gig, a run, chai, the big match: when friends can’t make it, find a plan near you, ask to join and go anyway. Free, 18+, invite-only for now.',
+      'Dayzi is a free app for plans near you, in Mumbai or anywhere: a gig, a run, chai, the big match. Friends can’t make it? Ask to join and go anyway. 18+.',
   },
   '/how-it-works': {
     title: 'How Dayzi works: find a plan, ask to join, show up',
@@ -43,9 +43,19 @@ export const PAGES = {
       'What Dayzi is, what it costs (nothing), going on your own, concerts and match screenings, travelling, whether it’s a dating app (no) and how to get in.',
   },
   '/things-to-do-in-mumbai': {
-    title: 'Things to do in Mumbai, with friends or on your own | Dayzi',
+    title: 'Things to do and outings in Mumbai with friends | Dayzi',
     description:
-      'Gigs, club nights, match screenings, sunset walks, run clubs, turf football, treks and festivals: what to do in Mumbai, and how to go when friends can’t.',
+      'Outings in Mumbai, with friends or solo: sea-face walks, Elephanta, gigs, match screenings, run clubs, treks and festivals, and how to go when friends can’t.',
+  },
+  '/weekend-plans-in-mumbai': {
+    title: 'What to do on weekends in Mumbai: plans and trips | Dayzi',
+    description:
+      'Saturday nights, Sunday runs, turf football, treks and day trips to Lonavala, Karjat, Matheran and Alibaug: weekend plans in Mumbai, with friends or solo.',
+  },
+  '/things-to-do-with-friends': {
+    title: 'What to do with friends: ideas for any day or budget | Dayzi',
+    description:
+      'Free, active, easy and big-night ideas for what to do with friends, from a sunset walk to a gig, and how to still go when your friends can’t make it.',
   },
   '/meet-locals': {
     title: 'New in town or travelling? How to meet locals | Dayzi',
@@ -80,10 +90,12 @@ export function structuredData(path) {
       '@type': 'Organization',
       '@id': ORG_ID,
       name: SITE.name,
+      alternateName: 'Dayzi app',
       legalName: 'Solika Ventures Pvt Ltd',
       url: `${SITE.url}/`,
       logo: SITE.logo,
       description: SITE.description,
+      contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: 'developer@dayzi.live' },
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Kalyan',
@@ -94,9 +106,12 @@ export function structuredData(path) {
       sameAs: [SOCIAL.instagram, SOCIAL.x, SOCIAL.youtube],
     },
     {
+      // The name Google shows above results; alternateName covers the ways
+      // people type it.
       '@type': 'WebSite',
       '@id': SITE_ID,
       name: SITE.name,
+      alternateName: ['Dayzi app', 'dayzi.live'],
       url: `${SITE.url}/`,
       publisher: { '@id': ORG_ID },
       inLanguage: 'en-IN',
@@ -164,6 +179,9 @@ export function headTags(path) {
     `<meta property="og:title" content="${escapeHtml(meta.title)}">`,
     `<meta property="og:description" content="${escapeHtml(meta.description)}">`,
     `<meta property="og:image" content="${SITE.image}">`,
+    `<meta property="og:image:width" content="1200">`,
+    `<meta property="og:image:height" content="630">`,
+    `<meta property="og:image:alt" content="Stop missing out. Start showing up. Friends looking at plans in the Dayzi app">`,
     `<meta name="twitter:card" content="summary_large_image">`,
     `<meta name="twitter:site" content="${SITE.twitter}">`,
     `<meta name="twitter:title" content="${escapeHtml(meta.title)}">`,

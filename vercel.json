@@ -26,6 +26,14 @@
       "destination": "/things-to-do-in-mumbai/index.html"
     },
     {
+      "source": "/weekend-plans-in-mumbai",
+      "destination": "/weekend-plans-in-mumbai/index.html"
+    },
+    {
+      "source": "/things-to-do-with-friends",
+      "destination": "/things-to-do-with-friends/index.html"
+    },
+    {
       "source": "/no-one-to-go-with",
       "destination": "/no-one-to-go-with/index.html"
     },

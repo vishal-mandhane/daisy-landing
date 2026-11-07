@@ -28,6 +28,14 @@ test('home has the hero and one signup form, which every "Get early access" link
   });
 });
 
+// Someone searching "dayzi" should find the name in the first screen, not
+// only in the logo.
+test('home names Dayzi right above the h1', () => {
+  renderAt('/');
+  const h1 = screen.getByRole('heading', { level: 1 });
+  expect(h1.previousElementSibling).toHaveTextContent(/^Dayzi\b/);
+});
+
 test('home keeps the videos: the hero film and one clip per step', () => {
   renderAt('/');
   const sources = [...document.querySelectorAll('main video')].map((v) => v.getAttribute('src'));
@@ -39,6 +47,8 @@ test.each([
   ['/safety', /show up safe/i],
   ['/faq', /good questions/i],
   ['/things-to-do-in-mumbai', /things to do in mumbai/i],
+  ['/weekend-plans-in-mumbai', /what to do on weekends in mumbai/i],
+  ['/things-to-do-with-friends', /things to do with friends/i],
   ['/no-one-to-go-with', /friends bailed/i],
   ['/meet-locals', /new in town/i],
 ])('%s renders its page', (path, heading) => {

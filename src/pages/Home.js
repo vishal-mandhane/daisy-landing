@@ -15,6 +15,8 @@ function Hero() {
       <div className="hero__bg" style={{ backgroundImage: "url(/app/film-home.jpg)" }} aria-hidden="true" />
       <div className="wrap hero__grid">
         <div className="hero__copy reveal">
+          {/* The brand name next to the h1: what someone searching "dayzi" should land on. */}
+          <p className="kicker kicker--light">Dayzi app</p>
           <h1 className="hero__title">
             Stop missing out.
             <br />

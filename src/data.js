@@ -275,10 +275,13 @@ export const FAQ = [
 ];
 
 // Guides: one page each, written for what people actually search ("things to
-// do in mumbai with friends", "no one to go to concert with", "friend bailed
-// on concert", "match screening mumbai"). Plain advice first, Dayzi last. No
-// venue names, no other companies' or leagues' brand names, no claims about
-// how many plans there are.
+// do in mumbai with friends", "outings in mumbai", "what to do on weekends",
+// "what to do with friends", "no one to go to concert with", "friend bailed
+// on concert", "match screening mumbai"). Plain advice first, Dayzi last.
+// Public places are fine (a sea face, a national park, a fort, a road); no
+// venue or business names, no other companies' or leagues' brand names, no
+// claims about how many plans there are. Anything that changes with the
+// season (ferries, the Matheran toy train, flamingos) says "check first".
 //
 // A section has a heading `h` and any of: `body` (paragraphs), `items`
 // ([lead, text] pairs), `link` ({ to, label } inside the site, or { href, label }).
@@ -286,9 +289,20 @@ export const GUIDES = {
   '/things-to-do-in-mumbai': {
     kicker: 'Mumbai',
     title: ['Things to do ', 'in Mumbai', '.'],
-    lead: 'Something is on every night: a gig, a match, a walk by the sea, chai at the corner café. The hard part is rarely finding a plan; it’s finding someone free to go with. Here’s what’s worth going to, and how to go even when your friends can’t.',
+    lead: 'Something is on every night: a gig, a match, a walk by the sea, chai at the corner café. The hard part is rarely finding a plan; it’s finding someone free to go with. Here are the outings worth going on, with friends or on your own, and how to go even when your friends can’t.',
     image: '/app/vibes.jpg',
     sections: [
+      {
+        h: 'Outings with friends',
+        items: [
+          ['Sea-face walks.', 'Marine Drive, Girgaon Chowpatty, Worli Sea Face, Bandstand and Carter Road in Bandra, Juhu Beach: free, and best at sunset.'],
+          ['Elephanta Caves.', 'A ferry from the Gateway of India to temples cut into the rock, a UNESCO World Heritage Site. Make a half day of it.'],
+          ['Sanjay Gandhi National Park.', 'A forest inside the city, in Borivali, with the Kanheri Caves inside it. Go early and carry water.'],
+          ['Street food and street shopping.', 'Colaba Causeway, Linking Road in Bandra, and in Ramzan, the late-night food lanes around Mohammed Ali Road.'],
+          ['Flamingo season.', 'Roughly from November into spring, flocks gather on the Sewri mudflats and the wetlands of Navi Mumbai. January to March is usually best, but it changes from year to year.'],
+        ],
+        link: { to: '/things-to-do-with-friends', label: 'More things to do with friends' },
+      },
       {
         h: 'Gigs, concerts and club nights',
         body: [
@@ -309,7 +323,7 @@ export const GUIDES = {
       {
         h: 'Small plans, any day',
         items: [
-          ['Sunset walks.', 'Marine Drive, Carter Road, Juhu: free, and there every evening.'],
+          ['A walk after work.', 'The nearest sea face or park, for half an hour. Free, and there every evening.'],
           ['Chai and cafés.', 'The low-effort plan: an hour, a table, a conversation.'],
           ['Gaming sessions.', 'Console, cards or board games. The game breaks the ice for you.'],
         ],
@@ -321,6 +335,7 @@ export const GUIDES = {
           ['Turf football and box cricket.', 'Turfs are booked by the hour, and a game that’s a few players short is the classic way in.'],
           ['Treks.', 'Monsoon is peak trek season in the hills around Mumbai. Go with a group and a leader who knows the route, and check for closures: some spots shut in heavy rain.'],
         ],
+        link: { to: '/weekend-plans-in-mumbai', label: 'What to do on weekends in Mumbai' },
       },
       {
         h: 'Festival season',
@@ -348,6 +363,142 @@ export const GUIDES = {
           'Dayzi is free and invite-only while it’s in testing. It’s new, so the number of plans near you grows as more people join.',
         ],
         link: { to: '/how-it-works', label: 'See how it works' },
+      },
+    ],
+  },
+  '/weekend-plans-in-mumbai': {
+    kicker: 'Weekends',
+    title: ['What to do on ', 'weekends', ' in Mumbai.'],
+    lead: 'Two days off, and the group chat can’t agree on anything. Here’s what Mumbai does well on a weekend, from a Saturday night out to a Sunday morning run or a day trip out of the city, and how to go even if your friends can’t.',
+    image: '/app/hosting.jpg',
+    sections: [
+      {
+        h: 'Saturday night',
+        items: [
+          ['A gig or a club night.', 'Check a club’s entry rules first: some have couples-only nights or limit stag entry. Book your ride home before the night ends.'],
+          ['Karaoke, a quiz or comedy.', 'Something to do from the first minute, and easy to walk into on your own.'],
+          ['A match on a big screen.', 'Cricket, football or a fight night: louder, and better, with a crowd.'],
+          ['A late bite.', 'Finish with street food and a walk by the sea.'],
+        ],
+        link: { to: '/no-one-to-go-with', label: 'Going out when your friends bail' },
+      },
+      {
+        h: 'Sunday morning',
+        items: [
+          ['Run, walk or cycle.', 'Go early, before the heat. A beginners’ run club sets a pace you can talk at.'],
+          ['Turf football and box cricket.', 'Book an early slot, before the heat, and split the cost between you.'],
+          ['A morning in the forest.', 'Sanjay Gandhi National Park in Borivali, or Yeoor Hills in Thane.'],
+          ['Brunch.', 'The slow plan: a long table and nowhere to be.'],
+        ],
+      },
+      {
+        h: 'Day trips and weekend getaways',
+        items: [
+          ['Lonavala and Khandala.', 'Hill stations on the way to Pune, at their greenest in the monsoon.'],
+          ['Karjat.', 'Rivers, farm stays and treks, a local train ride from the city.'],
+          ['Matheran.', 'A hill station with no cars in town, so you walk. The toy train up from Neral stops for the monsoon, so check before you go.'],
+          ['Alibaug.', 'Beaches across the harbour: a ferry from the Gateway of India to Mandwa, then a short ride. The Gateway ferries usually stop for the monsoon, so check first.'],
+          ['Treks.', 'Kalsubai, the highest peak in Maharashtra, or fort treks like Rajmachi, Lohagad and Karnala. Go with a group and a leader who knows the route.'],
+        ],
+      },
+      {
+        h: 'Monsoon weekends',
+        body: [
+          'From June to September the hills turn green and trek season peaks. Heavy rain also closes some forts, falls and trails, and can stop the local trains. Check the weather and any closures before you leave, and stay away from waterfalls and fast water in heavy rain.',
+          'Rained in? Board games, a café, an indoor turf or a bowling alley still count as a plan.',
+        ],
+      },
+      {
+        h: 'Weekends in Thane and Navi Mumbai',
+        items: [
+          ['Thane.', 'Morning walks and cycling in Yeoor Hills, and evenings by Upvan Lake or Masunda Lake.'],
+          ['Navi Mumbai.', 'A morning hike in the Kharghar hills and, in flamingo season, the wetlands.'],
+        ],
+      },
+      {
+        h: 'Cheap or free weekends',
+        body: [
+          'A sea-face walk, a run, a beach clean-up, football in the park, a board game night at a friend’s place: a good weekend doesn’t have to cost much.',
+        ],
+        link: { to: '/things-to-do-with-friends', label: 'More things to do with friends' },
+      },
+      {
+        h: 'When nobody’s free',
+        body: [
+          'Everyone’s busy, or someone bails on Saturday morning. On Dayzi, see what people near you are doing this weekend, in Mumbai, Thane, Navi Mumbai or anywhere else: a run, a match screening, a trek, chai. Ask to join, and when the host says yes, you’re in the group chat. Or post your own plan and pick who comes.',
+          'Dayzi is free and invite-only while it’s in testing. It’s new, so the number of plans near you grows as more people join.',
+        ],
+        link: { to: '/how-it-works', label: 'See how it works' },
+      },
+    ],
+  },
+  '/things-to-do-with-friends': {
+    kicker: 'Plan ideas',
+    title: ['Things to do ', 'with friends', '.'],
+    lead: 'Out of ideas, again? Here are plans for any day and any budget, from a free evening walk to a big night out, and what to do when your friends can’t make it.',
+    image: '/app/details.jpg',
+    sections: [
+      {
+        h: 'Free, or nearly',
+        items: [
+          ['Walk somewhere new.', 'A sea face, a lake, a part of the city none of you know.'],
+          ['A picnic in the park.', 'Snacks, a mat and a deck of cards.'],
+          ['Sunrise or sunset.', 'Pick a spot with a view, and get there on time.'],
+          ['A game in the park.', 'Cricket, football or frisbee. Anyone passing can join.'],
+          ['Volunteer together.', 'A beach clean-up or a tree-planting drive: a morning out that does some good.'],
+        ],
+      },
+      {
+        h: 'Get moving',
+        items: [
+          ['Turf football and box cricket.', 'Book by the hour and split it between you.'],
+          ['A run or a cycle ride.', 'Early, before the traffic and the heat.'],
+          ['A trek.', 'Start with an easy one, in a group, with a leader who knows the route.'],
+          ['Badminton or pickleball.', 'Courts are booked by the hour, and four of you make a doubles game.'],
+          ['Swimming or climbing.', 'Something new to try, and be bad at, together.'],
+        ],
+      },
+      {
+        h: 'Easy, low-effort plans',
+        items: [
+          ['Chai or café hopping.', 'Three cafés, one evening, one verdict.'],
+          ['Board games or a console night.', 'The game does the talking.'],
+          ['Cook together.', 'Everyone brings one dish, or you all make one big one.'],
+          ['A movie or series marathon.', 'Pick by vote, and phones down for the first half hour.'],
+        ],
+      },
+      {
+        h: 'Nights out',
+        items: [
+          ['A gig or a concert.', 'Big names or a small room: book early, and plan how you’re getting home.'],
+          ['A club night.', 'Check the entry rules first: some clubs have couples-only nights or limit stag entry.'],
+          ['Karaoke.', 'Nobody is judging. Everyone is waiting for their turn.'],
+          ['A quiz night or an open mic.', 'Play as a team, or watch from the back.'],
+          ['A match screening.', 'Cricket, football or a fight night, with a crowd on the same side.'],
+        ],
+      },
+      {
+        h: 'Try something new',
+        items: [
+          ['A one-evening class.', 'Pottery, cooking, dance or painting: nobody is good at it yet, which is the point.'],
+          ['A photo walk or a food walk.', 'An old part of town, a market, a street known for one dish.'],
+          ['A festival.', 'Garba at Navratri, pandal hopping at Ganeshotsav, a Diwali party, Christmas lights: all better in a group.'],
+        ],
+      },
+      {
+        h: 'A bigger plan',
+        body: [
+          'A weekend away, a trek, a concert in another city. Pick a date first, book early, and let the group chat sort out the rest. The trips that happen are the ones with a date on them.',
+        ],
+        link: { to: '/weekend-plans-in-mumbai', label: 'Weekends and day trips from Mumbai' },
+      },
+      {
+        h: 'When your friends can’t make it',
+        body: [
+          'Half the plans above die in the group chat. Don’t let yours: decide what you want to do, and go anyway. On Dayzi, see plans near you for the same thing, who’s hosting and who’s going, and ask to join. Or post your own, like “Sunday 7am run, who’s in?”, and pick who comes.',
+          'Dayzi is free, 18+, and invite-only while it’s in testing. It’s new, so the number of plans near you grows as more people join.',
+        ],
+        link: { to: '/no-one-to-go-with', label: 'How to go when your friends bail' },
       },
     ],
   },
@@ -485,6 +636,8 @@ export const GUIDES = {
 // Nav ("Guides") and footer links to the guides, in this order.
 export const GUIDE_LINKS = [
   { to: '/things-to-do-in-mumbai', label: 'Things to do in Mumbai' },
+  { to: '/weekend-plans-in-mumbai', label: 'Weekends in Mumbai' },
+  { to: '/things-to-do-with-friends', label: 'Things to do with friends' },
   { to: '/no-one-to-go-with', label: 'Friends bailed? Go anyway' },
   { to: '/meet-locals', label: 'New in town? Meet locals' },
 ];
