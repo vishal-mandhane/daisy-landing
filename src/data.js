@@ -7,7 +7,7 @@ export const SOCIAL = {
   instagram: 'https://www.instagram.com/dayzi_india/',
   instagramHandle: '@dayzi_india',
   x: 'https://x.com/Dayzi_events',
-  youtube: 'https://www.youtube.com/@DAYZIPARTY',
+  youtube: 'https://www.youtube.com/@Dayziapp',
 };
 
 // Every page is one tap from the nav: these three, then the guides
