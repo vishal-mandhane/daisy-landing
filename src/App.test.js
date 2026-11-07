@@ -48,6 +48,24 @@ test('the countdown reads days, hours, minutes and seconds', () => {
   expect(formatCountdown(((2 * 24 + 21) * 3600 + 14 * 60 + 5) * 1000)).toBe('2d 21h 14m 05s');
   expect(formatCountdown((3 * 3600 + 7) * 1000 + 999)).toBe('03h 00m 07s');
   expect(formatCountdown(-1000)).toBe('00h 00m 00s');
+  // Reduced motion: minutes, no ticking seconds.
+  expect(formatCountdown(((2 * 24 + 21) * 3600 + 14 * 60 + 5) * 1000, { seconds: false })).toBe('2d 21h 14m');
+});
+
+// Each badge gets its own caption until launch day, so "Free · 18+" never
+// floats under the pair on its own.
+test('each badge carries its own caption until launch day', () => {
+  renderAt('/');
+  const hero = document.getElementById('download');
+  if (APP_STORE_LIVE) {
+    expect(hero).toHaveTextContent('Free · 18+');
+    expect(hero).not.toHaveTextContent(/coming/i);
+  } else {
+    const [play, apple] = hero.querySelectorAll('.store');
+    expect(play).toHaveTextContent('Free · 18+');
+    expect(within(play).getByRole('link', { name: 'Get it on Google Play' })).toBeInTheDocument();
+    expect(apple).toHaveTextContent('Coming 10 Nov');
+  }
 });
 
 test.each(ROUTES.filter((r) => r !== '/'))('%s ends with the store badges at #download', (route) => {
