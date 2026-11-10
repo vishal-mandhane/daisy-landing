@@ -147,6 +147,9 @@ export function structuredData(path) {
       applicationCategory: 'SocialNetworkingApplication',
       applicationSubCategory: 'Events',
       downloadUrl: APP_STORE_LIVE ? [PLAY_STORE_URL, APP_STORE_URL] : PLAY_STORE_URL,
+      // The store listings are this same app, so search engines can tie the
+      // listing and the site to one Dayzi.
+      sameAs: APP_STORE_LIVE ? [PLAY_STORE_URL, APP_STORE_URL] : [PLAY_STORE_URL],
       isAccessibleForFree: true,
       offers: { '@type': 'Offer', price: 0, priceCurrency: 'INR' },
       audience: { '@type': 'PeopleAudience', suggestedMinAge: 18 },

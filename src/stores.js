@@ -9,7 +9,7 @@
 //
 // No React in here: middleware.js runs on Vercel's edge, outside the app.
 
-export const APP_STORE_LIVE = false;
+export const APP_STORE_LIVE = true;
 
 export const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.vm.daisy';
 export const APP_STORE_ID = '6811430749';

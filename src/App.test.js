@@ -209,6 +209,9 @@ test('store links come from stores.js, and the App Store link waits for launch d
   expect(all).toContain(PLAY_STORE_URL);
   if (!APP_STORE_LIVE) expect(all).not.toContain('apps.apple.com');
   expect(all).not.toMatch(/aggregateRating|ratingValue|reviewCount/);
+  const app = structuredData('/')['@graph'].find((node) => node['@type'] === 'MobileApplication');
+  expect(app.sameAs).toContain(PLAY_STORE_URL);
+  expect(app.sameAs.includes(APP_STORE_URL)).toBe(APP_STORE_LIVE);
 
   const files = fs
     .readdirSync(__dirname, { recursive: true })
